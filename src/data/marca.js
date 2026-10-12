@@ -9,9 +9,9 @@ export const MARCA = {
   descricao: "Cookies artesanais de 150 g, em fornadas pequenas.",
 
   // só números, com DDI e DDD
-  whatsapp: "5538900000000",
-  whatsappVisivel: "(38) 90000-0000",
-  telefone: "(38) 3000-0000",
+  whatsapp: "5538991566092",
+  whatsappVisivel: "(38) 99156-6092",
+  telefone: "(38) 9 9156-6092",
   email: "comercialthecookie@gmail.com",
   emailSac: "comercialthecookie@gmail.com",
 
@@ -19,9 +19,9 @@ export const MARCA = {
   facebook: "thecookie",
   tiktok: "thecookie",
 
-  endereco: "Rua das Fornadas, 128 — Centro",
+  endereco: "Rua Noruega, 80 — Ibituruna",
   cidade: "Montes Claros, MG",
-  cep: "39400-000",
+  cep: "39408-106",
 
   horarios: [
     { dias: "Terça a sábado", hora: "10h às 19h" },
