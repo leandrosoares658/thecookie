@@ -1,131 +1,105 @@
 /* ==========================================================================
-   Todo o texto do site fica aqui. Para mudar preço, sabor ou horário,
-   edite este arquivo — nenhum componente precisa ser tocado.
+   Textos das páginas: entrega, revenda, dúvidas, depoimentos.
+   ⚠️ Bairros, prazos, taxas e números de revenda são EXEMPLO. Confirme tudo.
    ========================================================================== */
 
-export const MARCA = {
-  nome: "The Cookie",
-  assinatura: "Mais que cookies, é sobre momentos.",
-  endereco: "Rua das Fornadas, 128 — Centro",
-  horarios: ["Terça a sábado, 10h às 19h", "Domingo, 14h às 18h"],
-  whatsapp: "5538990000000", // só números, com DDI e DDD
-  instagram: "thecookie",
-  email: "oi@thecookie.com.br",
-};
-
-export const linkWhatsapp = (mensagem) =>
-  `https://wa.me/${MARCA.whatsapp}?text=${encodeURIComponent(mensagem)}`;
+export const BANNERS = [
+  {
+    titulo: "Seis sabores, uma massa só",
+    frase: "Mais que cookies, é sobre momentos.",
+    texto: "Assados de hora em hora, 150 g cada, com o centro ainda mole.",
+    botao: { rotulo: "Ver os sabores", para: "/produtos" },
+    foto: "pilha",
+    tema: "creme",
+  },
+  {
+    titulo: "Leve o forno para casa",
+    frase: "O cookie que você termina em casa.",
+    texto: "Massa congelada já porcionada. Do freezer para o forno em 12 minutos.",
+    botao: { rotulo: "Quero a massa congelada", para: "/produtos/massa-congelada-8" },
+    foto: "bite",
+    tema: "azul",
+  },
+  {
+    titulo: "Revenda The Cookie",
+    frase: "A sua cafeteria com cookie de verdade.",
+    texto: "Massa congelada no atacado, treinamento e material de ponto de venda.",
+    botao: { rotulo: "Quero revender", para: "/revenda" },
+    foto: "vitrine",
+    tema: "vermelho",
+  },
+];
 
 export const PILARES = [
-  "Ingredientes selecionados",
-  "Receitas artesanais",
-  "O verdadeiro sabor do cookie",
+  { titulo: "Ingredientes selecionados", texto: "Manteiga de verdade, chocolate nobre e nada de gordura hidrogenada." },
+  { titulo: "Receitas artesanais", texto: "Massa descansada e porcionada à mão, em fornadas pequenas." },
+  { titulo: "O verdadeiro sabor do cookie", texto: "150 g, borda crocante e centro que ainda cede quando parte." },
 ];
 
-export const NUMEROS = [
-  { valor: "4 sabores", nota: "fixos o ano inteiro" },
-  { valor: "24 h", nota: "de descanso da massa" },
-  { valor: "De terça a domingo", nota: "fornadas de hora em hora" },
+/* ---------- delivery ---------- */
+export const ENTREGA = {
+  prazo: "Pedidos até 15h saem no mesmo dia. Depois disso, na manhã seguinte.",
+  minimo: 40.0,
+  faixas: [
+    { regiao: "Centro e bairros vizinhos", taxa: 8.0, tempo: "até 1h" },
+    { regiao: "Demais bairros da cidade", taxa: 14.0, tempo: "até 2h" },
+    { regiao: "Zona rural e distritos", taxa: 25.0, tempo: "combinado por WhatsApp" },
+  ],
+  retirada: "Retirada na loja sai sem taxa e fica pronta em 20 minutos.",
+  pagamento: ["Pix", "Cartão na entrega", "Dinheiro"],
+  gratis: 150.0,
+};
+
+/* ---------- revenda ---------- */
+export const REVENDA = {
+  chamada: "Cookie pronto para assar, com a sua marca no balcão.",
+  texto:
+    "A gente produz e congela; você assa e vende quente. O cookie sai do seu forno em 12 minutos, sem confeiteiro, sem perda e sem estoque parado — o que não assa hoje continua congelado.",
+  comoFunciona: [
+    { titulo: "Você escolhe o mix", texto: "Monta a caixa com os sabores que fazem sentido para o seu público. Pedido mínimo de 60 unidades." },
+    { titulo: "A gente entrega congelado", texto: "Chega em caixa térmica, porcionado em bolas de 150 g, com validade de 3 meses." },
+    { titulo: "Você assa e vende", texto: "12 minutos de forno. Mandamos o passo a passo e treinamos a sua equipe por chamada de vídeo." },
+    { titulo: "Material de ponto de venda", texto: "Display de balcão, etiquetas e sacolas com a identidade da marca, sem custo a partir do segundo pedido." },
+  ],
+  requisitos: [
+    "Forno convencional ou turbo e freezer com espaço para as caixas",
+    "CNPJ ativo",
+    "Pedido mínimo de 60 unidades por remessa",
+    "Compromisso de não alterar a receita nem a marca na revenda",
+  ],
+  // ⚠️ margem de exemplo — calcule com os seus custos reais antes de publicar
+  margem: "A sugestão de preço final fica entre R$ 12 e R$ 16, conforme a praça.",
+};
+
+/* ---------- institucional ---------- */
+export const HISTORIA = [
+  "A The Cookie começou numa cozinha de casa, com uma receita que a fundadora ajustou por meses até a massa parar de espalhar no forno e o centro ficar no ponto exato.",
+  "O primeiro ponto de venda foi um freezer emprestado numa cafeteria do centro, com dois sabores. A conta era simples: assar na hora, nunca deixar cookie velho na vitrine e não cortar ingrediente para baixar preço.",
+  "Hoje são seis sabores fixos, fornadas de hora em hora e cookies de 150 g — o tamanho que a gente testou e manteve, mesmo quando ficou mais caro de produzir.",
 ];
 
-export const SABORES = [
-  {
-    nome: "Chocolate belga",
-    disco: "#EADCC6",
-    frase: "O clássico que some primeiro.",
-    texto:
-      "Gotas de chocolate belga meio amargo distribuídas na massa inteira. Sai do forno com o centro ainda derretendo e firma no balcão.",
-    notas: ["Meio amargo 53%", "Centro cremoso", "Sem nozes"],
-  },
-  {
-    nome: "Tradicional",
-    disco: "#F1E3CB",
-    frase: "A receita que deu origem à loja.",
-    texto:
-      "Manteiga, açúcar mascavo e baunilha de verdade, com a massa descansando 24 horas na geladeira antes de assar. É o mais pedido no fim da tarde.",
-    notas: ["Massa de 24h", "Baunilha em fava", "Borda crocante"],
-  },
-  {
-    nome: "Doce de leite",
-    disco: "#EFDCBE",
-    frase: "Doce, mas com sal no fim.",
-    texto:
-      "Recheio cremoso de doce de leite no meio da massa e uma pitada de flor de sal por cima, que corta a doçura na última mordida.",
-    notas: ["Recheado", "Flor de sal", "Serve morno"],
-  },
-  {
-    nome: "Oreo",
-    disco: "#E6D6BC",
-    frase: "O favorito da criançada.",
-    texto:
-      "Pedaços grandes de biscoito na massa e creme de baunilha no topo. É o que mais sai nos kits de festa e nas caixas de presente.",
-    notas: ["Pedaços inteiros", "Creme de baunilha", "Favorito nas festas"],
-  },
+export const VALORES = [
+  { titulo: "Massa descansada", texto: "A massa vai ao frio antes de assar. É o que dá a borda crocante e o miolo que cede." },
+  { titulo: "Nada de reaproveitar", texto: "O que não vende no dia não volta para a vitrine amanhã." },
+  { titulo: "Receita fechada", texto: "A formulação é da casa e não muda por fornecedor nem por custo." },
 ];
 
-export const PRODUTOS = [
-  {
-    id: "no-ponto",
-    tema: "azul",
-    tag: "Vitrine da loja",
-    nome: "No ponto",
-    frase: "O verdadeiro sabor em cada mordida.",
-    preco: "R$ 12,00",
-    unidade: "cada",
-    itens: [
-      "Assados no dia, em fornadas de hora em hora",
-      "Embalados um a um, direto da grade",
-      "Retirada na loja ou entrega no mesmo dia",
-      "Caixa de 6 com os quatro sabores",
-    ],
-    cta: "Pedir agora",
-    mensagem: "Oi! Queria pedir cookies no ponto.",
-  },
-  {
-    id: "kit",
-    tema: "creme",
-    tag: "Kit completo",
-    nome: "Kit em casa",
-    frase: "O cookie que você termina em casa.",
-    preco: "R$ 49,90",
-    unidade: "o kit",
-    itens: [
-      "Massa congelada já porcionada",
-      "Recheios à parte (opcional)",
-      "Passo a passo simples, sem balança",
-      "Rende até 8 cookies grandes",
-    ],
-    cta: "Quero o kit",
-    mensagem: "Oi! Queria encomendar o kit para assar em casa.",
-  },
-];
-
-export const TIPOS_EVENTO = [
-  "Casamentos",
-  "Aniversários",
-  "Brindes de empresa",
-  "Chá de bebê",
-  "Lembrancinhas",
-];
-
+/* ---------- prova social ---------- */
 export const DEPOIMENTOS = [
   {
-    texto:
-      "Comprei o kit para assar com as crianças num domingo de chuva. Virou programa fixo — já estou no quarto pedido.",
+    texto: "Comprei a massa congelada para assar com as crianças num domingo de chuva. Virou programa fixo — já estou no quarto pedido.",
     nome: "Marina Rezende",
     detalhe: "Cliente desde 2024",
   },
   {
-    texto:
-      "Pedi 80 caixinhas para o fim de ano do escritório. Chegaram no horário e com o nome de cada pessoa na etiqueta.",
+    texto: "Pedi o Kit 50 para o fim de ano do escritório. Chegou no horário, com etiqueta do evento e o display montado.",
     nome: "Rafael Lima",
-    detalhe: "Brindes corporativos",
+    detalhe: "Encomenda para empresa",
   },
   {
-    texto:
-      "O de doce de leite com flor de sal não é normal. Passei a desviar o caminho de casa só para buscar um.",
-    nome: "Júlia Andrade",
-    detalhe: "Vizinha da loja",
+    texto: "Coloquei na minha cafeteria em março. Asso duas fornadas por dia e o Pistacho acaba antes das quatro da tarde.",
+    nome: "Camila Prates",
+    detalhe: "Revendedora",
   },
 ];
 
@@ -133,34 +107,36 @@ export const DUVIDAS = [
   {
     pergunta: "Quanto tempo o cookie dura?",
     resposta:
-      "Cinco dias em pote fechado, em temperatura ambiente. Se quiser o centro macio de novo, dez segundos no micro-ondas resolvem.",
+      "Cinco dias em pote fechado, em temperatura ambiente. Para recuperar o centro macio, dez segundos no micro-ondas resolvem.",
   },
   {
-    pergunta: "E a massa congelada do kit?",
+    pergunta: "E a massa congelada?",
     resposta:
-      "Até três meses no congelador. Vai direto do freezer para o forno, sem descongelar — são 12 a 15 minutos a 180 °C.",
+      "Até três meses no congelador. Vai direto do freezer para o forno, sem descongelar: 12 minutos a 190 °C no turbo ou 220 °C no convencional.",
+  },
+  {
+    pergunta: "Posso escolher os sabores da caixa?",
+    resposta:
+      "Pode, inclusive repetindo o mesmo sabor. É só anotar na observação do pedido quais você quer em cada caixa.",
   },
   {
     pergunta: "Vocês entregam?",
     resposta:
-      "Entregamos na cidade toda. Pedidos feitos até 15h saem no mesmo dia; depois disso, no dia seguinte pela manhã.",
+      "Entregamos na cidade toda, com taxa por região. Pedidos feitos até 15h saem no mesmo dia; depois disso, na manhã seguinte.",
   },
   {
     pergunta: "Tem opção sem glúten ou sem lactose?",
     resposta:
-      "Temos o tradicional em versão sem lactose, feito sob encomenda com um dia de antecedência. Sem glúten ainda está em teste — a massa é assada na mesma cozinha, então não indicamos para quem tem alergia.",
+      "Ainda não. A massa leva farinha de trigo e manteiga, e tudo é assado na mesma cozinha — então não indicamos para quem tem alergia ou doença celíaca.",
   },
   {
-    pergunta: "Qual o pedido mínimo para evento?",
+    pergunta: "Como funciona a revenda?",
     resposta:
-      "20 unidades. Acima de 100, a embalagem personalizada com o nome do evento entra sem custo adicional.",
+      "A gente entrega a massa congelada e você assa no seu ponto. O pedido mínimo é de 60 unidades e o material de ponto de venda entra a partir da segunda remessa.",
   },
-];
-
-export const MENU = [
-  { id: "sabores", rotulo: "Sabores" },
-  { id: "momentos", rotulo: "Kit em casa" },
-  { id: "loja", rotulo: "A loja" },
-  { id: "eventos", rotulo: "Eventos" },
-  { id: "duvidas", rotulo: "Dúvidas" },
+  {
+    pergunta: "Qual o prazo para encomenda de festa?",
+    resposta:
+      "72 horas para os kits prontos. Para mais de 100 pessoas, fale com a central — o prazo depende do tamanho.",
+  },
 ];

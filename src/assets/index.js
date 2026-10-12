@@ -1,25 +1,31 @@
 import logo from "./logo.webp";
 import logoClaro from "./logo-claro.webp";
 import tag from "./tag.webp";
+
 import pilha from "./pilha.webp";
 import ponto from "./ponto.webp";
 import bite from "./bite.webp";
+import vermelho from "./vermelho.webp";
+import navy from "./navy.webp";
+import embalado from "./embalado.webp";
+import caixaAberta from "./caixa-aberta.webp";
+
 import presente from "./presente.webp";
 import vitrine from "./vitrine.webp";
 import pessoa from "./pessoa.webp";
-import vermelho from "./vermelho.webp";
-import navy from "./navy.webp";
 import embalagem from "./embalagem.webp";
-import sabor1 from "./sabor-1.webp";
-import sabor2 from "./sabor-2.webp";
-import sabor3 from "./sabor-3.webp";
-import sabor4 from "./sabor-4.webp";
 
 export {
   logo, logoClaro, tag,
-  pilha, ponto, bite, presente, vitrine,
-  pessoa, vermelho, navy, embalagem,
+  pilha, ponto, bite, vermelho, navy, embalado, caixaAberta,
+  presente, vitrine, pessoa, embalagem,
 };
 
-/** cookies dos quatro sabores, na ordem do cardápio */
-export const cookies = [sabor1, sabor2, sabor3, sabor4];
+/**
+ * Mapa usado pelos produtos: cada produto guarda só a CHAVE da foto,
+ * então trocar a imagem de um sabor é mexer em um lugar só.
+ */
+export const FOTOS = {
+  pilha, ponto, bite, vermelho, navy, embalado, caixaAberta,
+  presente, vitrine, pessoa, embalagem,
+};

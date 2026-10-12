@@ -1,49 +1,39 @@
-import Nav from "./components/Nav";
-import Hero from "./components/Hero";
-import Faixa from "./components/Faixa";
-import Pilares from "./components/Pilares";
-import Sabores from "./components/Sabores";
-import Momentos from "./components/Momentos";
-import Loja from "./components/Loja";
-import Galeria from "./components/Galeria";
-import Eventos from "./components/Eventos";
-import Depoimentos from "./components/Depoimentos";
-import Duvidas from "./components/Duvidas";
-import Newsletter from "./components/Newsletter";
-import Rodape from "./components/Rodape";
-import { Onda } from "./components/ui";
+import { Route, Routes } from "react-router-dom";
+import Cabecalho from "./componentes/Cabecalho";
+import Rodape from "./componentes/Rodape";
+import { TopoAoNavegar } from "./componentes/ui";
 
-const AZUL = "#0F3B6D";
-const VERMELHO = "#8B1E2D";
+import Home from "./paginas/Home";
+import Produtos from "./paginas/Produtos";
+import Produto from "./paginas/Produto";
+import Kits from "./paginas/Kits";
+import Delivery from "./paginas/Delivery";
+import Lojas from "./paginas/Lojas";
+import Revenda from "./paginas/Revenda";
+import Sobre from "./paginas/Sobre";
+import Carrinho from "./paginas/Carrinho";
+import NaoEncontrada from "./paginas/NaoEncontrada";
 
 export default function App() {
   return (
-    <div className="tc">
-      <Nav />
-      <Hero />
-      <Faixa />
-      <Sabores />
-
-      <Onda cor={AZUL} />
-      <Pilares />
-      <Onda cor={AZUL} virada />
-
-      <Momentos />
-
-      <Onda cor={AZUL} />
-      <Loja />
-      <Onda cor={AZUL} virada />
-
-      <Galeria />
-
-      <Onda cor={VERMELHO} />
-      <Eventos />
-      <Onda cor={VERMELHO} virada />
-
-      <Depoimentos />
-      <Duvidas />
-      <Newsletter />
+    <>
+      <TopoAoNavegar />
+      <Cabecalho />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/produtos" element={<Produtos />} />
+          <Route path="/produtos/:slug" element={<Produto />} />
+          <Route path="/kits" element={<Kits />} />
+          <Route path="/delivery" element={<Delivery />} />
+          <Route path="/lojas" element={<Lojas />} />
+          <Route path="/revenda" element={<Revenda />} />
+          <Route path="/sobre" element={<Sobre />} />
+          <Route path="/carrinho" element={<Carrinho />} />
+          <Route path="*" element={<NaoEncontrada />} />
+        </Routes>
+      </main>
       <Rodape />
-    </div>
+    </>
   );
 }

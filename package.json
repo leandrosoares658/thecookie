@@ -1,9 +1,9 @@
 {
   "name": "the-cookie",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
-  "description": "Landing page da The Cookie — Cookies Artesanais",
+  "description": "Site da The Cookie — Cookies Artesanais: catálogo, delivery, kits e revenda",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
