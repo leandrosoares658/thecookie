@@ -9,19 +9,19 @@ export const MARCA = {
   descricao: "Cookies artesanais de 150 g, em fornadas pequenas.",
 
   // só números, com DDI e DDD
-  whatsapp: "5538991566092",
-  whatsappVisivel: "(38) 99156-6092",
-  telefone: "(38) 9 9156-6092",
-  email: "comercialthecookie@gmail.com",
-  emailSac: "comercialthecookie@gmail.com",
+  whatsapp: "5538900000000",
+  whatsappVisivel: "(38) 90000-0000",
+  telefone: "(38) 3000-0000",
+  email: "contato@thecookie.com.br",
+  emailSac: "sac@thecookie.com.br",
 
   instagram: "thecookie",
   facebook: "thecookie",
   tiktok: "thecookie",
 
-  endereco: "Rua Noruega, 80 — Ibituruna",
+  endereco: "Rua das Fornadas, 128 — Centro",
   cidade: "Montes Claros, MG",
-  cep: "39408-106",
+  cep: "39400-000",
 
   horarios: [
     { dias: "Terça a sábado", hora: "10h às 19h" },
@@ -42,11 +42,10 @@ export const REDES = [
 
 export const MENU = [
   { rotulo: "A marca", para: "/sobre" },
-  { rotulo: "Cookies", para: "/produtos" },
-  { rotulo: "Kits para festa", para: "/kits" },
-  { rotulo: "Delivery", para: "/delivery" },
-  { rotulo: "Onde encontrar", para: "/lojas" },
+  { rotulo: "Brindes e presentes", para: "/kits" },
+  { rotulo: "Faça em casa", para: "/produtos/massa-congelada-8" },
   { rotulo: "Seja revendedor", para: "/revenda" },
+  { rotulo: "Onde encontrar", para: "/lojas" },
 ];
 
 /** Formata número em real brasileiro. */

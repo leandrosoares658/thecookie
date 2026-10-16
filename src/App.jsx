@@ -10,6 +10,7 @@ import Kits from "./paginas/Kits";
 import Delivery from "./paginas/Delivery";
 import Lojas from "./paginas/Lojas";
 import Revenda from "./paginas/Revenda";
+import Servicos from "./paginas/Servicos";
 import Sobre from "./paginas/Sobre";
 import Carrinho from "./paginas/Carrinho";
 import NaoEncontrada from "./paginas/NaoEncontrada";
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/lojas" element={<Lojas />} />
           <Route path="/revenda" element={<Revenda />} />
+          <Route path="/servicos" element={<Servicos />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/carrinho" element={<Carrinho />} />
           <Route path="*" element={<NaoEncontrada />} />

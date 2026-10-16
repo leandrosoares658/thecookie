@@ -43,6 +43,23 @@ export default function Cabecalho() {
       {/* faixa principal */}
       <header className="topo">
         <div className="wrap topo-in">
+          <form className="busca" role="search" onSubmit={buscar}>
+            <label className="oculto" htmlFor="busca">Buscar no cardápio</label>
+            <input
+              id="busca"
+              type="search"
+              placeholder="Procure um sabor"
+              value={busca}
+              onChange={(e) => setBusca(e.target.value)}
+            />
+            <button type="submit" aria-label="Buscar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <circle cx="11" cy="11" r="7" />
+                <path d="M20 20l-3.5-3.5" />
+              </svg>
+            </button>
+          </form>
+
           <Link to="/" className="topo-marca" onClick={() => setMenuAberto(false)}>
             <img src={logo} alt="The Cookie — cookies artesanais" />
           </Link>

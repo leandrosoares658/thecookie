@@ -9,6 +9,7 @@ import vermelho from "./vermelho.webp";
 import navy from "./navy.webp";
 import embalado from "./embalado.webp";
 import caixaAberta from "./caixa-aberta.webp";
+import cookieClose from "./cookie-close.webp";
 
 import presente from "./presente.webp";
 import vitrine from "./vitrine.webp";
@@ -17,7 +18,7 @@ import embalagem from "./embalagem.webp";
 
 export {
   logo, logoClaro, tag,
-  pilha, ponto, bite, vermelho, navy, embalado, caixaAberta,
+  pilha, ponto, bite, vermelho, navy, embalado, caixaAberta, cookieClose,
   presente, vitrine, pessoa, embalagem,
 };
 
@@ -26,6 +27,6 @@ export {
  * então trocar a imagem de um sabor é mexer em um lugar só.
  */
 export const FOTOS = {
-  pilha, ponto, bite, vermelho, navy, embalado, caixaAberta,
+  pilha, ponto, bite, vermelho, navy, embalado, caixaAberta, cookieClose,
   presente, vitrine, pessoa, embalagem,
 };

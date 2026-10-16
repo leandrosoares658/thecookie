@@ -54,28 +54,28 @@ export default function Carrinho() {
         <div className="wrap carrinho-grid">
           <div className="carrinho-itens">
             {linhas.map((l) => (
-              <article className="linha" key={l.slug}>
-                <Link to={`/produtos/${l.slug}`} className="linha-foto">
+              <article className="carrinho-item" key={l.slug}>
+                <Link to={`/produtos/${l.slug}`} className="carrinho-item-foto">
                   <img src={FOTOS[l.foto]} alt={l.nome} loading="lazy" />
                 </Link>
 
-                <div className="linha-info">
+                <div className="carrinho-item-info">
                   <h3>
                     <Link to={`/produtos/${l.slug}`}>{l.nome}</Link>
                   </h3>
                   <p>{l.resumo}</p>
-                  <button className="linha-remover" onClick={() => remover(l.slug)}>
+                  <button className="carrinho-item-remover" onClick={() => remover(l.slug)}>
                     Remover
                   </button>
                 </div>
 
-                <div className="linha-acoes">
+                <div className="carrinho-item-acoes">
                   <div className="contador">
                     <button onClick={() => mudarQuantidade(l.slug, l.quantidade - 1)} aria-label={`Diminuir ${l.nome}`}>−</button>
                     <span>{l.quantidade}</span>
                     <button onClick={() => mudarQuantidade(l.slug, l.quantidade + 1)} aria-label={`Aumentar ${l.nome}`}>+</button>
                   </div>
-                  <p className="linha-preco">{real(l.subtotal)}</p>
+                  <p className="carrinho-item-preco">{real(l.subtotal)}</p>
                 </div>
               </article>
             ))}
@@ -93,7 +93,7 @@ export default function Carrinho() {
               />
             </div>
 
-            <button className="linha-remover" onClick={limpar}>Esvaziar carrinho</button>
+            <button className="carrinho-item-remover" onClick={limpar}>Esvaziar carrinho</button>
           </div>
 
           <aside className="carrinho-resumo">
