@@ -14,12 +14,23 @@
   display: block;
 }
 
+.slide picture,
 .slide img {
   display: block;
   width: 100%;
+}
+
+.slide img {
   height: auto;
   aspect-ratio: 2061 / 763;
   object-fit: cover;
+}
+
+/* arte vertical no celular (ver MOBILE no Carrossel.jsx) */
+@media (max-width: 600px) {
+  .slide img {
+    aspect-ratio: 1122 / 1402;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

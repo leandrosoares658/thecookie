@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { BANNERS_IMG } from "../assets";
+import { BANNERS_IMG, BANNERS_MOBILE_IMG } from "../assets";
 import { BANNERS } from "../data/conteudo";
 import s from "./Carrossel.module.css";
 
 const INTERVALO = 7000;
+/* mesmo corte do @media do Carrossel.module.css */
+const MOBILE = "(max-width: 600px)";
 
 export default function Carrossel() {
   const [atual, setAtual] = useState(0);
@@ -36,11 +38,14 @@ export default function Carrossel() {
             aria-hidden={i !== atual}
             tabIndex={i === atual ? 0 : -1}
           >
-            <img
-              src={BANNERS_IMG[b.imagem]}
-              alt={b.alt}
-              loading={i === 0 ? "eager" : "lazy"}
-            />
+            <picture>
+              <source media={MOBILE} srcSet={BANNERS_MOBILE_IMG[b.imagem]} />
+              <img
+                src={BANNERS_IMG[b.imagem]}
+                alt={b.alt}
+                loading={i === 0 ? "eager" : "lazy"}
+              />
+            </picture>
           </Link>
         ))}
       </div>
