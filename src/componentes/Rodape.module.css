@@ -28,6 +28,16 @@
 .links a { text-decoration: none; font-size: 0.91rem; }
 .links a:hover { text-decoration: underline; }
 
+/* redes sociais pelo ícone */
+.redes { list-style: none; display: flex; gap: 0.8rem; margin-top: 0.9rem; }
+.redes a {
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px solid rgba(245, 233, 216, 0.35); color: var(--bege);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.redes a:hover { background: var(--bege); color: var(--azul-fundo); border-color: var(--bege); }
+.rede-icone { width: 20px; height: 20px; }
+
 .horarios {
   list-style: none; display: grid; gap: 0.3rem; margin-top: 0.9rem;
   font-size: 0.87rem; color: rgba(245, 233, 216, 0.74);

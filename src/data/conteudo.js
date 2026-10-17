@@ -3,7 +3,10 @@
    ⚠️ Bairros, prazos, taxas e números de revenda são EXEMPLO. Confirme tudo.
    ========================================================================== */
 
-/* Banners da home: a arte já traz o texto, então `alt` repete o que está escrito. */
+import { MARCA } from "./marca";
+
+/* Banners da home: a arte já traz o texto, então `alt` repete o que está escrito.
+   `para` pode ser uma rota do site ("/kits") ou um endereço externo (https://…). */
 export const BANNERS = [
   {
     imagem: "banner1",
@@ -12,7 +15,7 @@ export const BANNERS = [
   },
   {
     imagem: "banner2",
-    para: "/produtos",
+    para: MARCA.cardapio,
     alt: "Tá quase na hora! Uma fornada de bons momentos. Lançamento 01/11. Prontinho para comer ou assar em casa. Montes Claros, MG.",
   },
   {

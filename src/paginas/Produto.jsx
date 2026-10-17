@@ -4,7 +4,7 @@ import ProdutoCard from "../componentes/ProdutoCard";
 import { Tick } from "../componentes/ui";
 import { FOTOS } from "../assets";
 import { acharProduto, PRODUTOS } from "../data/produtos";
-import { real, zap } from "../data/marca";
+import { MARCA, real, zap } from "../data/marca";
 import { useCarrinho } from "../carrinho/CarrinhoContext";
 import s from "./Produto.module.css";
 import l from "../estilos/layout.module.css";
@@ -22,7 +22,7 @@ export default function Produto() {
         <div className="wrap centro">
           <h1>Produto não encontrado</h1>
           <p>Esse item saiu do cardápio ou o endereço está errado.</p>
-          <Link to="/produtos" className="btn btn-v">Ver o cardápio</Link>
+          <a href={MARCA.cardapio} className="btn btn-v" target="_blank" rel="noreferrer">Ver o cardápio</a>
         </div>
       </section>
     );
@@ -44,7 +44,7 @@ export default function Produto() {
         <div className="wrap">
           <nav className={s.migalhas} aria-label="Você está em">
             <Link to="/">Início</Link> <span>/</span>{" "}
-            <Link to="/produtos">Cardápio</Link> <span>/</span> {produto.nome}
+            <a href={MARCA.cardapio} target="_blank" rel="noreferrer">Cardápio</a> <span>/</span> {produto.nome}
           </nav>
 
           <div className={s.grid}>

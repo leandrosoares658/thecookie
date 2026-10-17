@@ -30,10 +30,17 @@ export default function Carrossel() {
       aria-roledescription="carrossel"
     >
       <div className={s.trilho} style={{ transform: `translateX(-${atual * 100}%)` }}>
-        {BANNERS.map((b, i) => (
-          <Link
+        {BANNERS.map((b, i) => {
+          // endereço externo (Anota AI) abre em outra aba; rota do site navega por dentro
+          const externo = /^https?:/.test(b.para);
+          const Destino = externo ? "a" : Link;
+          const destino = externo
+            ? { href: b.para, target: "_blank", rel: "noreferrer" }
+            : { to: b.para };
+          return (
+          <Destino
             key={b.imagem}
-            to={b.para}
+            {...destino}
             className={s.slide}
             aria-hidden={i !== atual}
             tabIndex={i === atual ? 0 : -1}
@@ -46,8 +53,9 @@ export default function Carrossel() {
                 loading={i === 0 ? "eager" : "lazy"}
               />
             </picture>
-          </Link>
-        ))}
+          </Destino>
+          );
+        })}
       </div>
 
       <button className={`${s.seta} ${s.anterior}`} onClick={() => ir(atual - 1)} aria-label="Banner anterior">‹</button>

@@ -41,7 +41,7 @@ export default function Carrinho() {
         <section className={l.bloco}>
           <div className="wrap centro">
             <p className={l.vazio}>Seu carrinho está vazio por enquanto.</p>
-            <Link to="/produtos" className="btn btn-v grande">Ver o cardápio</Link>
+            <a href={MARCA.cardapio} className="btn btn-v grande" target="_blank" rel="noreferrer">Ver o cardápio</a>
           </div>
         </section>
       </>
@@ -143,7 +143,7 @@ export default function Carrinho() {
               forma de pagamento ({ENTREGA.pagamento.join(", ")}).
             </p>
 
-            <Link to="/produtos" className={s.voltar}>Continuar comprando</Link>
+            <a href={MARCA.cardapio} className={s.voltar} target="_blank" rel="noreferrer">Continuar comprando</a>
           </aside>
         </div>
       </section>

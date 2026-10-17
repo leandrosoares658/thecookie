@@ -39,6 +39,33 @@ export function IconeZap(props) {
   );
 }
 
+export function IconeInstagram(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.4" cy="6.6" r="0.6" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+const ICONES_REDES = { Instagram: IconeInstagram };
+
+/**
+ * Link de rede social (de REDES, em marca.js) mostrado pelo ícone. O nome
+ * fica no aria-label e na dica do mouse; rede sem ícone aparece escrita.
+ */
+export function LinkRede({ rede, className, iconeClassName }) {
+  const Icone = ICONES_REDES[rede.nome];
+  return (
+    <a href={rede.url} target="_blank" rel="noreferrer" className={className}
+      aria-label={rede.nome} title={rede.nome}>
+      {Icone ? <Icone className={iconeClassName} /> : rede.nome}
+    </a>
+  );
+}
+
 /** Onda que separa dois campos de cor. */
 export function Onda({ cor, virada = false }) {
   return (

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import s from "./NaoEncontrada.module.css";
 import l from "../estilos/layout.module.css";
+import { MARCA } from "../data/marca";
 
 export default function NaoEncontrada() {
   return (
@@ -11,7 +12,7 @@ export default function NaoEncontrada() {
         <p>O endereço não existe mais, ou nunca existiu. Acontece.</p>
         <div className="botoes centro">
           <Link to="/" className="btn btn-v">Voltar para o início</Link>
-          <Link to="/produtos" className="btn btn-o">Ver o cardápio</Link>
+          <a href={MARCA.cardapio} className="btn btn-o" target="_blank" rel="noreferrer">Ver o cardápio</a>
         </div>
       </div>
     </section>

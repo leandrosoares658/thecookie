@@ -1,85 +1,73 @@
-/* ---------- vitrine dos quatro serviços ----------
-   Cada quadro é um campo de cor cheio, como as faixas do wireframe, mas em
-   grade 2x2: o cliente vê os quatro de uma vez, sem rolar. */
+/* ---------- delivery ----------
+   Duas colunas: texto com o botão embaixo à esquerda, foto à direita. */
 .servicos { background: var(--creme); padding: clamp(3rem, 6vw, 4.5rem) 0; }
-.grade { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
-
-.quadro { border-radius: var(--raio); overflow: hidden; }
-.link {
-  display: grid; grid-template-rows: auto 1fr; height: 100%;
-  text-decoration: none;
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
+.entrega-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem); align-items: center;
 }
-.link:hover { transform: translateY(-4px); box-shadow: 0 18px 38px rgba(43, 29, 22, 0.2); }
-
-.quadro-foto { display: block; aspect-ratio: 16 / 7; overflow: hidden; background: var(--bege); }
-.quadro-foto img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-.link:hover .quadro-foto img { transform: scale(1.05); }
-
-.quadro-corpo { display: grid; align-content: start; gap: 0.1rem; padding: 1.5rem 1.5rem 1.6rem; }
-.num { font-weight: 900; font-size: 0.72rem; letter-spacing: 0.16em; opacity: 0.55; margin-bottom: 0.3rem; }
-.nome {
-  font-weight: 900; font-size: clamp(1.3rem, 2.6vw, 1.7rem);
-  letter-spacing: -0.025em; text-transform: uppercase; line-height: 1.08;
+.entrega-texto h2 { color: var(--azul); font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.entrega-linha { color: var(--vermelho); font-size: 1.6rem; line-height: 1.2; margin-bottom: 0.3rem; }
+.entrega-texto p:not(.entrega-linha) { color: var(--suave); margin: 1rem 0 1.8rem; }
+.entrega-foto {
+  border-radius: var(--raio); overflow: hidden;
+  box-shadow: 0 20px 44px rgba(43, 29, 22, 0.2);
 }
-.chamada-curta { font-size: 1.25rem; line-height: 1.25; margin-bottom: 0.5rem; }
-.resumo { font-size: 0.93rem; line-height: 1.5; }
-.acao {
-  margin-top: 1.1rem; font-weight: 800; font-size: 0.86rem;
-  display: inline-flex; align-items: center; gap: 0.4rem;
-}
-.acao::after { content: ""; width: 16px; height: 1.5px; background: currentColor; transition: width 0.22s ease; }
-.link:hover .acao::after { width: 28px; }
+.entrega-foto img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
 
-/* os temas de cor, mesmos campos do wireframe */
-.tema-creme { background: var(--creme-alto); border: 1.5px solid rgba(43, 29, 22, 0.14); }
-.tema-creme .nome { color: var(--azul); }
-.tema-creme .chamada-curta { color: var(--vermelho); }
-.tema-creme .resumo { color: var(--suave); }
-.tema-creme .num, .tema-creme .acao { color: var(--vermelho); }
-
-.tema-azul { background: var(--azul); }
-.tema-azul .nome { color: var(--creme); }
-.tema-azul .chamada-curta { color: var(--bege); }
-.tema-azul .resumo { color: rgba(245, 233, 216, 0.82); }
-.tema-azul .num, .tema-azul .acao { color: var(--bege); }
-
-.tema-vermelho { background: var(--vermelho); }
-.tema-vermelho .nome { color: var(--creme); }
-.tema-vermelho .chamada-curta { color: var(--bege); }
-.tema-vermelho .resumo { color: rgba(245, 233, 216, 0.85); }
-.tema-vermelho .num, .tema-vermelho .acao { color: var(--bege); }
-
-/* ---------- faixa de sabores ---------- */
+/* ---------- brindes e presentes ----------
+   Espelho do delivery: foto à esquerda, texto e botão à direita. */
 .sabores { background: var(--azul-fundo); color: var(--creme); padding: clamp(3rem, 6vw, 4.5rem) 0; }
-.sabores-lista { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
-.sabores-lista a {
-  display: grid; grid-template-columns: 1fr auto; gap: 0.3rem 1rem; align-items: baseline;
-  text-decoration: none; padding: 1.1rem 1rem;
-  border-bottom: 1px solid rgba(245, 233, 216, 0.18);
-  transition: background 0.2s, padding-left 0.2s;
+.presentes-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem); align-items: center;
 }
-.sabores-lista a:hover { background: rgba(245, 233, 216, 0.08); padding-left: 1.5rem; }
-.sabores-lista b { font-size: 1.15rem; font-weight: 900; letter-spacing: -0.02em; }
-.sabores-lista span { grid-column: 1; font-size: 0.88rem; opacity: 0.74; }
-.sabores-lista em { grid-row: 1; grid-column: 2; font-style: normal; font-weight: 900; color: var(--bege); }
-.sabores-rodape { margin-top: 1.8rem; max-width: none; }
-
-/* ---------- depoimentos ---------- */
-.grade-depos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
-.depo {
-  background: var(--creme-alto); border-radius: var(--raio); padding: 1.8rem;
-  border: 1.5px solid rgba(43, 29, 22, 0.12); display: flex; flex-direction: column;
+.presentes-texto h2 { color: var(--creme); font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.presentes-linha { color: var(--bege); font-size: 1.6rem; line-height: 1.2; margin-bottom: 0.3rem; }
+.presentes-texto p:not(.presentes-linha) { color: rgba(245, 233, 216, 0.82); margin: 1rem 0 1.8rem; }
+.presentes-foto {
+  border-radius: var(--raio); overflow: hidden; border: 3px solid var(--bege);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
 }
-.aspas { color: var(--bege); font-size: 3.2rem; line-height: 0.5; margin-bottom: 0.9rem; }
-.depo p { font-size: 0.95rem; margin-bottom: 1.1rem; }
-.quem { margin-top: auto; font-weight: 800; font-size: 0.85rem; color: var(--azul); }
-.quem span { display: block; font-weight: 500; color: var(--suave); font-size: 0.8rem; }
+/* a foto traz texto colado na borda direita e embaixo: o zoom a partir do
+   canto superior esquerdo deixa só a caixa com o laço */
+.presentes-foto img {
+  width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: left top;
+  transform: scale(1.12); transform-origin: left top;
+}
 
-/* ---------- chamada final ---------- */
+/* ---------- massa congelada ----------
+   Mesmo desenho do delivery: texto e botão à esquerda, foto à direita. */
+.massa-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem); align-items: center;
+}
+.massa-texto h2 { color: var(--azul); font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.massa-linha { color: var(--vermelho); font-size: 1.6rem; line-height: 1.2; margin-bottom: 0.3rem; }
+.massa-texto > p:not(.massa-linha) { color: var(--suave); margin-top: 1rem; }
+.massa-tamanhos { list-style: none; display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 1.3rem 0 1.8rem; }
+.massa-tamanhos li {
+  padding: 0.55rem 1rem; border-radius: var(--raio);
+  border: 1.5px solid rgba(43, 29, 22, 0.14); background: var(--creme-alto);
+  color: var(--suave); font-size: 0.9rem;
+}
+.massa-tamanhos b { color: var(--azul); font-weight: 900; margin-right: 0.3rem; }
+
+/* A foto é recortada da arte BannerMobile-1 (1122x1402): a janela mostra só
+   a faixa x 160–960 / y 540–1140, onde ficam a assadeira e o rolo, sem texto. */
+.massa-foto {
+  position: relative; aspect-ratio: 800 / 600; overflow: hidden;
+  border-radius: var(--raio); box-shadow: 0 20px 44px rgba(43, 29, 22, 0.2);
+}
+.massa-foto img {
+  position: absolute; max-width: none;
+  width: 140.25%; left: -20%; top: -90%;
+}
+
+/* ---------- revenda ----------
+   Foto à esquerda, texto e botão à direita, no fundo vermelho. */
 .chamada { background: var(--vermelho); color: var(--creme); padding: clamp(3rem, 6vw, 4.5rem) 0; }
 .chamada-grid {
-  display: grid; grid-template-columns: 1.05fr 0.95fr;
+  display: grid; grid-template-columns: 0.95fr 1.05fr;
   gap: clamp(2rem, 5vw, 3.5rem); align-items: center;
 }
 .chamada h2 { color: var(--creme); font-size: clamp(1.8rem, 4vw, 2.6rem); }
@@ -90,12 +78,13 @@
   border-radius: var(--raio); overflow: hidden; border: 3px solid var(--bege);
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
 }
-.chamada-foto img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.chamada-foto img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
 
 @media (max-width: 900px) {
-  .grade { grid-template-columns: 1fr; }
-  .sabores-lista { grid-template-columns: 1fr; }
-  .grade-depos { grid-template-columns: 1fr; }
+  .entrega-grid { grid-template-columns: 1fr; }
+  .presentes-grid { grid-template-columns: 1fr; }
+  .presentes-foto { max-width: 420px; }
+  .massa-grid { grid-template-columns: 1fr; }
   .chamada-grid { grid-template-columns: 1fr; }
   .chamada-foto { order: -1; }
 }

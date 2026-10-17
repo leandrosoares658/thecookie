@@ -8,6 +8,9 @@ export const MARCA = {
   assinatura: "Mais que cookies, é sobre momentos.",
   descricao: "Cookies artesanais.",
 
+  /** cardápio e pedidos ficam no Anota AI: todo botão de "ver cardápio" aponta para cá */
+  cardapio: "https://pedido.anota.ai/loja/the-cookie-co",
+
   whatsapp: "5538991566092",
   whatsappVisivel: "(38) 99156-6092",
   email: "comercialthecookie@gmail.com",

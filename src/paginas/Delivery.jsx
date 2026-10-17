@@ -50,7 +50,7 @@ export default function Delivery() {
             </ul>
 
             <div className="botoes">
-              <Link to="/produtos" className="btn btn-v">Montar meu pedido</Link>
+              <a href={MARCA.cardapio} className="btn btn-v" target="_blank" rel="noreferrer">Montar meu pedido</a>
               <a className="btn btn-o" href={zap("Oi! Queria saber se vocês entregam no meu bairro.")} target="_blank" rel="noreferrer">
                 Perguntar sobre o meu bairro
               </a>

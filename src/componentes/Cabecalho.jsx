@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { logo } from "../assets";
 import { MARCA, MENU, REDES, zap, real } from "../data/marca";
 import { useCarrinho } from "../carrinho/CarrinhoContext";
+import { LinkRede } from "./ui";
 import s from "./Cabecalho.module.css";
 
 export default function Cabecalho() {
@@ -17,7 +18,7 @@ export default function Cabecalho() {
           <ul className={s.fitaRedes}>
             {REDES.map((r) => (
               <li key={r.nome}>
-                <a href={r.url} target="_blank" rel="noreferrer">{r.nome}</a>
+                <LinkRede rede={r} iconeClassName={s.redeIcone} />
               </li>
             ))}
           </ul>

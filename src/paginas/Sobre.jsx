@@ -53,7 +53,7 @@ export default function Sobre() {
               Cada cookie sai com 150 g, assado por 12 minutos direto do congelador. É esse choque
               de temperatura que deixa a borda firme e o centro ainda mole.
             </p>
-            <Link to="/produtos" className="btn btn-v">Ver os seis sabores</Link>
+            <a href={MARCA.cardapio} className="btn btn-v" target="_blank" rel="noreferrer">Ver os seis sabores</a>
           </div>
           <Rev className={l.moldura}>
             <img src={pilha} alt="Pilha de cookies artesanais" loading="lazy" />

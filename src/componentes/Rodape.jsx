@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { logoClaro } from "../assets";
 import { MARCA, MENU, REDES, zap, real } from "../data/marca";
 import { ENTREGA } from "../data/conteudo";
-import { Estrela, IconeZap } from "./ui";
+import { Estrela, IconeZap, LinkRede } from "./ui";
 import s from "./Rodape.module.css";
 
 export default function Rodape() {
@@ -71,10 +71,10 @@ export default function Rodape() {
               <br />
               Seg a sex, 9h às 17h
             </p>
-            <ul className={s.links}>
+            <ul className={s.redes}>
               {REDES.map((r) => (
                 <li key={r.nome}>
-                  <a href={r.url} target="_blank" rel="noreferrer">{r.nome}</a>
+                  <LinkRede rede={r} iconeClassName={s.redeIcone} />
                 </li>
               ))}
             </ul>
@@ -82,8 +82,8 @@ export default function Rodape() {
         </div>
 
         <div className={`wrap ${s.base}`}>
-          <span>© {ano} {MARCA.nome} — Cookies Artesanais</span>
-          <span>Imagens meramente ilustrativas</span>
+          <span>{MARCA.nome} — Cookies Artesanais</span>
+          <span>© {ano} Todos os direitos reservados.</span>
         </div>
       </footer>
 

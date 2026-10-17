@@ -34,7 +34,7 @@ export const BANNERS_MOBILE_IMG = {
 };
 
 export {
-  logo, logoClaro, tag,
+  logo, logoClaro, tag, bannerMobile1,
   pilha, ponto, bite, vermelho, navy, embalado, caixaAberta, cookieClose,
   presente, vitrine, pessoa, embalagem,
 };
