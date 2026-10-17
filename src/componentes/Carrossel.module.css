@@ -1,186 +1,100 @@
 .carrossel {
   position: relative;
   overflow: hidden;
-  padding: clamp(2.5rem, 5vw, 4rem) 0 1.5rem;
-  transition: background 0.5s;
-}
-
-.tema-creme {
   background: var(--creme);
 }
 
-.tema-azul {
-  background: var(--azul);
+.trilho {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.3, 1);
 }
 
-.tema-vermelho {
-  background: var(--vermelho);
+.slide {
+  flex: 0 0 100%;
+  display: block;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
-}
-
-.texto {
-  animation: surgir 0.6s cubic-bezier(0.2, 0.8, 0.3, 1);
-}
-
-.frase {
-  font-size: clamp(1.5rem, 3.4vw, 2.3rem);
-  line-height: 1.2;
-  margin-bottom: 0.4rem;
-}
-
-.sub {
-  margin: 1rem 0 1.8rem;
-  font-size: 1.05rem;
-  max-width: 42ch;
-}
-
-/* cores por tema do banner */
-.tema-creme .frase {
-  color: var(--vermelho);
-}
-
-.tema-creme h1 {
-  color: var(--azul);
-}
-
-.tema-creme .sub {
-  color: var(--suave);
-}
-
-.tema-creme .destaque {
-  background: var(--vermelho);
-  color: var(--creme);
-}
-
-.tema-azul .frase,
-.tema-vermelho .frase {
-  color: var(--bege);
-}
-
-.tema-azul h1,
-.tema-vermelho h1,
-.tema-azul .sub,
-.tema-vermelho .sub {
-  color: var(--creme);
-}
-
-.tema-azul .destaque,
-.tema-vermelho .destaque {
-  background: var(--bege);
-  color: var(--vermelho-escuro);
-}
-
-.palco {
-  position: relative;
-}
-
-.foto {
-  border-radius: 240px 240px var(--raio) var(--raio);
-  overflow: hidden;
-  border: 3px solid var(--bege);
-  box-shadow: 0 26px 60px rgba(43, 29, 22, 0.28);
-  animation: surgir 0.7s cubic-bezier(0.2, 0.8, 0.3, 1);
-}
-
-.foto img {
+.slide img {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 4.1;
+  height: auto;
+  aspect-ratio: 2061 / 763;
   object-fit: cover;
 }
 
-.tag {
+@media (prefers-reduced-motion: reduce) {
+  .trilho {
+    transition: none;
+  }
+}
+
+/* setas */
+.seta {
   position: absolute;
-  left: -46px;
-  bottom: -28px;
-  width: clamp(104px, 13vw, 150px);
-  animation: girar 28s linear infinite;
-  filter: drop-shadow(0 10px 18px rgba(43, 29, 22, 0.3));
-}
-
-@keyframes girar {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes surgir {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-}
-
-.controles {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.6rem;
-}
-
-.controles>button {
-  background: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   border: 0;
   cursor: pointer;
   font-size: 1.8rem;
   line-height: 1;
-  color: var(--bege);
-  padding: 0 0.4rem;
+  padding-bottom: 4px;
+  color: var(--creme);
+  background: rgba(43, 29, 22, 0.35);
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
 }
 
-.tema-creme .controles>button {
-  color: var(--vermelho);
+.seta:hover {
+  background: rgba(43, 29, 22, 0.6);
 }
 
-.controles ul {
+.anterior {
+  left: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+.proximo {
+  right: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+/* pontos */
+.pontos {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(1.4rem, 4.5vw, 3.6rem);
+  transform: translateX(-50%);
   display: flex;
   gap: 0.5rem;
   list-style: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(43, 29, 22, 0.3);
 }
 
-.controles li button {
+.pontos button {
+  display: block;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   border: 0;
   cursor: pointer;
   padding: 0;
-  background: rgba(215, 194, 167, 0.45);
+  background: rgba(244, 236, 223, 0.55);
+  transition: width 0.3s;
 }
 
-.controles li button.ativo {
-  background: var(--bege);
+.pontos button.ativo {
+  background: var(--creme);
   width: 28px;
   border-radius: 999px;
 }
 
-.tema-creme .controles li button {
-  background: rgba(139, 30, 45, 0.3);
-}
-
-.tema-creme .controles li button.ativo {
-  background: var(--vermelho);
-}
-
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .palco {
-    order: -1;
-    max-width: 420px;
-    margin: 0 auto 1.5rem;
-  }
-
-  .tag {
-    left: auto;
-    right: -10px;
+@media (max-width: 600px) {
+  .seta {
+    width: 32px;
+    height: 32px;
+    font-size: 1.3rem;
   }
 }

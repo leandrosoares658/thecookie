@@ -3,30 +3,22 @@
    ⚠️ Bairros, prazos, taxas e números de revenda são EXEMPLO. Confirme tudo.
    ========================================================================== */
 
+/* Banners da home: a arte já traz o texto, então `alt` repete o que está escrito. */
 export const BANNERS = [
   {
-    titulo: "Seis sabores, uma massa só",
-    frase: "Mais que cookies, é sobre momentos.",
-    texto: "Assados de hora em hora, 150 g cada, com o centro ainda mole.",
-    botao: { rotulo: "Ver os sabores", para: "/produtos" },
-    foto: "pilha",
-    tema: "creme",
+    imagem: "banner1",
+    para: "/produtos/massa-congelada-8",
+    alt: "Hoje a sua casa terá cheiro de cookie. Massa congelada para assar em casa: 750 g rende 10 cookies, 1,5 kg rende 20 cookies.",
   },
   {
-    titulo: "Leve o forno para casa",
-    frase: "O cookie que você termina em casa.",
-    texto: "Massa congelada já porcionada. Do freezer para o forno em 12 minutos.",
-    botao: { rotulo: "Quero a massa congelada", para: "/produtos/massa-congelada-8" },
-    foto: "bite",
-    tema: "azul",
+    imagem: "banner2",
+    para: "/produtos",
+    alt: "Tá quase na hora! Uma fornada de bons momentos. Lançamento 01/11. Prontinho para comer ou assar em casa. Montes Claros, MG.",
   },
   {
-    titulo: "Revenda The Cookie",
-    frase: "A sua cafeteria com cookie de verdade.",
-    texto: "Massa congelada no atacado, treinamento e material de ponto de venda.",
-    botao: { rotulo: "Quero revender", para: "/revenda" },
-    foto: "vitrine",
-    tema: "vermelho",
+    imagem: "banner3",
+    para: "/kits",
+    alt: "Brindes e presentes: carinho em forma de cookie. Para presentear, agradecer e surpreender.",
   },
 ];
 
@@ -39,7 +31,7 @@ export const PILARES = [
 /* ---------- delivery ---------- */
 export const ENTREGA = {
   prazo: "Pedidos até 15h saem no mesmo dia. Depois disso, na manhã seguinte.",
-  minimo: 40.0,
+  minimo: 30.0,
   faixas: [
     { regiao: "Centro e bairros vizinhos", taxa: 8.0, tempo: "até 1h" },
     { regiao: "Demais bairros da cidade", taxa: 14.0, tempo: "até 2h" },
@@ -47,7 +39,7 @@ export const ENTREGA = {
   ],
   retirada: "Retirada na loja sai sem taxa e fica pronta em 20 minutos.",
   pagamento: ["Pix", "Cartão na entrega", "Dinheiro"],
-  gratis: 150.0,
+  gratis: 100.0,
 };
 
 /* ---------- revenda ---------- */

@@ -8,7 +8,6 @@ export const MARCA = {
   assinatura: "Mais que cookies, é sobre momentos.",
   descricao: "Cookies artesanais.",
 
-  // só números, com DDI e DDD
   whatsapp: "5538991566092",
   whatsappVisivel: "(38) 99156-6092",
   email: "comercialthecookie@gmail.com",

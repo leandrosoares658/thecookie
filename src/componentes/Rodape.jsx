@@ -57,8 +57,6 @@ export default function Rodape() {
             <p>
               Faça já a sua encomenda.
               <br />
-              Tel: {MARCA.telefone}
-              <br />
               WhatsApp: {MARCA.whatsappVisivel}
             </p>
             <p className={s.nota}>

@@ -16,6 +16,13 @@ import vitrine from "./vitrine.webp";
 import pessoa from "./pessoa.webp";
 import embalagem from "./embalagem.webp";
 
+import banner1 from "./banner-1.png";
+import banner2 from "./banner-2.png";
+import banner3 from "./banner-3.png";
+
+/** artes dos banners da home */
+export const BANNERS_IMG = { banner1, banner2, banner3 };
+
 export {
   logo, logoClaro, tag,
   pilha, ponto, bite, vermelho, navy, embalado, caixaAberta, cookieClose,
