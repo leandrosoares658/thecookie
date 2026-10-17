@@ -1,0 +1,155 @@
+/* ==========================================================================
+   Padrões de layout usados por MAIS DE UMA tela.
+   Importe junto com o módulo da própria página:
+
+     import l from "../estilos/layout.module.css";
+     import s from "./MinhaPagina.module.css";
+   ========================================================================== */
+
+/* faixa de conteúdo padrão */
+.bloco {
+  padding: clamp(3rem, 6.5vw, 5rem) 0;
+  background: var(--creme);
+}
+
+.bloco-bege {
+  background: var(--bege-claro);
+}
+
+/* duas colunas que viram uma no celular */
+.duas-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+}
+
+.duas-colunas h2 {
+  color: var(--azul);
+  margin-bottom: 1rem;
+}
+
+/* foto emoldurada */
+.moldura {
+  border-radius: var(--raio);
+  overflow: hidden;
+  border: 3px solid var(--vermelho);
+  box-shadow: 0 20px 44px rgba(43, 29, 22, 0.2);
+}
+
+.moldura img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* lista com tique */
+.lista {
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+  margin: 1.2rem 0;
+}
+
+.lista li {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  font-size: 0.97rem;
+}
+
+.titulo-simples {
+  color: var(--azul);
+  margin-bottom: 1.8rem;
+}
+
+.grade-produtos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.3rem;
+}
+
+/* contador de quantidade: usado no produto e no carrinho */
+.contador {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid rgba(43, 29, 22, 0.22);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.contador button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.2rem;
+  width: 42px;
+  height: 46px;
+  color: var(--azul);
+  font-weight: 800;
+}
+
+.contador button:hover {
+  background: var(--bege);
+}
+
+.contador span {
+  min-width: 34px;
+  text-align: center;
+  font-weight: 800;
+}
+
+/* selo de recheado: no card e na página do produto */
+.selo-recheado {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--vermelho);
+  color: var(--creme);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+}
+
+.selo-recheado.grande {
+  font-size: 0.78rem;
+  padding: 0.42rem 1.1rem;
+  top: 18px;
+  left: 18px;
+}
+
+.vazio {
+  color: var(--suave);
+  font-size: 1.05rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 1100px) {
+  .grade-produtos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .duas-colunas {
+    grid-template-columns: 1fr;
+  }
+
+  .duas-colunas.invertida> :first-child {
+    order: 2;
+  }
+
+  .grade-produtos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 460px) {
+  .grade-produtos {
+    grid-template-columns: 1fr;
+  }
+}

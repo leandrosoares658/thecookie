@@ -5,6 +5,10 @@ import { Capa, Rev } from "../componentes/ui";
 import { FOTOS } from "../assets";
 import { SERVICOS, PASSOS } from "../data/servicos";
 import { zap } from "../data/marca";
+import s from "./Servicos.module.css";
+
+/** liga o tema de cada bloco à classe do módulo */
+const TEMAS = { creme: s.temaCreme, bege: s.temaBege, azul: s.temaAzul, vermelho: s.temaVermelho };
 
 export default function Servicos() {
   return (
@@ -17,14 +21,14 @@ export default function Servicos() {
       <HubServicos />
 
       {/* atalhos para os quatro blocos */}
-      <nav className="servicos-atalhos" aria-label="Ir para um serviço">
+      <nav className={s.atalhos} aria-label="Ir para um serviço">
         <div className="wrap">
           <ul>
-            {SERVICOS.map((s, i) => (
-              <li key={s.id}>
-                <a href={`#${s.id}`}>
-                  <span className="atalho-num">{String(i + 1).padStart(2, "0")}</span>
-                  {s.nome}
+            {SERVICOS.map((item, i) => (
+              <li key={item.id}>
+                <a href={`#${item.id}`}>
+                  <span className={s.atalhoNum}>{String(i + 1).padStart(2, "0")}</span>
+                  {item.nome}
                 </a>
               </li>
             ))}
@@ -33,27 +37,27 @@ export default function Servicos() {
       </nav>
 
       {/* um bloco por serviço, alternando o lado da foto */}
-      {SERVICOS.map((s, i) => (
+      {SERVICOS.map((item, i) => (
         <section
-          className={`servico tema-${s.tema} ${i % 2 ? "invertido" : ""}`}
-          id={s.id}
-          key={s.id}
+          className={`${s.servico} ${TEMAS[item.tema]} ${i % 2 ? s.invertido : ""}`}
+          id={item.id}
+          key={item.id}
         >
-          <div className="wrap servico-grid">
-            <div className="servico-texto">
-              <p className="servico-etiqueta">{s.etiqueta}</p>
+          <div className={`wrap ${s.grid}`}>
+            <div className={s.texto}>
+              <p className={item.etiqueta}>{item.etiqueta}</p>
               <h2>
-                {s.titulo[0]}
+                {item.titulo[0]}
                 <br />
-                {s.titulo[1]}
+                {item.titulo[1]}
               </h2>
-              <p className="servico-frase script">{s.frase}</p>
-              <p className="servico-resumo">{s.resumo}</p>
+              <p className={`${item.frase} script`}>{item.frase}</p>
+              <p className={item.resumo}>{item.resumo}</p>
 
-              <ul className="servico-pontos">
-                {s.pontos.map((p) => (
+              <ul className={s.pontos}>
+                {item.pontos.map((p) => (
                   <li key={p.termo}>
-                    <span className="ponto-marca" aria-hidden="true" />
+                    <span className={s.pontoMarca} aria-hidden="true" />
                     <div>
                       <b>{p.termo}</b>
                       <span>{p.texto}</span>
@@ -62,27 +66,27 @@ export default function Servicos() {
                 ))}
               </ul>
 
-              <div className="servico-botoes">
-                <Link to={s.cta.para} className="btn btn-principal">
-                  {s.cta.rotulo}
+              <div className={s.botoes}>
+                <Link to={item.cta.para} className={`btn ${s.principal}`}>
+                  {item.cta.rotulo}
                 </Link>
-                <a className="btn btn-secundario" href={zap(s.zap)} target="_blank" rel="noreferrer">
+                <a className={`btn ${s.secundario}`} href={zap(item.zap)} target="_blank" rel="noreferrer">
                   Falar no WhatsApp
                 </a>
               </div>
             </div>
 
-            <div className="servico-visual">
-              <Rev className="servico-foto">
+            <div className={s.visual}>
+              <Rev className={item.foto}>
                 <img
                   src={FOTOS[s.foto]}
-                  alt={s.nome}
+                  alt={item.nome}
                   loading="lazy"
-                  style={s.foco ? { objectPosition: s.foco } : undefined}
+                  style={item.foco ? { objectPosition: item.foco } : undefined}
                 />
               </Rev>
-              <ul className="servico-numeros">
-                {s.numeros.map((n) => (
+              <ul className={s.numeros}>
+                {item.numeros.map((n) => (
                   <li key={n.nota}>
                     <b>{n.valor}</b>
                     <span>{n.nota}</span>
@@ -95,9 +99,9 @@ export default function Servicos() {
       ))}
 
       {/* três passos */}
-      <section className="passos">
+      <section className={s.passos}>
         <div className="wrap">
-          <div className="passos-cabeca">
+          <div className={s.passosCabeca}>
             <h2>Como começar</h2>
             <p>
               Vale para qualquer um dos quatro: a conversa começa igual e a proposta volta
@@ -105,17 +109,17 @@ export default function Servicos() {
             </p>
           </div>
 
-          <ol className="passos-grade">
+          <ol className={s.passosGrade}>
             {PASSOS.map((p, i) => (
-              <Rev tag="li" className="passo-card" key={p.titulo}>
-                <span className="passo-numero">{i + 1}</span>
+              <Rev tag="li" className={s.passoCard} key={p.titulo}>
+                <span className={s.passoNumero}>{i + 1}</span>
                 <h3>{p.titulo}</h3>
                 <p>{p.texto}</p>
               </Rev>
             ))}
           </ol>
 
-          <div className="passos-cta">
+          <div className={s.passosCta}>
             <a className="btn btn-v grande" href={zap("Oi! Vim pela página de serviços do site.")} target="_blank" rel="noreferrer">
               Começar a conversa
             </a>

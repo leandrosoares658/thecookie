@@ -3,6 +3,8 @@ import { Capa, Rev, Tick } from "../componentes/ui";
 import { embalagem, caixaAberta } from "../assets";
 import { REVENDA } from "../data/conteudo";
 import { zap } from "../data/marca";
+import s from "./Revenda.module.css";
+import l from "../estilos/layout.module.css";
 
 const VAZIO = { nome: "", negocio: "", cidade: "", telefone: "", mensagem: "" };
 
@@ -38,26 +40,26 @@ export default function Revenda() {
     <>
       <Capa titulo="Seja revendedor" texto={REVENDA.chamada} />
 
-      <section className="bloco">
-        <div className="wrap duas-colunas">
+      <section className={l.bloco}>
+        <div className={`wrap ${l.duasColunas}`}>
           <div>
             <h2>A gente congela, você assa</h2>
             <p>{REVENDA.texto}</p>
-            <p className="revenda-margem">{REVENDA.margem}</p>
+            <p className={s.margem}>{REVENDA.margem}</p>
           </div>
-          <Rev className="moldura">
+          <Rev className={l.moldura}>
             <img src={embalagem} alt="Embalagens da The Cookie para revenda" loading="lazy" />
           </Rev>
         </div>
       </section>
 
-      <section className="bloco bloco-bege">
+      <section className={`${l.bloco} ${l.blocoBege}`}>
         <div className="wrap">
-          <h2 className="titulo-simples">Como funciona</h2>
-          <div className="grade-passos">
+          <h2 className={l.tituloSimples}>Como funciona</h2>
+          <div className={s.gradePassos}>
             {REVENDA.comoFunciona.map((p, i) => (
-              <Rev tag="article" className="passo" key={p.titulo}>
-                <span className="passo-num">{i + 1}</span>
+              <Rev tag="article" className={s.passo} key={p.titulo}>
+                <span className={s.passoNum}>{i + 1}</span>
                 <h3>{p.titulo}</h3>
                 <p>{p.texto}</p>
               </Rev>
@@ -66,56 +68,56 @@ export default function Revenda() {
         </div>
       </section>
 
-      <section className="bloco">
-        <div className="wrap duas-colunas invertida">
+      <section className={l.bloco}>
+        <div className={`wrap ${l.duasColunas} ${l.invertida}`}>
           <div>
             <h2>O que você precisa ter</h2>
-            <ul className="lista">
+            <ul className={l.lista}>
               {REVENDA.requisitos.map((r) => (
                 <li key={r}><Tick />{r}</li>
               ))}
             </ul>
           </div>
-          <Rev className="moldura">
+          <Rev className={l.moldura}>
             <img src={caixaAberta} alt="Cookies embalados individualmente" loading="lazy" />
           </Rev>
         </div>
       </section>
 
-      <section className="revenda-form-bloco">
+      <section className={s.formBloco}>
         <div className="wrap">
           <h2>Quero receber a tabela</h2>
-          <p className="revenda-form-sub">
+          <p className={s.formSub}>
             Preencha e a gente te manda a tabela de atacado, o prazo de entrega na sua cidade e o
             passo a passo do forno.
           </p>
 
-          <form className="revenda-form" onSubmit={enviar}>
-            <div className="campo">
+          <form className={s.form} onSubmit={enviar}>
+            <div className={s.campo}>
               <label htmlFor="r-nome">Seu nome *</label>
               <input id="r-nome" value={form.nome} onChange={mudar("nome")} autoComplete="name" />
             </div>
-            <div className="campo">
+            <div className={s.campo}>
               <label htmlFor="r-negocio">Nome do negócio *</label>
               <input id="r-negocio" value={form.negocio} onChange={mudar("negocio")} placeholder="Cafeteria, padaria, mercado..." />
             </div>
-            <div className="campo">
+            <div className={s.campo}>
               <label htmlFor="r-cidade">Cidade</label>
               <input id="r-cidade" value={form.cidade} onChange={mudar("cidade")} autoComplete="address-level2" />
             </div>
-            <div className="campo">
+            <div className={s.campo}>
               <label htmlFor="r-tel">WhatsApp *</label>
               <input id="r-tel" value={form.telefone} onChange={mudar("telefone")} inputMode="tel" autoComplete="tel" placeholder="(00) 00000-0000" />
             </div>
-            <div className="campo largo">
+            <div className={`${s.campo} ${s.largo}`}>
               <label htmlFor="r-msg">Conte um pouco do seu ponto</label>
               <textarea id="r-msg" rows="4" value={form.mensagem} onChange={mudar("mensagem")} placeholder="Tipo de forno, movimento por dia, se já vende algo parecido..." />
             </div>
 
-            {erro && <p className="form-erro" role="alert">{erro}</p>}
+            {erro && <p className={s.erro} role="alert">{erro}</p>}
 
             <button className="btn btn-v grande" type="submit">Enviar pelo WhatsApp</button>
-            <p className="form-nota">
+            <p className={s.nota}>
               Ao enviar, abre o WhatsApp com os dados já preenchidos. Nada fica salvo no site.
             </p>
           </form>

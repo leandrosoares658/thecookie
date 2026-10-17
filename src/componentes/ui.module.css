@@ -1,0 +1,38 @@
+/* Peças reutilizáveis: Tick, Onda, Rev, Cabeca, Capa */
+
+.tick { width: 18px; height: 18px; flex-shrink: 0; margin-top: 4px; color: var(--vermelho); }
+
+.onda { display: block; width: 100%; height: clamp(44px, 5vw, 76px); line-height: 0; }
+.onda svg { display: block; width: 100%; height: 100%; }
+
+/* revelação ao entrar na tela */
+.rev {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1),
+              transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.rev.visivel { opacity: 1; transform: none; }
+
+/* cabeçalho de seção */
+.cabeca { max-width: 56ch; margin-bottom: 2.4rem; }
+.cabeca h2 { color: var(--azul); }
+.cabeca p { margin-top: 0.9rem; color: var(--suave); }
+.linha { color: var(--vermelho); font-size: 1.6rem; line-height: 1.2; margin-bottom: 0.3rem; }
+
+/* variante para fundo escuro */
+.cabeca.clara h2 { color: var(--creme); }
+.cabeca.clara p { color: var(--creme); opacity: 0.85; }
+.cabeca.clara .linha { color: var(--bege); }
+
+/* capa das páginas internas */
+.capa {
+  background: var(--vermelho); color: var(--creme);
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  background-size: cover; background-position: center;
+}
+.capa h1 { color: var(--creme); }
+.capa p { margin-top: 0.8rem; color: var(--bege); font-size: 1.05rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rev { opacity: 1; transform: none; }
+}

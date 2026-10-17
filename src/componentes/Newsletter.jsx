@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { embalagem } from "../assets";
 import { Rev } from "./ui";
+import s from "./Newsletter.module.css";
 
 const EMAIL_VALIDO = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -21,13 +22,13 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="news">
-      <div className="wrap news-grid">
-        <div className="news-texto">
+    <section className={s.news}>
+      <div className={`wrap ${s.grid}`}>
+        <div className={s.texto}>
           <h2>Fica sabendo primeiro</h2>
           <p>Sabores da estação, fornadas especiais e novidades da revenda.</p>
 
-          <form className="news-form" onSubmit={assinar}>
+          <form className={s.form} onSubmit={assinar}>
             <label className="oculto" htmlFor="email-news">Seu e-mail</label>
             <input
               id="email-news"
@@ -40,10 +41,10 @@ export default function Newsletter() {
             <button className="btn btn-v" type="submit">Quero receber</button>
           </form>
 
-          <p className="news-aviso" role="status">{aviso}</p>
+          <p className={s.aviso} role="status">{aviso}</p>
         </div>
 
-        <Rev className="news-foto">
+        <Rev className={s.foto}>
           <img src={embalagem} alt="Embalagens da The Cookie" loading="lazy" />
         </Rev>
       </div>

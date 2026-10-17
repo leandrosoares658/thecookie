@@ -1,6 +1,8 @@
 import { Capa, Rev, Tick } from "../componentes/ui";
 import { vitrine, embalado } from "../assets";
 import { MARCA, zap } from "../data/marca";
+import s from "./Lojas.module.css";
+import l from "../estilos/layout.module.css";
 
 export default function Lojas() {
   const mapa = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
@@ -14,19 +16,19 @@ export default function Lojas() {
         texto="A loja própria e os pontos que revendem a massa congelada da The Cookie."
       />
 
-      <section className="bloco">
-        <div className="wrap duas-colunas">
-          <Rev className="moldura">
+      <section className={l.bloco}>
+        <div className={`wrap ${l.duasColunas}`}>
+          <Rev className={l.moldura}>
             <img src={vitrine} alt="Vitrine da loja The Cookie" loading="lazy" />
           </Rev>
           <div>
             <h2>Loja {MARCA.cidade.split(",")[0]}</h2>
-            <p className="endereco">
+            <p className={s.endereco}>
               {MARCA.endereco}
               <br />
               {MARCA.cidade} · CEP {MARCA.cep}
             </p>
-            <ul className="lista">
+            <ul className={l.lista}>
               {MARCA.horarios.map((h) => (
                 <li key={h.dias}><Tick /><b>{h.dias}</b> — {h.hora}</li>
               ))}
@@ -45,15 +47,15 @@ export default function Lojas() {
         </div>
       </section>
 
-      <section className="bloco bloco-bege">
-        <div className="wrap duas-colunas invertida">
+      <section className={`${l.bloco} ${l.blocoBege}`}>
+        <div className={`wrap ${l.duasColunas} ${l.invertida}`}>
           <div>
             <h2>Pontos que revendem</h2>
             <p>
               Cafeterias, padarias e mercados que assam a nossa massa no próprio forno. A lista
               muda conforme novos pontos entram — chame a central para saber o mais perto de você.
             </p>
-            <p className="aviso-caixa">
+            <p className={s.aviso}>
               <b>A completar:</b> esta página ainda não tem a lista real de pontos de revenda.
               Quando houver, cada ponto vira um item em <code>src/data/conteudo.js</code>.
             </p>
@@ -61,7 +63,7 @@ export default function Lojas() {
               Perguntar o ponto mais perto
             </a>
           </div>
-          <Rev className="moldura">
+          <Rev className={l.moldura}>
             <img src={embalado} alt="Cookie embalado individualmente" loading="lazy" />
           </Rev>
         </div>

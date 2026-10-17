@@ -1,6 +1,7 @@
 import { embalado } from "../assets";
 import { PILULAS } from "../data/servicos";
 import { MARCA } from "../data/marca";
+import s from "./HubServicos.module.css";
 
 /**
  * Hub do topo da página de serviços: o produto no centro e pílulas do que a
@@ -13,10 +14,10 @@ import { MARCA } from "../data/marca";
  */
 export default function HubServicos() {
   return (
-    <section className="hub">
+    <section className={s.hub}>
       <div className="wrap">
-        <div className="hub-caixa">
-          <div className="hub-cabeca">
+        <div className={s.caixa}>
+          <div className={s.cabeca}>
             <h2>
               Não é só uma
               <br />
@@ -28,30 +29,30 @@ export default function HubServicos() {
             </p>
           </div>
 
-          <div className="hub-palco">
-            <ul className="hub-pilulas esquerda">
+          <div className={s.palco}>
+            <ul className={`${s.pilulas} ${s.esquerda}`}>
               {PILULAS.esquerda.map((p) => (
                 <li key={p}>{p}</li>
               ))}
             </ul>
 
-            <div className="hub-centro">
-              <span className="hub-anel" aria-hidden="true" />
+            <div className={s.centro}>
+              <span className={s.anel} aria-hidden="true" />
               <img
-                className="hub-produto"
+                className={s.produto}
                 src={embalado}
                 alt="Cookie da The Cookie embalado individualmente"
               />
             </div>
 
-            <ul className="hub-pilulas direita">
+            <ul className={`${s.pilulas} ${s.direita}`}>
               {PILULAS.direita.map((p) => (
                 <li key={p}>{p}</li>
               ))}
             </ul>
           </div>
 
-          <p className="hub-rodape script">{MARCA.assinatura}</p>
+          <p className={`${s.rodape} script`}>{MARCA.assinatura}</p>
         </div>
       </div>
     </section>

@@ -1,0 +1,49 @@
+.chamada { background: var(--vermelho); color: var(--creme); padding: clamp(3rem, 6vw, 4.5rem) 0; }
+.chamada h2 { color: var(--creme); }
+.chamada-linha { color: var(--bege); font-size: 1.5rem; line-height: 1.2; margin-bottom: 0.3rem; }
+.frase { font-size: 1.25rem; font-weight: 700; margin: 0.8rem 0 1rem; }
+.margem {
+  background: var(--bege-claro); color: var(--tinta); border-radius: 14px;
+  padding: 1rem 1.2rem; font-size: 0.93rem; margin-top: 1.4rem;
+}
+
+/* como funciona, em passos */
+.grade-passos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.3rem; }
+.passo {
+  background: var(--creme); border-radius: var(--raio); padding: 1.8rem 1.4rem;
+  border: 1.5px solid rgba(43, 29, 22, 0.13);
+}
+.passo-num {
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+  background: var(--vermelho); color: var(--creme);
+  font-weight: 900; font-size: 1.1rem; margin-bottom: 1rem;
+}
+.passo h3 { color: var(--azul); margin-bottom: 0.5rem; }
+.passo p { font-size: 0.92rem; color: var(--suave); }
+
+/* formulário */
+.form-bloco { background: var(--azul); color: var(--creme); padding: clamp(3rem, 6vw, 4.5rem) 0; }
+.form-bloco h2 { color: var(--creme); }
+.form-sub { color: var(--bege); margin: 0.8rem 0 2rem; }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; max-width: 760px; }
+.campo { display: grid; gap: 0.35rem; }
+.campo.largo { grid-column: 1 / -1; }
+.campo label { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em; color: var(--bege); }
+.campo input, .campo textarea {
+  background: rgba(245, 233, 216, 0.1); border: 1.5px solid rgba(245, 233, 216, 0.35);
+  border-radius: 12px; padding: 0.8rem 1rem; color: var(--creme);
+  font-family: inherit; font-size: 0.95rem; width: 100%;
+}
+.campo input::placeholder, .campo textarea::placeholder { color: rgba(245, 233, 216, 0.5); }
+.campo input:focus, .campo textarea:focus { outline: none; border-color: var(--creme); }
+.form :global(.btn) { grid-column: 1 / -1; justify-self: start; }
+.erro { grid-column: 1 / -1; color: #ffc9c9; font-weight: 700; font-size: 0.9rem; }
+.nota { grid-column: 1 / -1; font-size: 0.85rem; color: var(--bege); opacity: 0.85; }
+
+@media (max-width: 1100px) {
+  .grade-passos { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .form { grid-template-columns: 1fr; }
+}

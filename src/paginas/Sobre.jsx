@@ -4,15 +4,17 @@ import Newsletter from "../componentes/Newsletter";
 import { vitrine, pilha } from "../assets";
 import { HISTORIA, VALORES } from "../data/conteudo";
 import { MARCA } from "../data/marca";
+import s from "./Sobre.module.css";
+import l from "../estilos/layout.module.css";
 
 export default function Sobre() {
   return (
     <>
       <Capa titulo="A marca" texto={MARCA.assinatura} />
 
-      <section className="bloco">
-        <div className="wrap duas-colunas">
-          <Rev className="moldura">
+      <section className={l.bloco}>
+        <div className={`wrap ${l.duasColunas}`}>
+          <Rev className={l.moldura}>
             <img src={vitrine} alt="A loja da The Cookie" loading="lazy" />
           </Rev>
           <div>
@@ -24,12 +26,12 @@ export default function Sobre() {
         </div>
       </section>
 
-      <section className="bloco bloco-bege">
+      <section className={`${l.bloco} ${l.blocoBege}`}>
         <div className="wrap">
-          <h2 className="titulo-simples">O que a gente não abre mão</h2>
-          <div className="grade-valores">
+          <h2 className={l.tituloSimples}>O que a gente não abre mão</h2>
+          <div className={s.gradeValores}>
             {VALORES.map((v) => (
-              <Rev tag="article" className="valor" key={v.titulo}>
+              <Rev tag="article" className={s.valor} key={v.titulo}>
                 <h3>{v.titulo}</h3>
                 <p>{v.texto}</p>
               </Rev>
@@ -38,8 +40,8 @@ export default function Sobre() {
         </div>
       </section>
 
-      <section className="bloco">
-        <div className="wrap duas-colunas invertida">
+      <section className={l.bloco}>
+        <div className={`wrap ${l.duasColunas} ${l.invertida}`}>
           <div>
             <h2>Seis sabores, uma massa só</h2>
             <p>
@@ -53,7 +55,7 @@ export default function Sobre() {
             </p>
             <Link to="/produtos" className="btn btn-v">Ver os seis sabores</Link>
           </div>
-          <Rev className="moldura">
+          <Rev className={l.moldura}>
             <img src={pilha} alt="Pilha de cookies artesanais" loading="lazy" />
           </Rev>
         </div>

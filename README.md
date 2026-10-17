@@ -58,7 +58,9 @@ cliente precisa saber — nunca a formulação.
 | Preço, sabor, descrição, kits | `src/data/produtos.js` |
 | Telefone, endereço, horário, redes, menu | `src/data/marca.js` |
 | Banners, entrega, revenda, FAQ, depoimentos | `src/data/conteudo.js` |
-| Cores, espaçamento, tipografia | `src/styles.css` (variáveis no `:root`) |
+| Cores da marca, tipografia, botões | `src/estilos/global.css` |
+| Estilo de uma tela ou componente | o `.module.css` ao lado do `.jsx` |
+| Layout repetido entre telas | `src/estilos/layout.module.css` |
 | Rotas e ordem das páginas | `src/App.jsx` |
 | Fotos e logotipo | `src/assets/` + `src/assets/index.js` |
 
@@ -79,6 +81,39 @@ checkout de verdade (Pix, cartão, antifraude), o caminho é plugar uma platafor
 
 ---
 
+## Como o CSS é organizado
+
+Cada `.jsx` tem o seu `.module.css` ao lado, com **escopo próprio**: no build,
+`.quadro` vira algo como `.a3Kf2p`. Duas telas podem usar o mesmo nome de classe
+sem uma afetar a outra — o que já causou bug aqui antes (a classe `.linha` do
+carrinho vazava para os títulos de todas as seções).
+
+```jsx
+import s from "./Home.module.css";        // escopo desta tela
+import l from "../estilos/layout.module.css";  // padrões compartilhados
+
+<section className={l.bloco}>
+  <article className={`${s.quadro} ${s.temaAzul}`}>
+```
+
+No CSS escreva kebab-case (`.quadro-foto`); no JSX acesse camelCase
+(`s.quadroFoto`). O Vite converte — está em `vite.config.js`.
+
+**Três lugares, nesta ordem:**
+
+1. `src/estilos/global.css` — tokens da marca, reset, tipografia, `.btn`,
+   `.wrap`, `.script`, `.centro`, `.oculto`. Classes globais de verdade: no JSX
+   continuam como texto, `className="btn btn-v"`.
+2. `src/estilos/layout.module.css` — o que mais de uma tela usa: `bloco`,
+   `duasColunas`, `moldura`, `lista`, `gradeProdutos`, `contador`.
+3. `Componente.module.css` — o que só aquele arquivo usa.
+
+Para estilizar algo global de dentro de um módulo, use `:global()`:
+
+```css
+.rodape :global(.btn) { margin-top: auto; }
+```
+
 ## Estrutura
 
 ```
@@ -95,6 +130,7 @@ src/
 │   └── conteudo.js          banners, entrega, revenda, FAQ, depoimentos
 ├── componentes/
 │   ├── ui.jsx               Estrela, Tick, Onda, Rev, Cabeca, Capa, ícones
+│   └── *.module.css         o estilo de cada componente, ao lado dele
 │   ├── Cabecalho.jsx        fita, busca, logo, carrinho, navegação
 │   ├── Rodape.jsx           rodapé, faixa corrida, botão de WhatsApp
 │   ├── Carrossel.jsx        banners da home
@@ -110,7 +146,8 @@ src/
     ├── Revenda.jsx          proposta de revenda e formulário
     ├── Sobre.jsx            história e valores
     ├── Carrinho.jsx         carrinho e fechamento do pedido
-    └── NaoEncontrada.jsx    404
+    ├── NaoEncontrada.jsx    404
+    └── *.module.css         o estilo de cada tela, ao lado dela
 ```
 
 ## Publicando

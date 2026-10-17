@@ -4,6 +4,8 @@ import { real, zap, MARCA } from "../data/marca";
 import { ENTREGA } from "../data/conteudo";
 import { useCarrinho } from "../carrinho/CarrinhoContext";
 import { Capa } from "../componentes/ui";
+import s from "./Carrinho.module.css";
+import l from "../estilos/layout.module.css";
 
 /** Monta a mensagem do pedido para o WhatsApp. */
 function montarPedido(linhas, total, observacao) {
@@ -36,9 +38,9 @@ export default function Carrinho() {
     return (
       <>
         <Capa titulo="Seu carrinho" />
-        <section className="bloco">
+        <section className={l.bloco}>
           <div className="wrap centro">
-            <p className="vazio">Seu carrinho está vazio por enquanto.</p>
+            <p className={l.vazio}>Seu carrinho está vazio por enquanto.</p>
             <Link to="/produtos" className="btn btn-v grande">Ver o cardápio</Link>
           </div>
         </section>
@@ -50,37 +52,37 @@ export default function Carrinho() {
     <>
       <Capa titulo="Seu carrinho" texto={`${unidades} item(ns) selecionado(s)`} />
 
-      <section className="bloco">
-        <div className="wrap carrinho-grid">
-          <div className="carrinho-itens">
+      <section className={l.bloco}>
+        <div className={`wrap ${s.grid}`}>
+          <div className={s.itens}>
             {linhas.map((l) => (
-              <article className="carrinho-item" key={l.slug}>
-                <Link to={`/produtos/${l.slug}`} className="carrinho-item-foto">
+              <article className={s.item} key={linha.slug}>
+                <Link to={`/produtos/${l.slug}`} className={s.itemFoto}>
                   <img src={FOTOS[l.foto]} alt={l.nome} loading="lazy" />
                 </Link>
 
-                <div className="carrinho-item-info">
+                <div className={s.itemInfo}>
                   <h3>
                     <Link to={`/produtos/${l.slug}`}>{l.nome}</Link>
                   </h3>
                   <p>{l.resumo}</p>
-                  <button className="carrinho-item-remover" onClick={() => remover(l.slug)}>
+                  <button className={s.remover} onClick={() => remover(l.slug)}>
                     Remover
                   </button>
                 </div>
 
-                <div className="carrinho-item-acoes">
-                  <div className="contador">
+                <div className={s.itemAcoes}>
+                  <div className={l.contador}>
                     <button onClick={() => mudarQuantidade(l.slug, l.quantidade - 1)} aria-label={`Diminuir ${l.nome}`}>−</button>
                     <span>{l.quantidade}</span>
                     <button onClick={() => mudarQuantidade(l.slug, l.quantidade + 1)} aria-label={`Aumentar ${l.nome}`}>+</button>
                   </div>
-                  <p className="carrinho-item-preco">{real(l.subtotal)}</p>
+                  <p className={s.itemPreco}>{real(l.subtotal)}</p>
                 </div>
               </article>
             ))}
 
-            <div className="carrinho-obs">
+            <div className={s.obs}>
               <label htmlFor="obs">
                 Observação do pedido <span>(sabores da caixa, ponto de forno, recado no cartão)</span>
               </label>
@@ -93,36 +95,36 @@ export default function Carrinho() {
               />
             </div>
 
-            <button className="carrinho-item-remover" onClick={limpar}>Esvaziar carrinho</button>
+            <button className={s.remover} onClick={limpar}>Esvaziar carrinho</button>
           </div>
 
-          <aside className="carrinho-resumo">
+          <aside className={s.resumo}>
             <h2>Resumo</h2>
 
-            <p className="resumo-linha">
+            <p className={s.resumoLinha}>
               <span>Itens ({unidades})</span>
               <b>{real(total)}</b>
             </p>
-            <p className="resumo-linha fraca">
+            <p className={`${s.resumoLinha} ${s.fraca}`}>
               <span>Entrega</span>
               <b>calculada no WhatsApp</b>
             </p>
 
             {abaixoDoMinimo && (
-              <p className="aviso-minimo">
+              <p className={s.avisoMinimo}>
                 O pedido mínimo para entrega é {real(ENTREGA.minimo)}. Abaixo disso, só retirada na loja.
               </p>
             )}
 
             {!abaixoDoMinimo && faltaParaGratis > 0 && (
-              <p className="aviso-gratis">
+              <p className={s.avisoGratis}>
                 Faltam {real(faltaParaGratis)} para a entrega sair de graça.
               </p>
             )}
 
-            {faltaParaGratis <= 0 && <p className="aviso-gratis">Entrega grátis liberada.</p>}
+            {faltaParaGratis <= 0 && <p className={s.avisoGratis}>Entrega grátis liberada.</p>}
 
-            <p className="resumo-total">
+            <p className={s.resumoTotal}>
               <span>Total dos itens</span>
               <b>{real(total)}</b>
             </p>
@@ -136,12 +138,12 @@ export default function Carrinho() {
               Fechar pedido no WhatsApp
             </a>
 
-            <p className="resumo-nota">
+            <p className={s.resumoNota}>
               O pedido vai montado na mensagem. A central confirma a taxa de entrega, o prazo e a
               forma de pagamento ({ENTREGA.pagamento.join(", ")}).
             </p>
 
-            <Link to="/produtos" className="resumo-voltar">Continuar comprando</Link>
+            <Link to="/produtos" className={s.voltar}>Continuar comprando</Link>
           </aside>
         </div>
       </section>

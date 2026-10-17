@@ -1,5 +1,5 @@
-import logo from "./logo.webp";
-import logoClaro from "./logo-claro.webp";
+import logo from "./logo.png";
+import logoClaro from "./logo.png";
 import tag from "./tag.webp";
 
 import pilha from "./pilha.webp";

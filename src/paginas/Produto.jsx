@@ -6,6 +6,8 @@ import { FOTOS } from "../assets";
 import { acharProduto, PRODUTOS } from "../data/produtos";
 import { real, zap } from "../data/marca";
 import { useCarrinho } from "../carrinho/CarrinhoContext";
+import s from "./Produto.module.css";
+import l from "../estilos/layout.module.css";
 
 export default function Produto() {
   const { slug } = useParams();
@@ -16,7 +18,7 @@ export default function Produto() {
 
   if (!produto) {
     return (
-      <section className="bloco">
+      <section className={l.bloco}>
         <div className="wrap centro">
           <h1>Produto não encontrado</h1>
           <p>Esse item saiu do cardápio ou o endereço está errado.</p>
@@ -38,37 +40,37 @@ export default function Produto() {
 
   return (
     <>
-      <section className="produto-pagina">
+      <section className={s.pagina}>
         <div className="wrap">
-          <nav className="migalhas" aria-label="Você está em">
+          <nav className={s.migalhas} aria-label="Você está em">
             <Link to="/">Início</Link> <span>/</span>{" "}
             <Link to="/produtos">Cardápio</Link> <span>/</span> {produto.nome}
           </nav>
 
-          <div className="produto-grid">
-            <div className="produto-imagem">
+          <div className={s.grid}>
+            <div className={s.imagem}>
               <img src={FOTOS[produto.foto]} alt={produto.nome} />
-              {produto.recheado && <span className="selo-recheado grande">Recheado</span>}
+              {produto.recheado && <span className={`${l.seloRecheado} ${l.grande}`}>Recheado</span>}
             </div>
 
-            <div className="produto-info">
-              <p className="produto-cat">{produto.categoria}</p>
+            <div className={s.info}>
+              <p className={s.categoria}>{produto.categoria}</p>
               <h1>{produto.nome}</h1>
-              <p className="produto-frase script">{produto.frase}</p>
-              <p className="produto-descricao">{produto.descricao}</p>
+              <p className={`${s.frase} script`}>{produto.frase}</p>
+              <p className={s.descricao}>{produto.descricao}</p>
 
               {produto.notas && (
-                <ul className="produto-notas">
+                <ul className={s.notas}>
                   {produto.notas.map((n) => (
                     <li key={n}>{n}</li>
                   ))}
                 </ul>
               )}
 
-              <p className="produto-valor">{real(produto.preco)}</p>
+              <p className={s.valor}>{real(produto.preco)}</p>
 
-              <div className="produto-compra">
-                <div className="contador">
+              <div className={s.compra}>
+                <div className={l.contador}>
                   <button onClick={() => setQuantidade(Math.max(1, quantidade - 1))} aria-label="Diminuir">−</button>
                   <span aria-live="polite">{quantidade}</span>
                   <button onClick={() => setQuantidade(quantidade + 1)} aria-label="Aumentar">+</button>
@@ -78,7 +80,7 @@ export default function Produto() {
                 </button>
               </div>
 
-              <p className="produto-zap">
+              <p className={s.zap}>
                 Prefere pedir pelo WhatsApp?{" "}
                 <a href={zap(`Oi! Queria ${quantidade}x ${produto.nome}.`)} target="_blank" rel="noreferrer">
                   Fale com a central
@@ -88,7 +90,7 @@ export default function Produto() {
           </div>
 
           {produto.preparo && (
-            <div className="preparo">
+            <div className={s.preparo}>
               <h2>Como assar em casa</h2>
               <ol>
                 {produto.preparo.map((passo) => (
@@ -98,7 +100,7 @@ export default function Produto() {
             </div>
           )}
 
-          <div className="produto-selos">
+          <div className={s.selos}>
             <p><Tick /> Embalado individualmente</p>
             <p><Tick /> Dura 5 dias em pote fechado</p>
             <p><Tick /> Contém glúten, leite e derivados de soja</p>
@@ -107,10 +109,10 @@ export default function Produto() {
       </section>
 
       {relacionados.length > 0 && (
-        <section className="bloco bloco-bege">
+        <section className={`${l.bloco} ${l.blocoBege}`}>
           <div className="wrap">
-            <h2 className="titulo-simples">Quem levou esse, levou também</h2>
-            <div className="grade-produtos">
+            <h2 className={l.tituloSimples}>Quem levou esse, levou também</h2>
+            <div className={l.gradeProdutos}>
               {relacionados.map((p) => (
                 <ProdutoCard key={p.slug} produto={p} />
               ))}

@@ -2,8 +2,12 @@ import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FOTOS, tag } from "../assets";
 import { BANNERS } from "../data/conteudo";
+import s from "./Carrossel.module.css";
 
 const INTERVALO = 7000;
+
+/** liga o tema do banner à classe do módulo */
+const TEMAS = { creme: s.temaCreme, azul: s.temaAzul, vermelho: s.temaVermelho };
 
 export default function Carrossel() {
   const [atual, setAtual] = useState(0);
@@ -23,36 +27,35 @@ export default function Carrossel() {
 
   return (
     <section
-      className={`carrossel tema-${banner.tema}`}
+      className={`${s.carrossel} ${TEMAS[banner.tema]}`}
       onMouseEnter={() => setPausado(true)}
       onMouseLeave={() => setPausado(false)}
       aria-roledescription="carrossel"
     >
-      <div className="wrap carrossel-grid">
-        <div className="carrossel-texto" key={banner.titulo}>
-          <p className="carrossel-frase script">{banner.frase}</p>
+      <div className={`wrap ${s.grid}`}>
+        <div className={s.texto} key={banner.titulo}>
+          <p className={`${s.frase} script`}>{banner.frase}</p>
           <h1>{banner.titulo}</h1>
-          <p className="carrossel-sub">{banner.texto}</p>
-          <Link to={banner.botao.para} className="btn btn-destaque">
+          <p className={s.sub}>{banner.texto}</p>
+          <Link to={banner.botao.para} className={`btn ${s.destaque}`}>
             {banner.botao.rotulo}
           </Link>
         </div>
 
-        <div className="carrossel-palco">
-          <div className="carrossel-foto" key={banner.foto}>
+        <div className={s.palco}>
+          <div className={s.foto} key={banner.foto}>
             <img src={FOTOS[banner.foto]} alt="" />
           </div>
-          <img className="carrossel-tag" src={tag} alt="" aria-hidden="true" />
         </div>
       </div>
 
-      <div className="wrap carrossel-controles">
+      <div className={`wrap ${s.controles}`}>
         <button onClick={() => ir(atual - 1)} aria-label="Banner anterior">‹</button>
         <ul>
           {BANNERS.map((b, i) => (
             <li key={b.titulo}>
               <button
-                className={i === atual ? "ativo" : undefined}
+                className={i === atual ? s.ativo : undefined}
                 aria-label={`Ir para o banner ${i + 1}`}
                 aria-current={i === atual}
                 onClick={() => ir(i)}

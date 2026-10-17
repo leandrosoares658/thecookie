@@ -1,0 +1,11 @@
+.grade-valores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+.valor {
+  background: var(--creme); border-radius: var(--raio);
+  padding: 1.8rem 1.5rem; border-left: 4px solid var(--vermelho);
+}
+.valor h3 { color: var(--azul); margin-bottom: 0.5rem; }
+.valor p { font-size: 0.93rem; color: var(--suave); }
+
+@media (max-width: 900px) {
+  .grade-valores { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,101 @@
+/* ---------- vitrine dos quatro serviços ----------
+   Cada quadro é um campo de cor cheio, como as faixas do wireframe, mas em
+   grade 2x2: o cliente vê os quatro de uma vez, sem rolar. */
+.servicos { background: var(--creme); padding: clamp(3rem, 6vw, 4.5rem) 0; }
+.grade { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+
+.quadro { border-radius: var(--raio); overflow: hidden; }
+.link {
+  display: grid; grid-template-rows: auto 1fr; height: 100%;
+  text-decoration: none;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.link:hover { transform: translateY(-4px); box-shadow: 0 18px 38px rgba(43, 29, 22, 0.2); }
+
+.quadro-foto { display: block; aspect-ratio: 16 / 7; overflow: hidden; background: var(--bege); }
+.quadro-foto img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.link:hover .quadro-foto img { transform: scale(1.05); }
+
+.quadro-corpo { display: grid; align-content: start; gap: 0.1rem; padding: 1.5rem 1.5rem 1.6rem; }
+.num { font-weight: 900; font-size: 0.72rem; letter-spacing: 0.16em; opacity: 0.55; margin-bottom: 0.3rem; }
+.nome {
+  font-weight: 900; font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  letter-spacing: -0.025em; text-transform: uppercase; line-height: 1.08;
+}
+.chamada-curta { font-size: 1.25rem; line-height: 1.25; margin-bottom: 0.5rem; }
+.resumo { font-size: 0.93rem; line-height: 1.5; }
+.acao {
+  margin-top: 1.1rem; font-weight: 800; font-size: 0.86rem;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.acao::after { content: ""; width: 16px; height: 1.5px; background: currentColor; transition: width 0.22s ease; }
+.link:hover .acao::after { width: 28px; }
+
+/* os temas de cor, mesmos campos do wireframe */
+.tema-creme { background: var(--creme-alto); border: 1.5px solid rgba(43, 29, 22, 0.14); }
+.tema-creme .nome { color: var(--azul); }
+.tema-creme .chamada-curta { color: var(--vermelho); }
+.tema-creme .resumo { color: var(--suave); }
+.tema-creme .num, .tema-creme .acao { color: var(--vermelho); }
+
+.tema-azul { background: var(--azul); }
+.tema-azul .nome { color: var(--creme); }
+.tema-azul .chamada-curta { color: var(--bege); }
+.tema-azul .resumo { color: rgba(245, 233, 216, 0.82); }
+.tema-azul .num, .tema-azul .acao { color: var(--bege); }
+
+.tema-vermelho { background: var(--vermelho); }
+.tema-vermelho .nome { color: var(--creme); }
+.tema-vermelho .chamada-curta { color: var(--bege); }
+.tema-vermelho .resumo { color: rgba(245, 233, 216, 0.85); }
+.tema-vermelho .num, .tema-vermelho .acao { color: var(--bege); }
+
+/* ---------- faixa de sabores ---------- */
+.sabores { background: var(--azul-fundo); color: var(--creme); padding: clamp(3rem, 6vw, 4.5rem) 0; }
+.sabores-lista { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
+.sabores-lista a {
+  display: grid; grid-template-columns: 1fr auto; gap: 0.3rem 1rem; align-items: baseline;
+  text-decoration: none; padding: 1.1rem 1rem;
+  border-bottom: 1px solid rgba(245, 233, 216, 0.18);
+  transition: background 0.2s, padding-left 0.2s;
+}
+.sabores-lista a:hover { background: rgba(245, 233, 216, 0.08); padding-left: 1.5rem; }
+.sabores-lista b { font-size: 1.15rem; font-weight: 900; letter-spacing: -0.02em; }
+.sabores-lista span { grid-column: 1; font-size: 0.88rem; opacity: 0.74; }
+.sabores-lista em { grid-row: 1; grid-column: 2; font-style: normal; font-weight: 900; color: var(--bege); }
+.sabores-rodape { margin-top: 1.8rem; max-width: none; }
+
+/* ---------- depoimentos ---------- */
+.grade-depos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+.depo {
+  background: var(--creme-alto); border-radius: var(--raio); padding: 1.8rem;
+  border: 1.5px solid rgba(43, 29, 22, 0.12); display: flex; flex-direction: column;
+}
+.aspas { color: var(--bege); font-size: 3.2rem; line-height: 0.5; margin-bottom: 0.9rem; }
+.depo p { font-size: 0.95rem; margin-bottom: 1.1rem; }
+.quem { margin-top: auto; font-weight: 800; font-size: 0.85rem; color: var(--azul); }
+.quem span { display: block; font-weight: 500; color: var(--suave); font-size: 0.8rem; }
+
+/* ---------- chamada final ---------- */
+.chamada { background: var(--vermelho); color: var(--creme); padding: clamp(3rem, 6vw, 4.5rem) 0; }
+.chamada-grid {
+  display: grid; grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(2rem, 5vw, 3.5rem); align-items: center;
+}
+.chamada h2 { color: var(--creme); font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.chamada-linha { color: var(--bege); font-size: 1.6rem; line-height: 1.2; margin-bottom: 0.3rem; }
+.chamada-texto { color: rgba(245, 233, 216, 0.85); margin-top: 1rem; }
+.chamada-botoes { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.8rem; }
+.chamada-foto {
+  border-radius: var(--raio); overflow: hidden; border: 3px solid var(--bege);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
+}
+.chamada-foto img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+@media (max-width: 900px) {
+  .grade { grid-template-columns: 1fr; }
+  .sabores-lista { grid-template-columns: 1fr; }
+  .grade-depos { grid-template-columns: 1fr; }
+  .chamada-grid { grid-template-columns: 1fr; }
+  .chamada-foto { order: -1; }
+}

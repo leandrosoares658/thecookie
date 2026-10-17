@@ -3,6 +3,7 @@ import { logoClaro } from "../assets";
 import { MARCA, MENU, REDES, zap, real } from "../data/marca";
 import { ENTREGA } from "../data/conteudo";
 import { Estrela, IconeZap } from "./ui";
+import s from "./Rodape.module.css";
 
 export default function Rodape() {
   const ano = new Date().getFullYear();
@@ -10,10 +11,10 @@ export default function Rodape() {
   return (
     <>
       {/* faixa corrida da assinatura */}
-      <div className="faixa">
-        <div className="faixa-in">
+      <div className={s.faixa}>
+        <div className={s.faixaIn}>
           {[0, 1].map((volta) => (
-            <span key={volta} className="faixa-grupo">
+            <span key={volta} className={s.faixaGrupo}>
               <b>Ingredientes selecionados</b><Estrela />
               <b>Receitas artesanais</b><Estrela />
               <b>{MARCA.assinatura}</b><Estrela />
@@ -22,16 +23,16 @@ export default function Rodape() {
         </div>
       </div>
 
-      <footer>
-        <div className="wrap foot-grid">
+      <footer className={s.rodape}>
+        <div className={`wrap ${s.grid}`}>
           <div>
-            <img className="foot-marca" src={logoClaro} alt="The Cookie — cookies artesanais" />
+            <img className={s.marca} src={logoClaro} alt="The Cookie — cookies artesanais" />
             <p>
               {MARCA.endereco}
               <br />
               {MARCA.cidade} · CEP {MARCA.cep}
             </p>
-            <ul className="foot-horarios">
+            <ul className={s.horarios}>
               {MARCA.horarios.map((h) => (
                 <li key={h.dias}>
                   <b>{h.dias}</b> {h.hora}
@@ -42,7 +43,7 @@ export default function Rodape() {
 
           <div>
             <h4>Cardápio</h4>
-            <ul className="foot-links">
+            <ul className={s.links}>
               {MENU.map((m) => (
                 <li key={m.para}>
                   <Link to={m.para}>{m.rotulo}</Link>
@@ -60,7 +61,7 @@ export default function Rodape() {
               <br />
               WhatsApp: {MARCA.whatsappVisivel}
             </p>
-            <p className="foot-nota">
+            <p className={s.nota}>
               Pedido mínimo de {real(ENTREGA.minimo)} para entrega. Acima de {real(ENTREGA.gratis)} a taxa sai de graça.
             </p>
           </div>
@@ -72,7 +73,7 @@ export default function Rodape() {
               <br />
               Seg a sex, 9h às 17h
             </p>
-            <ul className="foot-links">
+            <ul className={s.links}>
               {REDES.map((r) => (
                 <li key={r.nome}>
                   <a href={r.url} target="_blank" rel="noreferrer">{r.nome}</a>
@@ -82,7 +83,7 @@ export default function Rodape() {
           </div>
         </div>
 
-        <div className="wrap foot-base">
+        <div className={`wrap ${s.base}`}>
           <span>© {ano} {MARCA.nome} — Cookies Artesanais</span>
           <span>Imagens meramente ilustrativas</span>
         </div>
@@ -90,7 +91,7 @@ export default function Rodape() {
 
       {/* botão flutuante de WhatsApp */}
       <a
-        className="zap-flutuante"
+        className={s.zap}
         href={zap("Oi! Vim pelo site e queria fazer um pedido.")}
         target="_blank"
         rel="noreferrer"

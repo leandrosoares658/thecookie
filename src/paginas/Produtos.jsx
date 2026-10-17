@@ -3,6 +3,8 @@ import { useSearchParams } from "react-router-dom";
 import ProdutoCard from "../componentes/ProdutoCard";
 import { Capa } from "../componentes/ui";
 import { CATEGORIAS, PRODUTOS } from "../data/produtos";
+import s from "./Produtos.module.css";
+import l from "../estilos/layout.module.css";
 
 const TODOS = { id: "todos", rotulo: "Tudo", descricao: "Cookies, caixas e massa congelada" };
 const FILTROS = [TODOS, ...CATEGORIAS];
@@ -34,13 +36,13 @@ export default function Produtos() {
         texto="Cookies de 150 g assados no dia, caixas para presente e massa congelada para assar em casa."
       />
 
-      <section className="bloco">
+      <section className={l.bloco}>
         <div className="wrap">
-          <div className="filtros">
+          <div className={s.filtros}>
             {FILTROS.map((f) => (
               <button
                 key={f.id}
-                className={"filtro" + (f.id === categoria ? " ativo" : "")}
+                className={`${s.filtro}` + (f.id === categoria ? ` ${s.ativo}` : "")}
                 aria-pressed={f.id === categoria}
                 onClick={() => setCategoria(f.id)}
               >
@@ -49,13 +51,13 @@ export default function Produtos() {
             ))}
           </div>
 
-          <p className="filtros-nota">
+          <p className={s.nota}>
             {filtroAtivo?.descricao}
             {busca && (
               <>
                 {" · busca por "}
                 <b>{busca}</b>{" "}
-                <button className="limpar-busca" onClick={() => setParams({})}>
+                <button className={s.limpar} onClick={() => setParams({})}>
                   limpar
                 </button>
               </>
@@ -63,11 +65,11 @@ export default function Produtos() {
           </p>
 
           {lista.length === 0 ? (
-            <p className="vazio">
+            <p className={l.vazio}>
               Nada encontrado com esse filtro. Tente outra categoria ou limpe a busca.
             </p>
           ) : (
-            <div className="grade-produtos">
+            <div className={l.gradeProdutos}>
               {lista.map((p) => (
                 <ProdutoCard key={p.slug} produto={p} />
               ))}

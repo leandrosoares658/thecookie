@@ -3,6 +3,8 @@ import Newsletter from "../componentes/Newsletter";
 import { presente } from "../assets";
 import { KITS, REGRAS_KIT } from "../data/produtos";
 import { real, zap } from "../data/marca";
+import s from "./Kits.module.css";
+import l from "../estilos/layout.module.css";
 
 export default function Kits() {
   return (
@@ -12,15 +14,15 @@ export default function Kits() {
         texto="Casamento, aniversário, chá de bebê ou confraternização de empresa. A gente monta, embala e entrega."
       />
 
-      <section className="bloco">
+      <section className={l.bloco}>
         <div className="wrap">
-          <div className="grade-kits">
+          <div className={s.grade}>
             {KITS.map((k) => (
-              <Rev tag="article" className={"kit-card" + (k.destaque ? " destaque" : "")} key={k.nome}>
-                {k.destaque && <span className="kit-selo">Mais pedido</span>}
+              <Rev tag="article" className={`${s.card}` + (k.destaque ? ` ${s.destaque}` : "")} key={k.nome}>
+                {k.destaque && <span className={s.selo}>Mais pedido</span>}
                 <h3>{k.nome}</h3>
-                <p className="kit-pessoas">{k.pessoas}</p>
-                <p className="kit-preco">{real(k.preco)}</p>
+                <p className={s.pessoas}>{k.pessoas}</p>
+                <p className={s.preco}>{real(k.preco)}</p>
                 <ul>
                   {k.itens.map((i) => (
                     <li key={i}><Tick />{i}</li>
@@ -40,9 +42,9 @@ export default function Kits() {
         </div>
       </section>
 
-      <section className="bloco bloco-bege">
-        <div className="wrap duas-colunas">
-          <Rev className="moldura">
+      <section className={`${l.bloco} ${l.blocoBege}`}>
+        <div className={`wrap ${l.duasColunas}`}>
+          <Rev className={l.moldura}>
             <img src={presente} alt="Caixa de cookies com laço e etiqueta" loading="lazy" />
           </Rev>
           <div>
@@ -51,7 +53,7 @@ export default function Kits() {
               Você manda a data, o número de pessoas e o tipo de embalagem. A gente responde com
               as opções de sabor e o valor fechado em até 24 horas, sem taxa de projeto.
             </p>
-            <ul className="lista regras">
+            <ul className={`${l.lista} ${s.regras}`}>
               {REGRAS_KIT.map((r) => (
                 <li key={r}><Tick />{r}</li>
               ))}

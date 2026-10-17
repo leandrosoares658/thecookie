@@ -6,26 +6,23 @@
 export const MARCA = {
   nome: "The Cookie",
   assinatura: "Mais que cookies, é sobre momentos.",
-  descricao: "Cookies artesanais de 150 g, em fornadas pequenas.",
+  descricao: "Cookies artesanais.",
 
   // só números, com DDI e DDD
-  whatsapp: "5538900000000",
-  whatsappVisivel: "(38) 90000-0000",
-  telefone: "(38) 3000-0000",
-  email: "contato@thecookie.com.br",
+  whatsapp: "5538991566092",
+  whatsappVisivel: "(38) 99156-6092",
+  email: "comercialthecookie@gmail.com",
   emailSac: "sac@thecookie.com.br",
 
-  instagram: "thecookie",
-  facebook: "thecookie",
-  tiktok: "thecookie",
+  instagram: "thecookiecoficial",
 
-  endereco: "Rua das Fornadas, 128 — Centro",
+  endereco: "Ibituruna",
   cidade: "Montes Claros, MG",
   cep: "39400-000",
 
   horarios: [
-    { dias: "Terça a sábado", hora: "10h às 19h" },
-    { dias: "Domingo", hora: "14h às 18h" },
+    { dias: "Terça a sábado", hora: "10h às 18h" },
+    { dias: "Domingo", hora: "14h às 17h" },
     { dias: "Segunda", hora: "fechado" },
   ],
 };
@@ -36,8 +33,6 @@ export const zap = (mensagem = "Oi! Vim pelo site.") =>
 
 export const REDES = [
   { nome: "Instagram", url: `https://instagram.com/${MARCA.instagram}` },
-  { nome: "Facebook", url: `https://facebook.com/${MARCA.facebook}` },
-  { nome: "TikTok", url: `https://tiktok.com/@${MARCA.tiktok}` },
 ];
 
 export const MENU = [

@@ -1,0 +1,244 @@
+/* ==========================================================================
+   The Cookie — estilos globais
+
+   Aqui fica SÓ o que é compartilhado por todo o site:
+   tokens da marca, reset, tipografia base, botões e utilitários.
+
+   Tudo que pertence a uma tela ou componente vive no .module.css ao lado
+   do .jsx correspondente, com escopo próprio.
+   ========================================================================== */
+
+:root {
+  /* paleta oficial */
+  --creme: #f5e9d8;
+  --creme-alto: #fcf6ec;
+  --bege: #d7c2a7;
+  --bege-claro: #e8dcc6;
+  --vermelho: #8b1e2d;
+  --vermelho-vivo: #a82736;
+  --vermelho-escuro: #6d1522;
+  --azul: #0f3b6d;
+  --azul-fundo: #0a2a4e;
+  --tinta: #2b1d16;
+  --suave: #6b5647;
+
+  /* medidas */
+  --largura: 1200px;
+  --raio: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--creme);
+  color: var(--tinta);
+  font-family: "Archivo", system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+p {
+  max-width: 64ch;
+}
+
+p+p {
+  margin-top: 1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+}
+
+h2 {
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+:focus-visible {
+  outline: 3px solid var(--vermelho);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---------- utilitários ---------- */
+.wrap {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.centro {
+  text-align: center;
+}
+
+.centro p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* o script da identidade */
+.script {
+  font-family: "Yellowtail", cursive;
+  font-weight: 400;
+  text-transform: none;
+}
+
+/* visível só para leitor de tela */
+.oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- botões ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 0.93rem;
+  padding: 0.82rem 1.6rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn.grande {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.btn.bloco-largo {
+  width: 100%;
+}
+
+.btn-v {
+  background: var(--vermelho);
+  color: var(--creme);
+}
+
+.btn-v:hover {
+  background: var(--vermelho-vivo);
+}
+
+.btn-v.posto {
+  background: #1f7a4d;
+}
+
+.btn-a {
+  background: var(--azul);
+  color: var(--creme);
+}
+
+.btn-a:hover {
+  background: #15497f;
+}
+
+.btn-bege {
+  background: var(--bege);
+  color: var(--vermelho-escuro);
+}
+
+.btn-bege:hover {
+  background: var(--vermelho);
+  color: var(--creme);
+}
+
+.btn-o {
+  border-color: var(--azul);
+  color: var(--azul);
+  background: transparent;
+}
+
+.btn-o:hover {
+  background: var(--azul);
+  color: var(--creme);
+}
+
+/* vazado para usar sobre fundo escuro */
+.btn-claro {
+  border-color: rgba(245, 233, 216, 0.6);
+  color: var(--creme);
+  background: transparent;
+}
+
+.btn-claro:hover {
+  background: var(--creme);
+  color: var(--vermelho);
+}
+
+.btn-creme {
+  background: var(--creme);
+  color: var(--vermelho);
+}
+
+.btn-creme:hover {
+  background: var(--bege);
+}
+
+.botoes {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1.6rem;
+}
+
+.botoes.centro {
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

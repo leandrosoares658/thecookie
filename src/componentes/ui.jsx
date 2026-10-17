@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import s from "./ui.module.css";
 import { useLocation } from "react-router-dom";
 
 /** Estrela de quatro pontas da identidade. */
@@ -12,7 +13,7 @@ export function Estrela(props) {
 
 export function Tick() {
   return (
-    <svg className="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4"
+    <svg className={s.tick} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4"
       strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M5 13l4 4L19 7" />
     </svg>
@@ -41,9 +42,9 @@ export function IconeZap(props) {
 /** Onda que separa dois campos de cor. */
 export function Onda({ cor, virada = false }) {
   return (
-    <div className="onda">
+    <div className={s.onda}>
       <svg viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
-        <path fill={cor} d={virada
+        <path style={{ fill: cor }} d={virada
           ? "M0,36 C200,0 400,74 620,58 C830,42 1000,0 1200,30 L1200,0 L0,0 Z"
           : "M0,42 C220,96 420,6 640,32 C840,56 1010,92 1200,54 L1200,90 L0,90 Z"} />
       </svg>
@@ -67,17 +68,17 @@ export function Rev({ children, className = "", tag: Tag = "div", ...resto }) {
   }, []);
 
   return (
-    <Tag ref={ref} className={`rev ${visivel ? "visivel" : ""} ${className}`.trim()} {...resto}>
+    <Tag ref={ref} className={[s.rev, visivel && s.visivel, className].filter(Boolean).join(" ")} {...resto}>
       {children}
     </Tag>
   );
 }
 
 /** Cabeçalho padrão de seção. */
-export function Cabeca({ linha, titulo, texto, className = "", children }) {
+export function Cabeca({ linha, titulo, texto, clara = false, className = "", children }) {
   return (
-    <div className={`cabeca ${className}`.trim()}>
-      {linha && <p className="linha script">{linha}</p>}
+    <div className={[s.cabeca, clara && s.clara, className].filter(Boolean).join(" ")}>
+      {linha && <p className={`${s.linha} script`}>{linha}</p>}
       <h2>{titulo}</h2>
       {texto && <p>{texto}</p>}
       {children}
@@ -88,7 +89,7 @@ export function Cabeca({ linha, titulo, texto, className = "", children }) {
 /** Faixa vermelha no topo das páginas internas. */
 export function Capa({ titulo, texto, foto }) {
   return (
-    <header className="capa" style={foto ? { backgroundImage: `url(${foto})` } : undefined}>
+    <header className={s.capa} style={foto ? { backgroundImage: `url(${foto})` } : undefined}>
       <div className="wrap">
         <h1>{titulo}</h1>
         {texto && <p>{texto}</p>}

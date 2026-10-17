@@ -1,0 +1,9 @@
+.endereco { font-size: 1.05rem; font-weight: 600; margin-bottom: 1rem; }
+.aviso {
+  background: var(--creme); border-left: 4px solid var(--azul); border-radius: 10px;
+  padding: 1rem 1.2rem; font-size: 0.9rem; margin: 1.2rem 0;
+}
+.aviso code {
+  background: rgba(43, 29, 22, 0.1); padding: 0.1rem 0.35rem;
+  border-radius: 4px; font-size: 0.9em;
+}

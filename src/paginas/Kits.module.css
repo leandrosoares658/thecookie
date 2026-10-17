@@ -1,0 +1,27 @@
+.grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.card {
+  position: relative; background: var(--creme);
+  border: 1.5px solid rgba(43, 29, 22, 0.15); border-radius: var(--raio);
+  padding: 2rem 1.6rem 1.6rem; display: flex; flex-direction: column;
+}
+.card.destaque { border-color: var(--vermelho); border-width: 2.5px; }
+.selo {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: var(--vermelho); color: var(--creme); border-radius: 999px;
+  padding: 0.3rem 1rem; font-size: 0.7rem; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
+}
+.card h3 { color: var(--azul); font-size: 1.6rem; }
+.pessoas { font-size: 0.86rem; color: var(--suave); margin-bottom: 0.8rem; }
+.preco {
+  font-weight: 900; font-size: 2rem; color: var(--vermelho);
+  letter-spacing: -0.03em; margin-bottom: 1.2rem;
+}
+.card ul { list-style: none; display: grid; gap: 0.5rem; margin-bottom: 1.8rem; }
+.card li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.92rem; }
+.card :global(.btn) { margin-top: auto; }
+.regras li { font-size: 0.93rem; }
+
+@media (max-width: 900px) {
+  .grade { grid-template-columns: 1fr; }
+}
