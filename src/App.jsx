@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Cabecalho from "./componentes/Cabecalho";
 import Rodape from "./componentes/Rodape";
-import { TopoAoNavegar } from "./componentes/ui";
+import { TopoAoNavegar, VoltarAoTopo } from "./componentes/ui";
 
 import { MARCA } from "./data/marca";
 
@@ -47,6 +47,7 @@ export default function App() {
         </Routes>
       </main>
       <Rodape />
+      <VoltarAoTopo />
     </>
   );
 }

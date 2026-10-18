@@ -88,8 +88,17 @@
   cursor: pointer;
 }
 
+/* Computador: o invólucro some do layout e só a barra do menu gruda no topo,
+   para o logotipo grande não ocupar a tela inteira ao rolar. */
+.fixo {
+  display: contents;
+}
+
 .navbar {
   background: var(--vermelho);
+  position: sticky;
+  top: 0;
+  z-index: 60;
 }
 
 .navbar-in {
@@ -156,6 +165,18 @@
 
   .menu-toggle {
     display: block;
+  }
+
+  /* Celular: gruda o logotipo com o botão de menu, e o menu abre logo abaixo */
+  .fixo {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 60;
+  }
+
+  .navbar {
+    position: static;
   }
 
   .navbar-in {

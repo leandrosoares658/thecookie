@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { logo } from "../assets";
 import { MARCA, MENU, REDES, zap, real } from "../data/marca";
 import { useCarrinho } from "../carrinho/CarrinhoContext";
-import { LinkRede } from "./ui";
+import { LinkRede, subirAoTopo } from "./ui";
 import s from "./Cabecalho.module.css";
 
 export default function Cabecalho() {
@@ -31,10 +31,14 @@ export default function Cabecalho() {
         </div>
       </div>
 
+      {/* parte fixa ao rolar: no computador só a barra do menu, no celular o
+          logotipo com o botão de menu (ver .fixo no CSS) */}
+      <div className={s.fixo}>
       {/* faixa principal: só o logotipo, centralizado */}
       <header className={s.topo}>
         <div className={`wrap ${s.topoIn}`}>
-          <Link to="/" className={s.topoMarca} onClick={() => setMenuAberto(false)}>
+          {/* já na Home, a troca de rota não acontece: sobe na mão */}
+          <Link to="/" className={s.topoMarca} onClick={() => { setMenuAberto(false); subirAoTopo(); }}>
             <img src={logo} alt="The Cookie — cookies artesanais" />
           </Link>
 
@@ -65,6 +69,7 @@ export default function Cabecalho() {
           ))}
         </ul>
       </nav>
+      </div>
     </>
   );
 }

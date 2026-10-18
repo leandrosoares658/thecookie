@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { Capa, Rev } from "../componentes/ui";
+import { Rev } from "../componentes/ui";
 import Newsletter from "../componentes/Newsletter";
 import { vitrine, pilha } from "../assets";
 import { HISTORIA, VALORES } from "../data/conteudo";
@@ -7,21 +6,36 @@ import { MARCA } from "../data/marca";
 import s from "./Sobre.module.css";
 import l from "../estilos/layout.module.css";
 
+/* Foto da Keth: basta salvar src/assets/keth.jpg (ou .jpeg, .png, .webp) que
+   ela entra sozinha. Enquanto o arquivo não existe, a capa usa a vitrine. */
+const FOTOS_KETH = import.meta.glob("../assets/keth.{jpg,jpeg,png,webp}", {
+  eager: true,
+  import: "default",
+});
+const fotoKeth = Object.values(FOTOS_KETH)[0];
+
 export default function Sobre() {
   return (
     <>
-      <Capa titulo="A marca" texto={MARCA.assinatura} />
-
-      <section className={l.bloco}>
-        <div className={`wrap ${l.duasColunas}`}>
-          <Rev className={l.moldura}>
-            <img src={vitrine} alt="A loja da The Cookie" loading="lazy" />
-          </Rev>
-          <div>
-            <h2>Como começou</h2>
+      {/* capa com a foto da Keth ao fundo e a história por cima */}
+      <section className={s.historia}>
+        <img
+          className={s.historiaFoto}
+          src={fotoKeth || vitrine}
+          alt={fotoKeth ? "Keth, idealizadora da The Cookie" : "A vitrine da The Cookie"}
+        />
+        <div className={`wrap ${s.historiaIn}`}>
+          <div className={s.historiaTexto}>
+            <p className={`${s.historiaLinha} script`}>{MARCA.assinatura}</p>
+            <h1>A Keth e a The Cookie</h1>
+            <p className={s.historiaDestaque}>
+              Por trás de cada fornada tem uma pessoa: a Keth, que idealizou a marca e faz a
+              The Cookie acontecer todos os dias.
+            </p>
             {HISTORIA.map((p) => (
               <p key={p.slice(0, 24)}>{p}</p>
             ))}
+            <p className={`${s.assinatura} script`}>Keth, idealizadora da The Cookie</p>
           </div>
         </div>
       </section>

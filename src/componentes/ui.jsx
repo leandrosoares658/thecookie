@@ -125,6 +125,41 @@ export function Capa({ titulo, texto, foto }) {
   );
 }
 
+/** Rola até o início da página, suave (ou direto, para quem pediu menos movimento). */
+export function subirAoTopo() {
+  const semMovimento = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: semMovimento ? "auto" : "smooth" });
+}
+
+/** Botão flutuante que aparece depois de rolar um pouco e leva ao início da página. */
+export function VoltarAoTopo() {
+  const [visivel, setVisivel] = useState(false);
+
+  useEffect(() => {
+    const conferir = () => setVisivel(window.scrollY > 600);
+    conferir();
+    window.addEventListener("scroll", conferir, { passive: true });
+    return () => window.removeEventListener("scroll", conferir);
+  }, []);
+
+  return (
+    <button
+      type="button"
+      className={[s.topo, visivel && s.topoVisivel].filter(Boolean).join(" ")}
+      onClick={subirAoTopo}
+      aria-label="Voltar ao início da página"
+      title="Voltar ao início"
+      tabIndex={visivel ? 0 : -1}
+      aria-hidden={!visivel}
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"
+        strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 19V5M5 12l7-7 7 7" />
+      </svg>
+    </button>
+  );
+}
+
 /** Sobe para o topo a cada troca de rota. */
 export function TopoAoNavegar() {
   const { pathname } = useLocation();

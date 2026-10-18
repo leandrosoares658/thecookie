@@ -36,3 +36,22 @@
 @media (prefers-reduced-motion: reduce) {
   .rev { opacity: 1; transform: none; }
 }
+
+/* botão de voltar ao topo: só no computador, canto inferior direito (o WhatsApp
+   fica à esquerda). No celular não aparece: o logotipo fixo no topo já sobe. */
+.topo {
+  position: fixed; right: 20px; bottom: 20px; z-index: 69;
+  width: 46px; height: 46px; border-radius: 50%; border: 0; cursor: pointer;
+  display: grid; place-items: center;
+  background: var(--azul); color: var(--creme);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.26);
+  opacity: 0; transform: translateY(12px); pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s, background 0.2s;
+}
+.topo svg { width: 22px; height: 22px; }
+.topo:hover { background: var(--vermelho); }
+.topo-visivel { opacity: 1; transform: none; pointer-events: auto; }
+
+@media (max-width: 740px) {
+  .topo { display: none; }
+}

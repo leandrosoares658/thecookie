@@ -13,7 +13,8 @@
 .atalhos a:hover .atalho-num { opacity: 0.85; }
 
 /* ---------- blocos de serviço ---------- */
-.servico { padding: clamp(3rem, 6.5vw, 5rem) 0; scroll-margin-top: 1rem; }
+/* scroll-margin-top: o atalho para a seção para abaixo do menu fixo */
+.servico { padding: clamp(3rem, 6.5vw, 5rem) 0; scroll-margin-top: 5.5rem; }
 .tema-creme { background: var(--creme); }
 .tema-bege { background: var(--bege-claro); }
 .tema-azul { background: var(--azul); color: var(--creme); }

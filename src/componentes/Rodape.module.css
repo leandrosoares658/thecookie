@@ -13,8 +13,11 @@
 .rodape { background: var(--azul); color: var(--creme); padding: 3.2rem 0 1.8rem; }
 .grid {
   display: grid; grid-template-columns: 1.4fr 1fr 1.1fr 1fr;
-  gap: 2.2rem; padding-bottom: 2.2rem;
+  gap: 2.2rem;
 }
+/* respiro antes da linha final; o .rodape na frente vence o `padding: 0 24px`
+   do .wrap, que zerava este espaço */
+.rodape .grid { padding-bottom: 2.2rem; }
 .marca { width: 190px; margin-bottom: 1rem; }
 .grid p { font-size: 0.9rem; color: rgba(245, 233, 216, 0.74); max-width: 34ch; }
 .grid h4 {
