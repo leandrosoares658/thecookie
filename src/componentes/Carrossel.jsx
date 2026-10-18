@@ -8,11 +8,37 @@ const INTERVALO = 7000;
 /* mesmo corte do @media do Carrossel.module.css */
 const MOBILE = "(max-width: 600px)";
 
+/** true enquanto a tela estiver no corte de celular */
+function useCelular() {
+  const consulta = () => typeof window !== "undefined" && !!window.matchMedia?.(MOBILE).matches;
+  const [celular, setCelular] = useState(consulta);
+
+  useEffect(() => {
+    const mq = window.matchMedia?.(MOBILE);
+    if (!mq) return;
+    const mudou = () => setCelular(mq.matches);
+    mq.addEventListener("change", mudou);
+    return () => mq.removeEventListener("change", mudou);
+  }, []);
+
+  return celular;
+}
+
 export default function Carrossel() {
+  const celular = useCelular();
+  // banner sem arte vertical fica só no computador: a arte larga não cabe no celular
+  const banners = celular ? BANNERS.filter((b) => BANNERS_MOBILE_IMG[b.imagem]) : BANNERS;
+  const total = banners.length;
+
   const [atual, setAtual] = useState(0);
   const [pausado, setPausado] = useState(false);
 
-  const ir = useCallback((i) => setAtual((i + BANNERS.length) % BANNERS.length), []);
+  const ir = useCallback((i) => setAtual((i + total) % total), [total]);
+
+  // a lista muda de tamanho ao girar a tela: não deixa o índice apontar para o vazio
+  useEffect(() => {
+    if (atual >= total) setAtual(0);
+  }, [atual, total]);
 
   useEffect(() => {
     if (pausado) return;
@@ -30,13 +56,14 @@ export default function Carrossel() {
       aria-roledescription="carrossel"
     >
       <div className={s.trilho} style={{ transform: `translateX(-${atual * 100}%)` }}>
-        {BANNERS.map((b, i) => {
+        {banners.map((b, i) => {
           // endereço externo (Anota AI) abre em outra aba; rota do site navega por dentro
           const externo = /^https?:/.test(b.para);
           const Destino = externo ? "a" : Link;
           const destino = externo
             ? { href: b.para, target: "_blank", rel: "noreferrer" }
             : { to: b.para };
+          const mobile = BANNERS_MOBILE_IMG[b.imagem];
           return (
           <Destino
             key={b.imagem}
@@ -46,7 +73,7 @@ export default function Carrossel() {
             tabIndex={i === atual ? 0 : -1}
           >
             <picture>
-              <source media={MOBILE} srcSet={BANNERS_MOBILE_IMG[b.imagem]} />
+              {mobile && <source media={MOBILE} srcSet={mobile} />}
               <img
                 src={BANNERS_IMG[b.imagem]}
                 alt={b.alt}
@@ -62,7 +89,7 @@ export default function Carrossel() {
       <button className={`${s.seta} ${s.proximo}`} onClick={() => ir(atual + 1)} aria-label="Próximo banner">›</button>
 
       <ul className={s.pontos}>
-        {BANNERS.map((b, i) => (
+        {banners.map((b, i) => (
           <li key={b.imagem}>
             <button
               className={i === atual ? s.ativo : undefined}

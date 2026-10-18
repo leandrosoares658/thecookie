@@ -23,6 +23,11 @@ export const BANNERS = [
     para: "/kits",
     alt: "Brindes e presentes: carinho em forma de cookie. Para presentear, agradecer e surpreender.",
   },
+  {
+    imagem: "banner4",
+    para: MARCA.cardapio,
+    alt: "Cookie bom rende história. A primeira mordida. O cheiro pela casa. A disputa pelo último pedaço.",
+  },
 ];
 
 export const PILARES = [

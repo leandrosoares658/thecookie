@@ -19,18 +19,22 @@ import embalagem from "./embalagem.webp";
 import banner1 from "./banner-1.png";
 import banner2 from "./banner-2.png";
 import banner3 from "./banner-3.png";
+import banner4 from "./banner-4.png";
 import bannerMobile1 from "./BannerMobile-1.png";
 import bannerMobile2 from "./BannerMobile-2.png";
 import bannerMobile3 from "./BannerMobile-3.png";
+import bannerMobile4 from "./BannerMobile-4.png";
 
 /** artes dos banners da home */
-export const BANNERS_IMG = { banner1, banner2, banner3 };
+export const BANNERS_IMG = { banner1, banner2, banner3, banner4 };
 
-/** versões verticais para celular — mesma chave da arte de desktop equivalente */
+/** versões verticais para celular — mesma chave da arte de desktop equivalente.
+    Banner sem versão aqui não aparece no celular. */
 export const BANNERS_MOBILE_IMG = {
   banner1: bannerMobile1, // massa congelada
   banner2: bannerMobile3, // lançamento 01/11
   banner3: bannerMobile2, // brindes e presentes
+  banner4: bannerMobile4, // cookie bom rende história
 };
 
 export {
