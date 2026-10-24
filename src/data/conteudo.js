@@ -112,31 +112,6 @@ export const REVENDA = {
   margem: "A sugestão de preço final é a partir de R$ 18,00.",
 };
 
-/* ---------- onde encontrar: mapa ---------- */
-/* Cada ponto vira um pino no mapa e um item na lista ao lado.
-   lat/lng: no Google Maps, clique com o botão direito no local e clique nos
-   números que aparecem no topo do menu — eles vão copiados como "lat, lng".
-   modelo: "massa" (assa no forno) ou "pronto" (cookie pronto, no display). */
-
-// ⚠️ coordenada aproximada do bairro Ibituruna — troque pela da porta da loja
-export const LOJA_PROPRIA = {
-  nome: "The Cookie — loja própria",
-  endereco: "Ibituruna, Montes Claros, MG",
-  lat: -16.7346,
-  lng: -43.8838,
-};
-
-export const PONTOS_REVENDA = [
-  // exemplo de como preencher:
-  // {
-  //   nome: "Café do Centro",
-  //   endereco: "Rua Dr. Santos, 100 — Centro, Montes Claros",
-  //   modelo: "massa",
-  //   lat: -16.7280,
-  //   lng: -43.8640,
-  // },
-];
-
 /* ---------- institucional ---------- */
 export const HISTORIA = [
   "Foi entre receitas, fornadas e a alegria de dividir o que saía do forno que a nossa história começou. Dessa experiência veio a ideia de levar esse aconchego para mais pessoas, em forma de cookies artesanais com toque americano.",
@@ -149,42 +124,4 @@ export const VALORES = [
   { titulo: "Massa descansada", texto: "A massa vai ao frio antes de assar. É o que dá a borda crocante e o miolo que cede." },
   { titulo: "Nada de reaproveitar", texto: "O que não vende no dia não volta para a vitrine amanhã." },
   { titulo: "Receita fechada", texto: "A formulação é da casa e não muda por fornecedor nem por custo." },
-];
-
-export const DUVIDAS = [
-  {
-    pergunta: "Quanto tempo o cookie dura?",
-    resposta:
-      "Cinco dias em pote fechado, em temperatura ambiente. Para recuperar o centro macio, dez segundos no micro-ondas resolvem.",
-  },
-  {
-    pergunta: "E a massa congelada?",
-    resposta:
-      "Até três meses no congelador. Vai direto do freezer para o forno, sem descongelar: 12 minutos a 190 °C no turbo ou 220 °C no convencional.",
-  },
-  {
-    pergunta: "Posso escolher os sabores da caixa?",
-    resposta:
-      "Pode, inclusive repetindo o mesmo sabor. É só anotar na observação do pedido quais você quer em cada caixa.",
-  },
-  {
-    pergunta: "Vocês entregam?",
-    resposta:
-      "Entregamos na cidade toda, com taxa por região. Pedidos feitos até 15h saem no mesmo dia; depois disso, na manhã seguinte.",
-  },
-  {
-    pergunta: "Tem opção sem glúten ou sem lactose?",
-    resposta:
-      "Ainda não. A massa leva farinha de trigo e manteiga, e tudo é assado na mesma cozinha — então não indicamos para quem tem alergia ou doença celíaca.",
-  },
-  {
-    pergunta: "Como funciona a revenda?",
-    resposta:
-      "São dois modelos: massa congelada, que você assa no seu ponto, ou cookie pronto, que a gente entrega embalado e reabastece. Nos dois o display de balcão vai junto, e o pedido mínimo é de 60 unidades.",
-  },
-  {
-    pergunta: "Qual o prazo para encomenda de festa?",
-    resposta:
-      "72 horas para os kits prontos. Para mais de 100 pessoas, fale com a central — o prazo depende do tamanho.",
-  },
 ];

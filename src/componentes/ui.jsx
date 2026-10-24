@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import s from "./ui.module.css";
 import { useLocation } from "react-router-dom";
+import { SEO, SEO_NAO_ENCONTRADA, SITE } from "../data/seo";
 
 /** Estrela de quatro pontas da identidade. */
 export function Estrela(props) {
@@ -189,6 +190,44 @@ export function VoltarAoTopo({ ocultarEm = [] }) {
       </svg>
     </button>
   );
+}
+
+/** cria (se faltar) e preenche uma tag do <head> */
+function tagHead(seletor, criar, valores) {
+  let el = document.head.querySelector(seletor);
+  if (!el) {
+    el = document.createElement(criar.tag);
+    Object.entries(criar.attrs).forEach(([k, v]) => el.setAttribute(k, v));
+    document.head.appendChild(el);
+  }
+  Object.entries(valores).forEach(([k, v]) => el.setAttribute(k, v));
+  return el;
+}
+
+/** A cada troca de rota, aplica o título, a descrição e o endereço canônico
+ *  da página (data/seo.js). Página fora da lista não é indexada. */
+export function SeoDaPagina() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const caminho = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
+    const pagina = SEO[caminho];
+    const { titulo, descricao } = pagina || SEO_NAO_ENCONTRADA;
+    const url = SITE + (caminho === "/" ? "/" : caminho);
+
+    document.title = titulo;
+    tagHead('meta[name="description"]', { tag: "meta", attrs: { name: "description" } }, { content: descricao });
+    tagHead('meta[property="og:title"]', { tag: "meta", attrs: { property: "og:title" } }, { content: titulo });
+    tagHead('meta[property="og:description"]', { tag: "meta", attrs: { property: "og:description" } }, { content: descricao });
+    tagHead('meta[property="og:url"]', { tag: "meta", attrs: { property: "og:url" } }, { content: url });
+    tagHead('link[rel="canonical"]', { tag: "link", attrs: { rel: "canonical" } }, { href: url });
+
+    const robots = document.head.querySelector('meta[name="robots"]');
+    if (pagina) robots?.remove();
+    else tagHead('meta[name="robots"]', { tag: "meta", attrs: { name: "robots" } }, { content: "noindex" });
+  }, [pathname]);
+
+  return null;
 }
 
 /** Sobe para o topo a cada troca de rota. */

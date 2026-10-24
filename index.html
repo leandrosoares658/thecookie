@@ -3,12 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Cookie — Cookies Artesanais</title>
+    <!-- SEO: estes são os valores da Home. Nas outras páginas, título,
+         descrição e endereço canônico são trocados pelo src/data/seo.js. -->
+    <title>The Cookie | Cookies artesanais em Montes Claros</title>
     <meta
       name="description"
-      content="Cookies artesanais de 150 g em seis sabores. Peça no delivery, monte sua caixa, encomende para festas ou revenda a marca."
+      content="Cookies artesanais americanos em Montes Claros: delivery na cidade, massa congelada para assar em casa, brindes corporativos e revenda para o seu negócio."
     />
+    <link rel="canonical" href="https://thecookie.com.br/" />
+
+    <!-- prévia do link no WhatsApp, Instagram, Facebook e X (eles não rodam o
+         JavaScript do site: leem só o que está aqui) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="The Cookie" />
+    <meta property="og:title" content="The Cookie | Cookies artesanais em Montes Claros" />
+    <meta
+      property="og:description"
+      content="Cookies artesanais americanos em Montes Claros: delivery, massa congelada para assar em casa, brindes corporativos e revenda."
+    />
+    <meta property="og:url" content="https://thecookie.com.br/" />
+    <meta property="og:image" content="https://thecookie.com.br/og-imagem.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Presentes da The Cookie: caixinha kraft, caixa azul, pote com laço e cookie embalado" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- ficha do negócio para o Google (busca local e mapa). Sem rua: a
+         produção é em casa. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Bakery",
+        "name": "The Cookie",
+        "description": "Cookies artesanais americanos: delivery, massa congelada para assar em casa, brindes corporativos e revenda.",
+        "url": "https://thecookie.com.br/",
+        "logo": "https://thecookie.com.br/icone-192.png",
+        "image": "https://thecookie.com.br/og-imagem.jpg",
+        "telephone": "+55-38-99156-6092",
+        "email": "sac@thecookie.com.br",
+        "servesCuisine": "Cookies artesanais",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Montes Claros",
+          "addressRegion": "MG",
+          "postalCode": "39400-000",
+          "addressCountry": "BR"
+        },
+        "areaServed": { "@type": "City", "name": "Montes Claros" },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "10:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Sunday",
+            "opens": "14:00",
+            "closes": "17:00"
+          }
+        ],
+        "hasMenu": "https://pedido.anota.ai/loja/the-cookie-co",
+        "sameAs": ["https://instagram.com/thecookiecoficial"]
+      }
+    </script>
     <meta name="theme-color" content="#8B1E2D" />
+    <!-- ícone da aba e dos favoritos: a logo redonda (selo) da The Cookie -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/icone-192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

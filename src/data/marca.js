@@ -45,8 +45,6 @@ export const MENU = [
   { rotulo: "Brindes e presentes", para: "/kits" },
   { rotulo: "Faça em casa", para: "/faca-em-casa" },
   { rotulo: "Seja revendedor", para: "/revenda" },
-  // oculto até termos vários pontos de revenda — para voltar, descomente aqui e a rota no App.jsx
-  // { rotulo: "Onde encontrar", para: "/lojas" },
 ];
 
 /** Formata número em real brasileiro. */

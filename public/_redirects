@@ -1,1 +1,21 @@
-/*  /index.html  200
+# Netlify: um endereço por linha, na ordem. Arquivos que existem (imagens,
+# JS, sitemap) são servidos antes destas regras.
+
+# endereços antigos: redireciona de vez (301), para o Google trocar o link
+/produtos             https://pedido.anota.ai/loja/the-cookie-co  301
+/produtos/*           https://pedido.anota.ai/loja/the-cookie-co  301
+/carrinho             https://pedido.anota.ai/loja/the-cookie-co  301
+/delivery             https://pedido.anota.ai/loja/the-cookie-co  301
+/servicos             /                                           301
+/lojas                /                                           301
+
+# páginas do site (o React monta a página no navegador)
+/                     /index.html  200
+/sobre                /index.html  200
+/kits                 /index.html  200
+/faca-em-casa         /index.html  200
+/revenda              /index.html  200
+
+# qualquer outro endereço: mostra a página "não encontrada" com status 404,
+# para o Google não indexar endereço que não existe
+/*                    /index.html  404

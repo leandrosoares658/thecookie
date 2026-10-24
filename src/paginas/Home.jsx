@@ -15,6 +15,9 @@ import l from "../estilos/layout.module.css";
 export default function Home() {
   return (
     <>
+      {/* título principal da página para o Google e leitores de tela: os banners são imagem */}
+      <h1 className="oculto">The Cookie: cookies artesanais em Montes Claros</h1>
+
       <Carrossel />
 
       {/* a faixa dos pilares, mantida como estava */}

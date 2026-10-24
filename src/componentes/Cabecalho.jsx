@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { logo } from "../assets";
-import { MARCA, MENU, REDES, zap, real } from "../data/marca";
-import { useCarrinho } from "../carrinho/CarrinhoContext";
+import { MARCA, MENU, REDES, zap } from "../data/marca";
 import { IconeZap, LinkRede, subirAoTopo } from "./ui";
 import s from "./Cabecalho.module.css";
 
 export default function Cabecalho() {
   const [menuAberto, setMenuAberto] = useState(false);
-  const { unidades } = useCarrinho();
 
   return (
     <>

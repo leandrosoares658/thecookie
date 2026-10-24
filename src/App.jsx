@@ -1,24 +1,20 @@
 import { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Cabecalho from "./componentes/Cabecalho";
 import Rodape from "./componentes/Rodape";
-import { TopoAoNavegar, VoltarAoTopo } from "./componentes/ui";
+import { SeoDaPagina, TopoAoNavegar, VoltarAoTopo } from "./componentes/ui";
 
 import { MARCA } from "./data/marca";
 
 import Home from "./paginas/Home";
-import Produto from "./paginas/Produto";
 import Kits from "./paginas/Kits";
-import Delivery from "./paginas/Delivery";
-// import Lojas from "./paginas/Lojas"; // oculta por enquanto (ver MENU em data/marca.js)
 import Revenda from "./paginas/Revenda";
-import Servicos from "./paginas/Servicos";
 import Sobre from "./paginas/Sobre";
 import FacaEmCasa from "./paginas/FacaEmCasa";
-import Carrinho from "./paginas/Carrinho";
 import NaoEncontrada from "./paginas/NaoEncontrada";
 
-/** Manda quem abrir /produtos (link antigo, Google) para o cardápio no Anota AI. */
+/** Manda quem abrir um endereço antigo de compra (cardápio, produto, carrinho,
+ *  delivery — links antigos, Google) para o cardápio no Anota AI. */
 function IrParaCardapio() {
   useEffect(() => {
     window.location.replace(MARCA.cardapio);
@@ -30,22 +26,22 @@ export default function App() {
   return (
     <>
       <TopoAoNavegar />
+      <SeoDaPagina />
       <Cabecalho />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* o cardápio agora é o do Anota AI: o endereço antigo leva para lá */}
+          {/* o cardápio agora é o do Anota AI: os endereços antigos de compra levam para lá */}
           <Route path="/produtos" element={<IrParaCardapio />} />
-          <Route path="/produtos/:slug" element={<Produto />} />
+          <Route path="/produtos/:slug" element={<IrParaCardapio />} />
+          <Route path="/carrinho" element={<IrParaCardapio />} />
+          <Route path="/delivery" element={<IrParaCardapio />} />
           <Route path="/kits" element={<Kits />} />
-          <Route path="/delivery" element={<Delivery />} />
-          {/* "Onde encontrar" oculta até termos vários pontos de revenda */}
-          {/* <Route path="/lojas" element={<Lojas />} /> */}
           <Route path="/revenda" element={<Revenda />} />
-          <Route path="/servicos" element={<Servicos />} />
+          {/* a página de serviços saiu: o endereço antigo leva para a Home */}
+          <Route path="/servicos" element={<Navigate to="/" replace />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/faca-em-casa" element={<FacaEmCasa />} />
-          <Route path="/carrinho" element={<Carrinho />} />
           <Route path="*" element={<NaoEncontrada />} />
         </Routes>
       </main>

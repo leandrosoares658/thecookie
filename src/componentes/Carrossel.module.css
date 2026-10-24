@@ -7,6 +7,13 @@
 .trilho {
   display: flex;
   transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.3, 1);
+  /* o deslize lateral fica com o carrossel; a rolagem vertical, com a página */
+  touch-action: pan-y;
+}
+
+/* enquanto o dedo arrasta, o banner segue o dedo sem atraso */
+.trilho.arrastando {
+  transition: none;
 }
 
 .slide {
