@@ -1,3 +1,5 @@
+import { MARCA } from "./marca";
+
 /* ==========================================================================
    OS QUATRO SERVIÇOS DA THE COOKIE
 
@@ -79,6 +81,7 @@ export const SERVICOS = [
     tema: "creme",
     cta: { rotulo: "Pedir orçamento", para: "/kits" },
     zap: "Oi! Queria um orçamento de presentes/brindes corporativos.",
+    numero: MARCA.whatsappComercial, // brindes vão para o comercial
   },
   {
     id: "massa",

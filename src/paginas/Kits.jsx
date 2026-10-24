@@ -1,6 +1,6 @@
 import { Rev } from "../componentes/ui";
 import { presente, brindeClientes, brindeColaboradores, brindeEventos } from "../assets";
-import { zap } from "../data/marca";
+import { MARCA, zap } from "../data/marca";
 import s from "./Kits.module.css";
 import l from "../estilos/layout.module.css";
 
@@ -49,7 +49,7 @@ export default function Kits() {
               marca junto de uma experiência deliciosa.
             </p>
             <div className={s.capaBotoes}>
-              <a className="btn btn-v grande" href={zap(ZAP_CORPORATIVO)} target="_blank" rel="noreferrer">
+              <a className="btn btn-v grande" href={zap(ZAP_CORPORATIVO, MARCA.whatsappComercial)} target="_blank" rel="noreferrer">
                 Solicitar orçamento corporativo
               </a>
             </div>
@@ -78,7 +78,7 @@ export default function Kits() {
               Converse com a gente sobre quantidades, tamanhos, sabores e opções de
               personalização.
             </p>
-            <a className="btn btn-v grande" href={zap(ZAP_CORPORATIVO)} target="_blank" rel="noreferrer">
+            <a className="btn btn-v grande" href={zap(ZAP_CORPORATIVO, MARCA.whatsappComercial)} target="_blank" rel="noreferrer">
               Solicitar orçamento corporativo
             </a>
           </div>

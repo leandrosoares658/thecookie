@@ -1,20 +1,32 @@
 import { Rev, Tick } from "../componentes/ui";
-import { embalagem, cookieClose, bite, vitrine } from "../assets";
-import { USOS, PREPARO, VIDEO_YOUTUBE } from "../data/massa";
+import { embalagem, cookieClose, massaCaixa, massaEmbalada } from "../assets";
+import { USOS, TUTORIAL, VIDEO_YOUTUBE } from "../data/massa";
+import rolo from "../assets/tutorial/rolo.webp";
+import fatias from "../assets/tutorial/fatias.webp";
+import assadeira from "../assets/tutorial/assadeira.webp";
+import forno from "../assets/tutorial/forno.webp";
+import airfryer from "../assets/tutorial/airfryer.webp";
+import cookies from "../assets/tutorial/cookies.webp";
+import fornoTopo from "../assets/tutorial/forno-topo.webp";
 import { MARCA, zap } from "../data/marca";
 import s from "./FacaEmCasa.module.css";
 import l from "../estilos/layout.module.css";
 
 /* fotos dos cards de uso, pela chave em data/massa.js */
-const FOTOS_USO = { bite, vitrine, embalagem };
+const FOTOS_USO = { massaCaixa, massaEmbalada, embalagem };
+
+/* desenhos do tutorial, recortados do folheto que vai na caixa */
+const DESENHOS = { rolo, fatias, assadeira, forno, airfryer, cookies };
 
 /* Vídeo em arquivo: basta salvar src/assets/tutorial.mp4 (ou .webm) que ele
-   entra sozinho. O YouTube, se preenchido em data/massa.js, tem prioridade. */
+   entra sozinho, acima dos passos. O YouTube, se preenchido em data/massa.js,
+   tem prioridade. */
 const VIDEOS = import.meta.glob("../assets/tutorial.{mp4,webm}", {
   eager: true,
   import: "default",
 });
 const videoArquivo = Object.values(VIDEOS)[0];
+const comVideo = Boolean(VIDEO_YOUTUBE || videoArquivo);
 
 function Video() {
   if (VIDEO_YOUTUBE) {
@@ -35,14 +47,7 @@ function Video() {
       </video>
     );
   }
-  return (
-    <div className={s.videoVazio}>
-      <span className={s.play} aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
-      </span>
-      <p>Vídeo tutorial em breve</p>
-    </div>
-  );
+  return null;
 }
 
 export default function FacaEmCasa() {
@@ -80,7 +85,7 @@ export default function FacaEmCasa() {
         <div className={`wrap ${s.usos}`}>
           {USOS.map((u) => (
             <Rev tag="article" className={s.uso} key={u.titulo}>
-              <img src={FOTOS_USO[u.foto]} alt={u.alt} loading="lazy" />
+              <img src={FOTOS_USO[u.foto]} alt={u.alt} loading="lazy" style={u.foco ? { objectPosition: u.foco } : undefined} />
               <div className={s.usoTexto}>
                 <h2>{u.titulo}</h2>
                 <p>{u.texto}</p>
@@ -98,28 +103,67 @@ export default function FacaEmCasa() {
         </div>
       </section>
 
-      {/* tutorial: vídeo + passo a passo */}
+      {/* tutorial: o folheto da caixa, passo a passo, com os desenhos */}
       <section className={s.tutorial} id="tutorial">
-        <div className={`wrap ${s.tutorialGrid}`}>
-          <div className={s.video}>
-            <Video />
+        <div className="wrap">
+          <div className={s.tutorialCabeca}>
+            <img className={s.tutorialEnfeite} src={fornoTopo} alt="" loading="lazy" />
+            <div>
+              <p className={`${s.tutorialLinha} script`}>Hoje sua casa vai ter cheiro de cookie.</p>
+              <h2>Como assar sua massa</h2>
+            </div>
           </div>
-          <div>
-            <p className={s.etiquetaClara}>Tutorial</p>
-            <h2>À primeira mordida</h2>
-            <p className={s.tutorialIntro}>
-              Mantenha a massa congelada, corte em discos conforme as orientações de preparo e asse
-              no forno ou na air fryer. Depois, é só escolher: saborear, servir ou vender.
-            </p>
-            <ol className={s.passos}>
-              {PREPARO.map((passo, i) => (
-                <li key={passo}>
-                  <span className={s.passoNum}>{i + 1}</span>
-                  <span>{passo}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
+
+          {comVideo && (
+            <div className={s.video}>
+              <Video />
+            </div>
+          )}
+
+          <ol className={s.passos}>
+            {TUTORIAL.map((passo, i) => (
+              <Rev tag="li" className={s.passo} key={passo.titulo}>
+                <span className={s.passoNum}>{i + 1}</span>
+                <div className={s.passoCorpo}>
+                  <h3>{passo.titulo}</h3>
+
+                  {passo.texto && <p>{passo.texto}</p>}
+
+                  {passo.aparelhos && (
+                    <div className={s.aparelhos}>
+                      {passo.aparelhos.map((a) => (
+                        <div className={s.aparelho} key={a.nome}>
+                          <img src={DESENHOS[a.desenho]} alt="" loading="lazy" />
+                          <div>
+                            <b className={s.aparelhoNome}>{a.nome}</b>
+                            <span className={s.temperatura}>{a.temperatura}</span>
+                            {a.texto.map((linha) => (
+                              <p key={linha}>{linha}</p>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {passo.rendimento && (
+                  <ul className={s.rendimento}>
+                    {passo.rendimento.map((r) => (
+                      <li key={r}>{r}</li>
+                    ))}
+                  </ul>
+                )}
+
+                {passo.desenho && (
+                  <img className={s.desenho} src={DESENHOS[passo.desenho]} alt="" loading="lazy" />
+                )}
+              </Rev>
+            ))}
+          </ol>
+
+          <p className={s.aviso}>O tempo pode variar conforme o aparelho. Acompanhe o preparo.</p>
+          <p className={s.fechoTutorial}>Assou. Esfriou. Aproveitou.</p>
         </div>
       </section>
     </>

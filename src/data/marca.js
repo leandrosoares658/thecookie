@@ -13,6 +13,8 @@ export const MARCA = {
 
   whatsapp: "5538991566092",
   whatsappVisivel: "(38) 99156-6092",
+  /** número comercial: recebe revenda e brindes/presentes */
+  whatsappComercial: "5538991852721",
   email: "comercialthecookie@gmail.com",
   emailSac: "sac@thecookie.com.br",
 
@@ -29,9 +31,10 @@ export const MARCA = {
   ],
 };
 
-/** Monta o link do WhatsApp já com a mensagem preenchida. */
-export const zap = (mensagem = "Oi! Vim pelo site.") =>
-  `https://wa.me/${MARCA.whatsapp}?text=${encodeURIComponent(mensagem)}`;
+/** Monta o link do WhatsApp já com a mensagem preenchida.
+ *  `numero` troca o destino (ex.: MARCA.whatsappComercial); sem ele, vai para a central. */
+export const zap = (mensagem = "Oi! Vim pelo site.", numero = MARCA.whatsapp) =>
+  `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
 export const REDES = [
   { nome: "Instagram", url: `https://instagram.com/${MARCA.instagram}` },

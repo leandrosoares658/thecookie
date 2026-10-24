@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Capa, Rev, Tick } from "../componentes/ui";
 import { vitrine } from "../assets";
 import { REVENDA } from "../data/conteudo";
-import { zap } from "../data/marca";
+import { MARCA, zap } from "../data/marca";
 import s from "./Revenda.module.css";
 import l from "../estilos/layout.module.css";
 
@@ -44,7 +44,7 @@ export default function Revenda() {
     ]
       .filter(Boolean)
       .join("\n");
-    window.open(zap(texto), "_blank", "noopener");
+    window.open(zap(texto, MARCA.whatsappComercial), "_blank", "noopener");
   };
 
   return (

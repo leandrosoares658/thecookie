@@ -69,7 +69,7 @@ export default function Servicos() {
                 <Link to={item.cta.para} className={`btn ${s.principal}`}>
                   {item.cta.rotulo}
                 </Link>
-                <a className={`btn ${s.secundario}`} href={zap(item.zap)} target="_blank" rel="noreferrer">
+                <a className={`btn ${s.secundario}`} href={zap(item.zap, item.numero)} target="_blank" rel="noreferrer">
                   Falar no WhatsApp
                 </a>
               </div>

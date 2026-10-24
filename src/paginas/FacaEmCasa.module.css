@@ -6,7 +6,7 @@
 }
 .capa-foto {
   position: absolute; inset: 0; z-index: -2;
-  width: 100%; height: 100%; object-fit: cover; object-position: 70% 40%;
+  width: 100%; height: 100%; object-fit: cover; object-position: 75% 50%;
 }
 .capa::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
@@ -26,21 +26,13 @@
 
 @media (max-width: 760px) {
   .capa { display: block; min-height: 0; }
-  .capa-foto { position: relative; inset: auto; z-index: auto; display: block; height: 52vh; max-height: 440px; object-position: 50% 40%; }
+  .capa-foto { position: relative; inset: auto; z-index: auto; display: block; height: 52vh; max-height: 440px; object-position: 62% 50%; }
   .capa::before {
     bottom: auto; height: 52vh; max-height: 440px; z-index: 1;
     background: linear-gradient(180deg, rgba(10, 42, 78, 0) 55%, var(--azul-fundo) 100%);
   }
   .capa-in { position: relative; z-index: 2; padding-top: 0.5rem; }
 }
-
-/* ---------- etiquetas e textos ---------- */
-.etiqueta-clara {
-  display: inline-block; border-radius: 999px; padding: 0.3rem 0.95rem;
-  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-.etiqueta-clara { background: rgba(245, 233, 216, 0.12); color: var(--bege); border: 1px solid rgba(215, 194, 167, 0.45); }
 
 /* ---------- usos ---------- */
 .usos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
@@ -56,40 +48,84 @@
 }
 
 
-/* ---------- tutorial ---------- */
+/* ---------- tutorial ----------
+   Segue o folheto que vai na caixa: cartões creme com borda vermelha,
+   número em círculo e o desenho de cada passo à direita. */
 .tutorial {
-  background: var(--azul); color: var(--creme);
+  background: var(--bege-claro);
   padding: clamp(3rem, 6.5vw, 5rem) 0; scroll-margin-top: 5rem;
 }
-.tutorial h2 { color: var(--creme); margin-bottom: 1rem; }
-.tutorial-intro { color: rgba(245, 233, 216, 0.88); margin-bottom: 1.6rem; }
-.tutorial-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; }
+.tutorial-cabeca {
+  display: flex; align-items: center; justify-content: center; gap: clamp(1rem, 3vw, 2rem);
+  text-align: center; margin-bottom: clamp(2rem, 4vw, 2.8rem);
+}
+.tutorial-enfeite { width: clamp(90px, 14vw, 150px); height: auto; flex-shrink: 0; }
+.tutorial-linha { color: var(--vermelho); font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.2; margin-bottom: 0.3rem; }
+.tutorial-cabeca h2 { color: var(--azul); }
 
-/* espaço do vídeo: sempre 16:9, com ou sem vídeo */
+/* vídeo: só aparece quando existir (ver data/massa.js) */
 .video {
   position: relative; aspect-ratio: 16 / 9; border-radius: var(--raio); overflow: hidden;
-  background: var(--azul-fundo); border: 3px solid var(--bege);
-  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.3);
+  background: var(--azul-fundo); border: 3px solid var(--vermelho);
+  max-width: 860px; margin: 0 auto clamp(2rem, 4vw, 2.8rem);
 }
 .video iframe, .video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
-.video-vazio {
-  position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 0.9rem;
-  color: var(--bege); text-align: center;
-}
-.video-vazio p { font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.85rem; }
-.play {
-  width: 74px; height: 74px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--vermelho); color: var(--creme);
-}
-.play svg { width: 34px; height: 34px; margin-left: 4px; }
 
-.passos { list-style: none; display: grid; gap: 0.9rem; }
-.passos li { display: flex; gap: 0.8rem; align-items: flex-start; color: rgba(245, 233, 216, 0.88); font-size: 0.95rem; }
+.passos { list-style: none; display: grid; gap: 1rem; max-width: 980px; margin: 0 auto; }
+.passo {
+  display: flex; align-items: center; gap: clamp(0.9rem, 2.5vw, 1.6rem);
+  background: var(--creme-alto); border: 2px solid var(--vermelho); border-radius: var(--raio);
+  padding: clamp(1rem, 2.5vw, 1.4rem) clamp(1rem, 3vw, 1.8rem);
+}
 .passo-num {
-  flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--bege); color: var(--azul); font-weight: 900; font-size: 0.85rem;
+  flex-shrink: 0; align-self: flex-start;
+  width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--vermelho); color: var(--creme);
+  font-weight: 900; font-size: 1.6rem; box-shadow: 0 0 0 4px var(--creme-alto), 0 0 0 6px var(--vermelho);
+}
+.passo-corpo { flex: 1; min-width: 0; }
+.passo h3 {
+  display: inline-block; color: var(--azul); font-size: 1.25rem;
+  background: var(--creme); border-radius: 8px; padding: 0.25rem 0.7rem; margin-bottom: 0.5rem;
+}
+.passo-corpo > p { color: var(--tinta); font-size: 0.97rem; line-height: 1.5; max-width: 46ch; }
+/* altura máxima igual para todos: os desenhos têm proporções bem diferentes */
+.desenho { flex-shrink: 0; width: auto; height: auto; max-width: clamp(140px, 26vw, 280px); max-height: 120px; }
+
+.rendimento {
+  list-style: none; flex-shrink: 0; border: 2px solid var(--vermelho); border-radius: 12px;
+  background: var(--creme-alto); text-align: center;
+}
+.rendimento li { padding: 0.45rem 0.9rem; font-weight: 900; color: var(--azul); font-size: 0.95rem; white-space: nowrap; }
+.rendimento li + li { border-top: 1.5px solid var(--vermelho); }
+
+/* passo 4: forno e air fryer lado a lado */
+.aparelhos { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-top: 0.3rem; }
+.aparelho {
+  display: flex; align-items: center; gap: 0.9rem;
+  border: 1.5px solid var(--bege); border-radius: 14px; padding: 0.9rem;
+}
+.aparelho img { width: clamp(64px, 9vw, 96px); height: auto; flex-shrink: 0; }
+.aparelho-nome { display: block; color: var(--azul); font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.95rem; }
+.temperatura {
+  display: inline-block; background: var(--vermelho); color: var(--creme);
+  font-weight: 900; font-size: 1.35rem; border-radius: 10px; padding: 0.1rem 0.7rem; margin: 0.3rem 0 0.4rem;
+}
+.aparelho p { font-size: 0.88rem; line-height: 1.4; margin: 0; }
+
+.aviso { text-align: center; font-style: italic; color: var(--suave); font-size: 0.88rem; margin: 1.4rem auto 1.2rem; }
+.fecho-tutorial {
+  max-width: 980px; margin: 0 auto; text-align: center;
+  background: var(--vermelho); color: var(--creme); border-radius: 999px;
+  padding: 0.9rem 1.4rem; font-weight: 900; font-size: clamp(1.2rem, 3vw, 1.7rem); letter-spacing: -0.01em;
 }
 
-@media (max-width: 900px) {
-  .tutorial-grid { grid-template-columns: 1fr; }
+@media (max-width: 760px) {
+  .tutorial-enfeite { display: none; }
+  .passo { flex-wrap: wrap; }
+  .passo-corpo { flex-basis: calc(100% - 52px - 1rem); }
+  /* no celular o desenho e o rendimento descem para baixo do texto */
+  .desenho { max-width: min(240px, 75%); margin: 0.2rem auto 0; }
+  .rendimento { margin-left: calc(52px + 0.9rem); }
+  .aparelhos { grid-template-columns: 1fr; }
 }
