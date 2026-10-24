@@ -1,2 +1,11 @@
-.linha { color: var(--vermelho); font-size: 1.7rem; line-height: 1.2; margin-bottom: 0.3rem; }
-.pagina h1 { color: var(--azul); margin-bottom: 0.8rem; }
+.linha {
+    color: var(--vermelho);
+    font-size: 1.7rem;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+}
+
+.pagina h1 {
+    color: var(--azul);
+    margin-bottom: 0.8rem;
+}

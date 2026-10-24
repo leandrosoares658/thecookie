@@ -15,6 +15,7 @@ import presente from "./presente.webp";
 import vitrine from "./vitrine.webp";
 import pessoa from "./pessoa.webp";
 import embalagem from "./embalagem.webp";
+import saboresRecheados from "./sabores-recheados.webp";
 
 import banner1 from "./banner-1.png";
 import banner2 from "./banner-2.png";
@@ -40,7 +41,7 @@ export const BANNERS_MOBILE_IMG = {
 export {
   logo, logoClaro, tag, bannerMobile1,
   pilha, ponto, bite, vermelho, navy, embalado, caixaAberta, cookieClose,
-  presente, vitrine, pessoa, embalagem,
+  presente, vitrine, pessoa, embalagem, saboresRecheados,
 };
 
 /**

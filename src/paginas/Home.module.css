@@ -1,90 +1,237 @@
 /* ---------- delivery ----------
    Duas colunas: texto com o botão embaixo à esquerda, foto à direita. */
-.servicos { background: var(--creme); padding: clamp(3rem, 6vw, 4.5rem) 0; }
-.entrega-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 3.5rem); align-items: center;
+.servicos {
+  background: var(--creme);
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
 }
-.entrega-texto h2 { color: var(--azul); font-size: clamp(1.8rem, 4vw, 2.6rem); }
-.entrega-linha { color: var(--vermelho); font-size: 1.6rem; line-height: 1.2; margin-bottom: 0.3rem; }
-.entrega-texto p:not(.entrega-linha) { color: var(--suave); margin: 1rem 0 1.8rem; }
+
+.entrega-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+}
+
+.entrega-texto h2 {
+  color: var(--azul);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.entrega-linha {
+  color: var(--vermelho);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
+
+.entrega-texto p:not(.entrega-linha) {
+  color: var(--suave);
+  margin: 1rem 0 1.8rem;
+}
+
 .entrega-foto {
-  border-radius: var(--raio); overflow: hidden;
+  border-radius: var(--raio);
+  overflow: hidden;
   box-shadow: 0 20px 44px rgba(43, 29, 22, 0.2);
 }
-.entrega-foto img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+
+.entrega-foto img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
 
 /* ---------- brindes e presentes ----------
    Espelho do delivery: foto à esquerda, texto e botão à direita. */
-.sabores { background: var(--azul-fundo); color: var(--creme); padding: clamp(3rem, 6vw, 4.5rem) 0; }
-.presentes-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 3.5rem); align-items: center;
+.sabores {
+  background: var(--azul-fundo);
+  color: var(--creme);
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
 }
-.presentes-texto h2 { color: var(--creme); font-size: clamp(1.8rem, 4vw, 2.6rem); }
-.presentes-linha { color: var(--bege); font-size: 1.6rem; line-height: 1.2; margin-bottom: 0.3rem; }
-.presentes-texto p:not(.presentes-linha) { color: rgba(245, 233, 216, 0.82); margin: 1rem 0 1.8rem; }
+
+.presentes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+}
+
+.presentes-texto h2 {
+  color: var(--creme);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.presentes-linha {
+  color: var(--bege);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
+
+.presentes-texto p:not(.presentes-linha) {
+  color: rgba(245, 233, 216, 0.82);
+  margin: 1rem 0 1.8rem;
+}
+
 .presentes-foto {
-  border-radius: var(--raio); overflow: hidden; border: 3px solid var(--bege);
+  border-radius: var(--raio);
+  overflow: hidden;
+  border: 3px solid var(--bege);
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
 }
+
 /* a foto traz texto colado na borda direita e embaixo: o zoom a partir do
    canto superior esquerdo deixa só a caixa com o laço */
 .presentes-foto img {
-  width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: left top;
-  transform: scale(1.12); transform-origin: left top;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: left top;
+  transform: scale(1.12);
+  transform-origin: left top;
 }
 
 /* ---------- massa congelada ----------
    Mesmo desenho do delivery: texto e botão à esquerda, foto à direita. */
 .massa-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 3.5rem); align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
 }
-.massa-texto h2 { color: var(--azul); font-size: clamp(1.8rem, 4vw, 2.6rem); }
-.massa-linha { color: var(--vermelho); font-size: 1.6rem; line-height: 1.2; margin-bottom: 0.3rem; }
-.massa-texto > p:not(.massa-linha) { color: var(--suave); margin-top: 1rem; }
-.massa-tamanhos { list-style: none; display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 1.3rem 0 1.8rem; }
+
+.massa-texto h2 {
+  color: var(--azul);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.massa-linha {
+  color: var(--vermelho);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
+
+.massa-texto>p:not(.massa-linha) {
+  color: var(--suave);
+  margin-top: 1rem;
+}
+
+.massa-tamanhos {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1.3rem 0 1.8rem;
+}
+
 .massa-tamanhos li {
-  padding: 0.55rem 1rem; border-radius: var(--raio);
-  border: 1.5px solid rgba(43, 29, 22, 0.14); background: var(--creme-alto);
-  color: var(--suave); font-size: 0.9rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--raio);
+  border: 1.5px solid rgba(43, 29, 22, 0.14);
+  background: var(--creme-alto);
+  color: var(--suave);
+  font-size: 0.9rem;
 }
-.massa-tamanhos b { color: var(--azul); font-weight: 900; margin-right: 0.3rem; }
+
+.massa-tamanhos b {
+  color: var(--azul);
+  font-weight: 900;
+  margin-right: 0.3rem;
+}
 
 /* A foto é recortada da arte BannerMobile-1 (1122x1402): a janela mostra só
    a faixa x 160–960 / y 540–1140, onde ficam a assadeira e o rolo, sem texto. */
 .massa-foto {
-  position: relative; aspect-ratio: 800 / 600; overflow: hidden;
-  border-radius: var(--raio); box-shadow: 0 20px 44px rgba(43, 29, 22, 0.2);
+  position: relative;
+  aspect-ratio: 800 / 600;
+  overflow: hidden;
+  border-radius: var(--raio);
+  box-shadow: 0 20px 44px rgba(43, 29, 22, 0.2);
 }
+
 .massa-foto img {
-  position: absolute; max-width: none;
-  width: 140.25%; left: -20%; top: -90%;
+  position: absolute;
+  max-width: none;
+  width: 140.25%;
+  left: -20%;
+  top: -90%;
 }
 
 /* ---------- revenda ----------
    Foto à esquerda, texto e botão à direita, no fundo vermelho. */
-.chamada { background: var(--vermelho); color: var(--creme); padding: clamp(3rem, 6vw, 4.5rem) 0; }
-.chamada-grid {
-  display: grid; grid-template-columns: 0.95fr 1.05fr;
-  gap: clamp(2rem, 5vw, 3.5rem); align-items: center;
+.chamada {
+  background: var(--vermelho);
+  color: var(--creme);
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
 }
-.chamada h2 { color: var(--creme); font-size: clamp(1.8rem, 4vw, 2.6rem); }
-.chamada-linha { color: var(--bege); font-size: 1.6rem; line-height: 1.2; margin-bottom: 0.3rem; }
-.chamada-texto { color: rgba(245, 233, 216, 0.85); margin-top: 1rem; }
-.chamada-botoes { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.8rem; }
+
+.chamada-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+}
+
+.chamada h2 {
+  color: var(--creme);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.chamada-linha {
+  color: var(--bege);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
+
+.chamada-texto {
+  color: rgba(245, 233, 216, 0.85);
+  margin-top: 1rem;
+}
+
+.chamada-botoes {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1.8rem;
+}
+
 .chamada-foto {
-  border-radius: var(--raio); overflow: hidden; border: 3px solid var(--bege);
+  border-radius: var(--raio);
+  overflow: hidden;
+  border: 3px solid var(--bege);
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
 }
-.chamada-foto img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+
+.chamada-foto img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
 
 @media (max-width: 900px) {
-  .entrega-grid { grid-template-columns: 1fr; }
-  .presentes-grid { grid-template-columns: 1fr; }
-  .presentes-foto { max-width: 420px; }
-  .massa-grid { grid-template-columns: 1fr; }
-  .chamada-grid { grid-template-columns: 1fr; }
-  .chamada-foto { order: -1; }
+  .entrega-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .presentes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .presentes-foto {
+    max-width: 420px;
+  }
+
+  .massa-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chamada-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chamada-foto {
+    order: -1;
+  }
 }

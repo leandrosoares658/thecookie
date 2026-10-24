@@ -1,57 +1,143 @@
 /* Peças reutilizáveis: Tick, Onda, Rev, Cabeca, Capa */
 
-.tick { width: 18px; height: 18px; flex-shrink: 0; margin-top: 4px; color: var(--vermelho); }
+.tick {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 4px;
+  color: var(--vermelho);
+}
 
-.onda { display: block; width: 100%; height: clamp(44px, 5vw, 76px); line-height: 0; }
-.onda svg { display: block; width: 100%; height: 100%; }
+.onda {
+  display: block;
+  width: 100%;
+  height: clamp(44px, 5vw, 76px);
+  line-height: 0;
+}
+
+.onda svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
 /* revelação ao entrar na tela */
 .rev {
-  opacity: 0; transform: translateY(16px);
+  opacity: 0;
+  transform: translateY(16px);
   transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1),
-              transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
 }
-.rev.visivel { opacity: 1; transform: none; }
+
+.rev.visivel {
+  opacity: 1;
+  transform: none;
+}
 
 /* cabeçalho de seção */
-.cabeca { max-width: 56ch; margin-bottom: 2.4rem; }
-.cabeca h2 { color: var(--azul); }
-.cabeca p { margin-top: 0.9rem; color: var(--suave); }
-.linha { color: var(--vermelho); font-size: 1.6rem; line-height: 1.2; margin-bottom: 0.3rem; }
+.cabeca {
+  max-width: 56ch;
+  margin-bottom: 2.4rem;
+}
+
+.cabeca h2 {
+  color: var(--azul);
+}
+
+.cabeca p {
+  margin-top: 0.9rem;
+  color: var(--suave);
+}
+
+.linha {
+  color: var(--vermelho);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
 
 /* variante para fundo escuro */
-.cabeca.clara h2 { color: var(--creme); }
-.cabeca.clara p { color: var(--creme); opacity: 0.85; }
-.cabeca.clara .linha { color: var(--bege); }
+.cabeca.clara h2 {
+  color: var(--creme);
+}
+
+.cabeca.clara p {
+  color: var(--creme);
+  opacity: 0.85;
+}
+
+.cabeca.clara .linha {
+  color: var(--bege);
+}
 
 /* capa das páginas internas */
 .capa {
-  background: var(--vermelho); color: var(--creme);
+  background: var(--vermelho);
+  color: var(--creme);
   padding: clamp(2.5rem, 5vw, 4rem) 0;
-  background-size: cover; background-position: center;
+  background-size: cover;
+  background-position: center;
 }
-.capa h1 { color: var(--creme); }
-.capa p { margin-top: 0.8rem; color: var(--bege); font-size: 1.05rem; }
+
+.capa h1 {
+  color: var(--creme);
+}
+
+.capa p {
+  margin-top: 0.8rem;
+  color: var(--bege);
+  font-size: 1.05rem;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .rev { opacity: 1; transform: none; }
+  .rev {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-/* botão de voltar ao topo: só no computador, canto inferior direito (o WhatsApp
-   fica à esquerda). No celular não aparece: o logotipo fixo no topo já sobe. */
+/* botão de voltar ao topo: canto inferior direito (no computador o WhatsApp
+   fica à esquerda; no celular ele vai para a direita e a seta sobe para cima dele). */
 .topo {
-  position: fixed; right: 20px; bottom: 20px; z-index: 69;
-  width: 46px; height: 46px; border-radius: 50%; border: 0; cursor: pointer;
-  display: grid; place-items: center;
-  background: var(--azul); color: var(--creme);
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 69;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  background: var(--azul);
+  color: var(--creme);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.26);
-  opacity: 0; transform: translateY(12px); pointer-events: none;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
   transition: opacity 0.25s, transform 0.25s, background 0.2s;
 }
-.topo svg { width: 22px; height: 22px; }
-.topo:hover { background: var(--vermelho); }
-.topo-visivel { opacity: 1; transform: none; pointer-events: auto; }
+
+.topo svg {
+  width: 22px;
+  height: 22px;
+}
+
+.topo:hover {
+  background: var(--vermelho);
+}
+
+.topo-visivel {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
 
 @media (max-width: 740px) {
-  .topo { display: none; }
+  /* empilhada sobre o WhatsApp (48px, a 14px da borda) */
+  .topo {
+    right: 15px;
+    bottom: 74px;
+  }
 }

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Carrossel from "../componentes/Carrossel";
 import Pilares from "../componentes/Pilares";
 import { Onda, Rev } from "../componentes/ui";
-import { bannerMobile1, pessoa, presente, vitrine } from "../assets";
+import { bannerMobile1, presente, saboresRecheados, vitrine } from "../assets";
 import { ENTREGA, REVENDA } from "../data/conteudo";
 import { MARCA, real } from "../data/marca";
 import s from "./Home.module.css";
@@ -34,7 +34,11 @@ export default function Home() {
           </div>
 
           <Rev className={s.entregaFoto}>
-            <img src={pessoa} alt="Cliente saboreando um cookie da The Cookie" loading="lazy" />
+            <img
+              src={saboresRecheados}
+              alt="Pilha de cookies recheados cortados ao meio: clássico com chocolate, doce de leite, dark chocolate, red velvet e pistacho"
+              loading="lazy"
+            />
           </Rev>
         </div>
       </section>
@@ -77,7 +81,7 @@ export default function Home() {
               <li><b>750 g</b> rende 10 cookies</li>
               <li><b>1,5 kg</b> rende 20 cookies</li>
             </ul>
-            <Link to="/produtos/massa-congelada-8" className="btn btn-v grande">Quero a massa congelada</Link>
+            <Link to="/faca-em-casa" className="btn btn-v grande">Quero a massa congelada</Link>
           </div>
 
           <Rev className={s.massaFoto}>

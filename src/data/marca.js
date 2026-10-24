@@ -40,9 +40,10 @@ export const REDES = [
 export const MENU = [
   { rotulo: "A marca", para: "/sobre" },
   { rotulo: "Brindes e presentes", para: "/kits" },
-  { rotulo: "Faça em casa", para: "/produtos/massa-congelada-8" },
+  { rotulo: "Faça em casa", para: "/faca-em-casa" },
   { rotulo: "Seja revendedor", para: "/revenda" },
-  { rotulo: "Onde encontrar", para: "/lojas" },
+  // oculto até termos vários pontos de revenda — para voltar, descomente aqui e a rota no App.jsx
+  // { rotulo: "Onde encontrar", para: "/lojas" },
 ];
 
 /** Formata número em real brasileiro. */

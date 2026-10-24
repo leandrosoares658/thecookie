@@ -10,10 +10,11 @@ import Home from "./paginas/Home";
 import Produto from "./paginas/Produto";
 import Kits from "./paginas/Kits";
 import Delivery from "./paginas/Delivery";
-import Lojas from "./paginas/Lojas";
+// import Lojas from "./paginas/Lojas"; // oculta por enquanto (ver MENU em data/marca.js)
 import Revenda from "./paginas/Revenda";
 import Servicos from "./paginas/Servicos";
 import Sobre from "./paginas/Sobre";
+import FacaEmCasa from "./paginas/FacaEmCasa";
 import Carrinho from "./paginas/Carrinho";
 import NaoEncontrada from "./paginas/NaoEncontrada";
 
@@ -38,16 +39,19 @@ export default function App() {
           <Route path="/produtos/:slug" element={<Produto />} />
           <Route path="/kits" element={<Kits />} />
           <Route path="/delivery" element={<Delivery />} />
-          <Route path="/lojas" element={<Lojas />} />
+          {/* "Onde encontrar" oculta até termos vários pontos de revenda */}
+          {/* <Route path="/lojas" element={<Lojas />} /> */}
           <Route path="/revenda" element={<Revenda />} />
           <Route path="/servicos" element={<Servicos />} />
           <Route path="/sobre" element={<Sobre />} />
+          <Route path="/faca-em-casa" element={<FacaEmCasa />} />
           <Route path="/carrinho" element={<Carrinho />} />
           <Route path="*" element={<NaoEncontrada />} />
         </Routes>
       </main>
       <Rodape />
-      <VoltarAoTopo />
+      {/* sem a seta na Marca */}
+      <VoltarAoTopo ocultarEm={["/sobre"]} />
     </>
   );
 }

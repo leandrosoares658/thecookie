@@ -82,7 +82,7 @@ export default function Rodape() {
         </div>
 
         <div className={`wrap ${s.base}`}>
-          <span>{MARCA.nome} — Cookies Artesanais</span>
+          <span>The Cookie Co - Cookies Artesanais</span>
           <span>© {ano} Todos os direitos reservados.</span>
         </div>
       </footer>

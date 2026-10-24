@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import HubServicos from "../componentes/HubServicos";
-import Newsletter from "../componentes/Newsletter";
 import { Capa, Rev } from "../componentes/ui";
 import { FOTOS } from "../assets";
 import { SERVICOS, PASSOS } from "../data/servicos";
@@ -127,7 +126,6 @@ export default function Servicos() {
         </div>
       </section>
 
-      <Newsletter />
     </>
   );
 }

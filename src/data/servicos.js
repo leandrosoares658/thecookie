@@ -101,7 +101,7 @@ export const SERVICOS = [
     foto: "cookieClose",
     foco: "center top",
     tema: "azul",
-    cta: { rotulo: "Comprar massa congelada", para: "/produtos/massa-congelada-8" },
+    cta: { rotulo: "Comprar massa congelada", para: "/faca-em-casa" },
     zap: "Oi! Queria encomendar a massa congelada.",
   },
 ];
@@ -170,7 +170,7 @@ export const VITRINE = [
     resumo: "Massa congelada já porcionada. Do freezer ao forno em doze minutos.",
     foto: "cookieClose",
     tema: "creme",
-    para: "/produtos/massa-congelada-8",
+    para: "/faca-em-casa",
     acao: "Como funciona",
   },
   {

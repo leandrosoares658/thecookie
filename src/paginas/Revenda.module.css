@@ -1,49 +1,304 @@
-.chamada { background: var(--vermelho); color: var(--creme); padding: clamp(3rem, 6vw, 4.5rem) 0; }
-.chamada h2 { color: var(--creme); }
-.chamada-linha { color: var(--bege); font-size: 1.5rem; line-height: 1.2; margin-bottom: 0.3rem; }
-.frase { font-size: 1.25rem; font-weight: 700; margin: 0.8rem 0 1rem; }
+.chamada {
+  background: var(--vermelho);
+  color: var(--creme);
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
+}
+
+.chamada h2 {
+  color: var(--creme);
+}
+
+.chamada-linha {
+  color: var(--bege);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
+
+.frase {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0.8rem 0 1rem;
+}
+
 .margem {
-  background: var(--bege-claro); color: var(--tinta); border-radius: 14px;
-  padding: 1rem 1.2rem; font-size: 0.93rem; margin-top: 1.4rem;
+  background: var(--bege-claro);
+  color: var(--tinta);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  font-size: 0.93rem;
+  margin-top: 1.4rem;
+}
+
+/* os dois modelos de revenda */
+.modelos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.modelo {
+  display: flex;
+  flex-direction: column;
+  background: var(--creme);
+  border-radius: var(--raio);
+  padding: clamp(1.6rem, 3vw, 2.2rem);
+  border: 1.5px solid rgba(43, 29, 22, 0.13);
+  border-top: 6px solid var(--vermelho);
+}
+
+.modelo:nth-child(2) {
+  border-top-color: var(--azul);
+}
+
+.modelo-rotulo {
+  align-self: flex-start;
+  background: var(--vermelho);
+  color: var(--creme);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.modelo:nth-child(2) .modelo-rotulo {
+  background: var(--azul);
+}
+
+.modelo h3 {
+  color: var(--azul);
+  font-size: 1.45rem;
+  margin-bottom: 0.6rem;
+}
+
+.modelo > p {
+  color: var(--suave);
+}
+
+/* o item do display ganha destaque: é o que os dois modelos têm em comum */
+.modelo-display {
+  font-weight: 800;
+  color: var(--vermelho);
+}
+
+.modelo-ideal {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 1.4rem;
+}
+
+/* empurra o botão para o pé do cartão, alinhando os dois */
+.modelo :global(.btn) {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* display */
+.display-foto {
+  aspect-ratio: 1 / 1 !important;
+}
+
+.selo {
+  color: var(--vermelho);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
 }
 
 /* como funciona, em passos */
-.grade-passos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.3rem; }
+.grade-passos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.3rem;
+}
+
 .passo {
-  background: var(--creme); border-radius: var(--raio); padding: 1.8rem 1.4rem;
+  background: var(--creme);
+  border-radius: var(--raio);
+  padding: 1.8rem 1.4rem;
   border: 1.5px solid rgba(43, 29, 22, 0.13);
 }
+
 .passo-num {
-  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
-  background: var(--vermelho); color: var(--creme);
-  font-weight: 900; font-size: 1.1rem; margin-bottom: 1rem;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--vermelho);
+  color: var(--creme);
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
 }
-.passo h3 { color: var(--azul); margin-bottom: 0.5rem; }
-.passo p { font-size: 0.92rem; color: var(--suave); }
+
+.passo h3 {
+  color: var(--azul);
+  margin-bottom: 0.5rem;
+}
+
+.passo p {
+  font-size: 0.92rem;
+  color: var(--suave);
+}
 
 /* formulário */
-.form-bloco { background: var(--azul); color: var(--creme); padding: clamp(3rem, 6vw, 4.5rem) 0; }
-.form-bloco h2 { color: var(--creme); }
-.form-sub { color: var(--bege); margin: 0.8rem 0 2rem; }
-.form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; max-width: 760px; }
-.campo { display: grid; gap: 0.35rem; }
-.campo.largo { grid-column: 1 / -1; }
-.campo label { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em; color: var(--bege); }
-.campo input, .campo textarea {
-  background: rgba(245, 233, 216, 0.1); border: 1.5px solid rgba(245, 233, 216, 0.35);
-  border-radius: 12px; padding: 0.8rem 1rem; color: var(--creme);
-  font-family: inherit; font-size: 0.95rem; width: 100%;
+.form-bloco {
+  /* o atalho dos cartões para abaixo do menu fixo */
+  scroll-margin-top: 5.5rem;
+  background: var(--azul);
+  color: var(--creme);
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
 }
-.campo input::placeholder, .campo textarea::placeholder { color: rgba(245, 233, 216, 0.5); }
-.campo input:focus, .campo textarea:focus { outline: none; border-color: var(--creme); }
-.form :global(.btn) { grid-column: 1 / -1; justify-self: start; }
-.erro { grid-column: 1 / -1; color: #ffc9c9; font-weight: 700; font-size: 0.9rem; }
-.nota { grid-column: 1 / -1; font-size: 0.85rem; color: var(--bege); opacity: 0.85; }
+
+.form-bloco h2 {
+  color: var(--creme);
+}
+
+.form-sub {
+  color: var(--bege);
+  margin: 0.8rem 0 2rem;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  max-width: 760px;
+}
+
+.campo {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.campo.largo {
+  grid-column: 1 / -1;
+}
+
+.campo label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--bege);
+}
+
+.campo input,
+.campo textarea {
+  background: rgba(245, 233, 216, 0.1);
+  border: 1.5px solid rgba(245, 233, 216, 0.35);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  color: var(--creme);
+  font-family: inherit;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+  color: rgba(245, 233, 216, 0.5);
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--creme);
+}
+
+/* escolha do modelo */
+.opcoes {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.opcoes legend {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--bege);
+  margin-bottom: 0.5rem;
+}
+
+.opcoes-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.opcao {
+  cursor: pointer;
+}
+
+/* o rádio fica escondido; a pílula mostra o estado */
+.opcao input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.opcao span {
+  display: inline-block;
+  border: 1.5px solid rgba(245, 233, 216, 0.35);
+  border-radius: 999px;
+  padding: 0.6rem 1.1rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--creme);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.opcao:hover span {
+  border-color: var(--creme);
+}
+
+.opcao input:checked + span {
+  background: var(--creme);
+  border-color: var(--creme);
+  color: var(--azul);
+}
+
+.opcao input:focus-visible + span {
+  outline: 2px solid var(--bege);
+  outline-offset: 2px;
+}
+
+.form :global(.btn) {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+.erro {
+  grid-column: 1 / -1;
+  color: #ffc9c9;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.nota {
+  grid-column: 1 / -1;
+  font-size: 0.85rem;
+  color: var(--bege);
+  opacity: 0.85;
+}
 
 @media (max-width: 1100px) {
-  .grade-passos { grid-template-columns: repeat(2, 1fr); }
+  .grade-passos {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 900px) {
-  .form { grid-template-columns: 1fr; }
+  .modelos {
+    grid-template-columns: 1fr;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
 }

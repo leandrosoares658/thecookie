@@ -10,7 +10,7 @@ import { MARCA } from "./marca";
 export const BANNERS = [
   {
     imagem: "banner1",
-    para: "/produtos/massa-congelada-8",
+    para: "/faca-em-casa",
     alt: "Hoje a sua casa terá cheiro de cookie. Massa congelada para assar em casa: 750 g rende 10 cookies, 1,5 kg rende 20 cookies.",
   },
   {
@@ -52,30 +52,102 @@ export const ENTREGA = {
 
 /* ---------- revenda ---------- */
 export const REVENDA = {
-  chamada: "Cookie pronto para assar, com a sua marca no balcão.",
+  chamada: "Massa congelada ou cookie pronto: você escolhe o modelo, a gente leva o display.",
   texto:
-    "A gente produz e congela; você assa e vende quente. O cookie sai do seu forno em 12 minutos, sem confeiteiro, sem perda e sem estoque parado — o que não assa hoje continua congelado.",
+    "Duas formas de ter The Cookie no seu balcão: massa congelada para assar e vender quente, ou cookie pronto, já embalado, com reposição nossa. Nos dois casos o display de balcão vai junto.",
+
+  // os dois modelos de revenda — a ordem aqui é a ordem na página
+  modelos: [
+    {
+      id: "massa",
+      rotulo: "Massa congelada",
+      titulo: "Você assa e vende quente",
+      texto:
+        "A gente produz e congela; você assa no seu forno e vende o cookie saindo quentinho. Sem confeiteiro, sem perda: o que não assa hoje continua congelado.",
+      itens: [
+        "Porcionada em bolas de 150 g, pronta para o forno",
+        "12 minutos de forno, direto do freezer",
+        "Validade de 3 meses congelada",
+        "Treinamento da equipe por chamada de vídeo",
+      ],
+      ideal: "Ideal para cafeterias, padarias e quem já tem forno.",
+    },
+    {
+      id: "pronto",
+      rotulo: "Cookie pronto",
+      titulo: "A gente assa e reabastece",
+      texto:
+        "O cookie chega assado e embalado um a um, pronto para ir ao display. Você só expõe e vende; a gente volta para repor na frequência combinada.",
+      itens: [
+        "Embalado individualmente, com a marca",
+        "Sem forno e sem freezer no seu ponto",
+        "Reposição semanal ou quinzenal, conforme o giro",
+        "Mix de sabores ajustado pelo que mais vende",
+      ],
+      ideal: "Ideal para mercados, lojas de conveniência, academias e escritórios.",
+    },
+  ],
+
+  // o display de balcão, fornecido nos dois modelos
+  display: {
+    titulo: "O display vai junto",
+    texto:
+      "Em qualquer um dos modelos, você recebe o display de balcão da The Cookie: o organizador que deixa os cookies à vista, com a identidade da marca e o preço em destaque.",
+    itens: [
+      "Organiza os cookies embalados em fileiras, à vista do cliente",
+      "Ocupa pouco espaço no balcão, ao lado do caixa",
+      "Fornecido pela The Cookie, sem custo para o revendedor",
+    ],
+  },
+
   comoFunciona: [
-    { titulo: "Você escolhe o mix", texto: "Monta a caixa com os sabores que fazem sentido para o seu público. Pedido mínimo de 60 unidades." },
-    { titulo: "A gente entrega congelado", texto: "Chega em caixa térmica, porcionado em bolas de 150 g, com validade de 3 meses." },
-    { titulo: "Você assa e vende", texto: "12 minutos de forno. Mandamos o passo a passo e treinamos a sua equipe por chamada de vídeo." },
-    { titulo: "Material de ponto de venda", texto: "Display de balcão, etiquetas e sacolas com a identidade da marca, sem custo a partir do segundo pedido." },
+    { titulo: "Você escolhe o modelo", texto: "Massa congelada ou cookie pronto. Na dúvida, a gente ajuda a escolher pelo perfil do seu ponto." },
+    { titulo: "Monta o mix", texto: "Escolhe os sabores que fazem sentido para o seu público. Pedido mínimo de 60 unidades." },
+    { titulo: "A gente entrega com o display", texto: "A primeira remessa chega junto com o display de balcão, pronto para montar." },
+    { titulo: "Você vende, a gente repõe", texto: "Na massa congelada, você pede quando precisar. No cookie pronto, a gente volta para reabastecer." },
   ],
   requisitos: [
-    "Forno convencional ou turbo e freezer com espaço para as caixas",
     "CNPJ ativo",
+    "Espaço no balcão para o display",
     "Pedido mínimo de 60 unidades por remessa",
     "Compromisso de não alterar a receita nem a marca na revenda",
+    "Só na massa congelada: forno convencional ou turbo e freezer com espaço para as caixas",
   ],
   // ⚠️ margem de exemplo — calcule com os seus custos reais antes de publicar
   margem: "A sugestão de preço final fica entre R$ 12 e R$ 16, conforme a praça.",
 };
 
+/* ---------- onde encontrar: mapa ---------- */
+/* Cada ponto vira um pino no mapa e um item na lista ao lado.
+   lat/lng: no Google Maps, clique com o botão direito no local e clique nos
+   números que aparecem no topo do menu — eles vão copiados como "lat, lng".
+   modelo: "massa" (assa no forno) ou "pronto" (cookie pronto, no display). */
+
+// ⚠️ coordenada aproximada do bairro Ibituruna — troque pela da porta da loja
+export const LOJA_PROPRIA = {
+  nome: "The Cookie — loja própria",
+  endereco: "Ibituruna, Montes Claros, MG",
+  lat: -16.7346,
+  lng: -43.8838,
+};
+
+export const PONTOS_REVENDA = [
+  // exemplo de como preencher:
+  // {
+  //   nome: "Café do Centro",
+  //   endereco: "Rua Dr. Santos, 100 — Centro, Montes Claros",
+  //   modelo: "massa",
+  //   lat: -16.7280,
+  //   lng: -43.8640,
+  // },
+];
+
 /* ---------- institucional ---------- */
 export const HISTORIA = [
-  "A The Cookie começou numa cozinha de casa, com uma receita que a fundadora ajustou por meses até a massa parar de espalhar no forno e o centro ficar no ponto exato.",
-  "O primeiro ponto de venda foi um freezer emprestado numa cafeteria do centro, com dois sabores. A conta era simples: assar na hora, nunca deixar cookie velho na vitrine e não cortar ingrediente para baixar preço.",
-  "Hoje são seis sabores fixos, fornadas de hora em hora e cookies de 150 g — o tamanho que a gente testou e manteve, mesmo quando ficou mais caro de produzir.",
+  "Foi entre receitas, fornadas e a alegria de dividir o que saía do forno que a nossa história começou. Dessa experiência veio a ideia de levar esse aconchego para mais pessoas, em forma de cookies artesanais com toque americano.",
+  "Massa generosa, muito chocolate, bordas levemente crocantes e um interior macio. Cuidamos de cada detalhe para fazer da primeira mordida um convite à próxima.",
+  "Em Montes Claros, essa experiência ganha diferentes formas: cookies assados na hora, massa para preparar em casa, presentes que aproximam e parcerias com estabelecimentos que querem levar a The Cookie para seus clientes.",
+  "Para acompanhar um café, reunir a família ou surpreender alguém. Sempre existe um bom momento para um cookie.",
 ];
 
 export const VALORES = [
@@ -132,7 +204,7 @@ export const DUVIDAS = [
   {
     pergunta: "Como funciona a revenda?",
     resposta:
-      "A gente entrega a massa congelada e você assa no seu ponto. O pedido mínimo é de 60 unidades e o material de ponto de venda entra a partir da segunda remessa.",
+      "São dois modelos: massa congelada, que você assa no seu ponto, ou cookie pronto, que a gente entrega embalado e reabastece. Nos dois o display de balcão vai junto, e o pedido mínimo é de 60 unidades.",
   },
   {
     pergunta: "Qual o prazo para encomenda de festa?",

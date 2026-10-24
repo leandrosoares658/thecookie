@@ -1,6 +1,5 @@
 import { Rev } from "../componentes/ui";
-import Newsletter from "../componentes/Newsletter";
-import { vitrine, pilha } from "../assets";
+import { vitrine } from "../assets";
 import { HISTORIA, VALORES } from "../data/conteudo";
 import { MARCA } from "../data/marca";
 import s from "./Sobre.module.css";
@@ -26,16 +25,18 @@ export default function Sobre() {
         />
         <div className={`wrap ${s.historiaIn}`}>
           <div className={s.historiaTexto}>
-            <p className={`${s.historiaLinha} script`}>{MARCA.assinatura}</p>
-            <h1>A Keth e a The Cookie</h1>
+            <p className={`${s.historiaLinha} script`}>A marca</p>
+            <h1>Da cozinha de casa para a sua história</h1>
             <p className={s.historiaDestaque}>
-              Por trás de cada fornada tem uma pessoa: a Keth, que idealizou a marca e faz a
-              The Cookie acontecer todos os dias.
+              A The Cookie nasceu na cozinha de casa, com cheiro de cookie no forno e vontade de
+              compartilhar algo especial.
             </p>
             {HISTORIA.map((p) => (
               <p key={p.slice(0, 24)}>{p}</p>
             ))}
-            <p className={`${s.assinatura} script`}>Keth, idealizadora da The Cookie</p>
+            <p className={`${s.assinatura} script`}>
+              The Cookie. Feita para compartilhar bons momentos. ❤️
+            </p>
           </div>
         </div>
       </section>
@@ -54,28 +55,6 @@ export default function Sobre() {
         </div>
       </section>
 
-      <section className={l.bloco}>
-        <div className={`wrap ${l.duasColunas} ${l.invertida}`}>
-          <div>
-            <h2>Seis sabores, uma massa só</h2>
-            <p>
-              A base é sempre a mesma: manteiga batida com os dois açúcares até ficar aerada, farinha
-              peneirada e massa descansada no frio antes de assar. O que muda de um sabor para o
-              outro é o que vai dentro — e, em dois deles, o recheio no meio.
-            </p>
-            <p>
-              Cada cookie sai com 150 g, assado por 12 minutos direto do congelador. É esse choque
-              de temperatura que deixa a borda firme e o centro ainda mole.
-            </p>
-            <a href={MARCA.cardapio} className="btn btn-v" target="_blank" rel="noreferrer">Ver os seis sabores</a>
-          </div>
-          <Rev className={l.moldura}>
-            <img src={pilha} alt="Pilha de cookies artesanais" loading="lazy" />
-          </Rev>
-        </div>
-      </section>
-
-      <Newsletter />
     </>
   );
 }

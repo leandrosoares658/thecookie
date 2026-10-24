@@ -131,8 +131,10 @@ export function subirAoTopo() {
   window.scrollTo({ top: 0, behavior: semMovimento ? "auto" : "smooth" });
 }
 
-/** Botão flutuante que aparece depois de rolar um pouco e leva ao início da página. */
-export function VoltarAoTopo() {
+/** Botão flutuante que aparece depois de rolar um pouco e leva ao início da página.
+ *  `ocultarEm`: rotas onde o botão não aparece. */
+export function VoltarAoTopo({ ocultarEm = [] }) {
+  const { pathname } = useLocation();
   const [visivel, setVisivel] = useState(false);
 
   useEffect(() => {
@@ -141,6 +143,8 @@ export function VoltarAoTopo() {
     window.addEventListener("scroll", conferir, { passive: true });
     return () => window.removeEventListener("scroll", conferir);
   }, []);
+
+  if (ocultarEm.includes(pathname)) return null;
 
   return (
     <button

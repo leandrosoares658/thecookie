@@ -1,0 +1,124 @@
+/* ---------- capa ---------- (mesmo desenho de Sobre e Kits) */
+.capa {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: var(--azul-fundo); color: var(--creme);
+  min-height: min(78vh, 720px); display: flex; align-items: center;
+}
+.capa-foto {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%; object-fit: cover; object-position: 70% 40%;
+}
+.capa::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg,
+    rgba(10, 42, 78, 0.94) 0%, rgba(10, 42, 78, 0.86) 38%,
+    rgba(10, 42, 78, 0.35) 62%, rgba(10, 42, 78, 0) 80%);
+}
+.capa-in { width: 100%; padding-top: clamp(3rem, 7vw, 5.5rem); padding-bottom: clamp(3rem, 7vw, 5.5rem); }
+.capa-texto { max-width: 540px; }
+.capa-linha { color: var(--bege); font-size: 1.6rem; line-height: 1.2; margin-bottom: 0.3rem; }
+.capa h1 { color: var(--creme); font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 1.2rem; }
+.capa-lead { color: var(--bege) !important; font-weight: 800; font-size: 1.2rem !important; line-height: 1.4; margin-bottom: 0.8rem; }
+.capa-texto p:not(.capa-linha) { color: rgba(245, 233, 216, 0.88); font-size: 1.05rem; }
+.capa-botoes { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.8rem; }
+.capa-secundario { border-color: rgba(245, 233, 216, 0.6); color: var(--creme); }
+.capa-secundario:hover { background: var(--creme); color: var(--azul); }
+
+@media (max-width: 760px) {
+  .capa { display: block; min-height: 0; }
+  .capa-foto { position: relative; inset: auto; z-index: auto; display: block; height: 52vh; max-height: 440px; object-position: 50% 40%; }
+  .capa::before {
+    bottom: auto; height: 52vh; max-height: 440px; z-index: 1;
+    background: linear-gradient(180deg, rgba(10, 42, 78, 0) 55%, var(--azul-fundo) 100%);
+  }
+  .capa-in { position: relative; z-index: 2; padding-top: 0.5rem; }
+}
+
+/* ---------- etiquetas e textos ---------- */
+.etiqueta, .etiqueta-clara {
+  display: inline-block; border-radius: 999px; padding: 0.3rem 0.95rem;
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.etiqueta { background: rgba(139, 30, 45, 0.1); color: var(--vermelho); border: 1px solid rgba(139, 30, 45, 0.3); }
+.etiqueta-clara { background: rgba(245, 233, 216, 0.12); color: var(--bege); border: 1px solid rgba(215, 194, 167, 0.45); }
+
+/* ---------- usos ---------- */
+.usos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.uso { background: var(--bege-claro); border-radius: var(--raio); overflow: hidden; display: flex; flex-direction: column; }
+.uso img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.uso-texto { padding: 1.5rem 1.4rem 1.7rem; display: flex; flex-direction: column; flex: 1; }
+.uso h2 { color: var(--azul); font-size: 1.35rem; margin-bottom: 0.6rem; }
+.uso p { color: var(--suave); font-size: 0.95rem; line-height: 1.55; margin-bottom: 1.4rem; }
+.uso :global(.btn) { margin-top: auto; align-self: flex-start; }
+
+@media (max-width: 900px) {
+  .usos { grid-template-columns: 1fr; gap: 1.6rem; }
+}
+
+
+/* ---------- tamanhos ---------- */
+.cabeca { text-align: center; margin-bottom: 2.6rem; }
+.cabeca h2 { color: var(--azul); }
+
+.grade {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 340px));
+  justify-content: center; gap: 1.6rem;
+}
+.card {
+  position: relative; background: var(--creme); text-align: center;
+  border: 1.5px solid rgba(43, 29, 22, 0.15); border-radius: var(--raio);
+  padding: 2.2rem 1.6rem 1.6rem; display: flex; flex-direction: column; align-items: center;
+}
+.card.destaque { border-color: var(--vermelho); border-width: 2.5px; }
+.selo {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: var(--vermelho); color: var(--creme); border-radius: 999px;
+  padding: 0.3rem 1rem; font-size: 0.7rem; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
+}
+.peso { font-weight: 900; font-size: 3rem; color: var(--azul); letter-spacing: -0.04em; line-height: 1; }
+.rende { font-weight: 800; color: var(--vermelho); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.82rem; margin-top: 0.5rem; }
+.card-texto { color: var(--suave); font-size: 0.93rem; margin: 1rem 0 0.4rem; }
+.preco { font-weight: 900; font-size: 1.5rem; color: var(--tinta); margin: 0.6rem 0 1.4rem; }
+.card-botoes { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin-top: auto; }
+.card-zap { border-color: var(--azul); color: var(--azul); }
+.card-zap:hover { background: var(--azul); color: var(--creme); }
+
+/* ---------- tutorial ---------- */
+.tutorial {
+  background: var(--azul); color: var(--creme);
+  padding: clamp(3rem, 6.5vw, 5rem) 0; scroll-margin-top: 5rem;
+}
+.tutorial h2 { color: var(--creme); margin-bottom: 1rem; }
+.tutorial-intro { color: rgba(245, 233, 216, 0.88); margin-bottom: 1.6rem; }
+.tutorial-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; }
+
+/* espaço do vídeo: sempre 16:9, com ou sem vídeo */
+.video {
+  position: relative; aspect-ratio: 16 / 9; border-radius: var(--raio); overflow: hidden;
+  background: var(--azul-fundo); border: 3px solid var(--bege);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.3);
+}
+.video iframe, .video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+.video-vazio {
+  position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 0.9rem;
+  color: var(--bege); text-align: center;
+}
+.video-vazio p { font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.85rem; }
+.play {
+  width: 74px; height: 74px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--vermelho); color: var(--creme);
+}
+.play svg { width: 34px; height: 34px; margin-left: 4px; }
+
+.passos { list-style: none; display: grid; gap: 0.9rem; }
+.passos li { display: flex; gap: 0.8rem; align-items: flex-start; color: rgba(245, 233, 216, 0.88); font-size: 0.95rem; }
+.passo-num {
+  flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--bege); color: var(--azul); font-weight: 900; font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  .tutorial-grid { grid-template-columns: 1fr; }
+}
