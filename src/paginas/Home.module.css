@@ -80,15 +80,10 @@
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
 }
 
-/* a foto traz texto colado na borda direita e embaixo: o zoom a partir do
-   canto superior esquerdo deixa só a caixa com o laço */
 .presentes-foto img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: left top;
-  transform: scale(1.12);
-  transform-origin: left top;
 }
 
 /* ---------- massa congelada ----------
@@ -151,11 +146,11 @@
 }
 
 .massa-foto img {
-  position: absolute;
-  max-width: none;
-  width: 140.25%;
-  left: -20%;
-  top: -90%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* mantém a tampa com a marca e o rolo de massa no quadro */
+  object-position: 50% 60%;
 }
 
 /* ---------- revenda ----------
@@ -208,6 +203,8 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  /* mantém a placa com a marca no quadro */
+  object-position: 50% 30%;
 }
 
 @media (max-width: 900px) {

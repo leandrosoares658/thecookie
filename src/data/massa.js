@@ -1,26 +1,8 @@
 /* ==========================================================================
    Página "Faça em casa" — massa congelada.
-   Mexa aqui para trocar tamanhos, preços, passos ou o vídeo.
-   ⚠️ Preços, tempos e temperaturas são EXEMPLO. Confirme tudo.
+   Mexa aqui para trocar os usos, os passos ou o vídeo.
+   ⚠️ Tempos e temperaturas são EXEMPLO. Confirme tudo.
    ========================================================================== */
-
-/* Os tamanhos que vendemos. `preco` em número (ex.: 69.9); deixe null para
-   mostrar "consulte" no lugar do valor. Marque um como `destaque` para o selo. */
-export const TAMANHOS = [
-  {
-    peso: "750 g",
-    rende: "10 cookies",
-    preco: null,
-    texto: "Para a família ou para uma tarde com amigos.",
-  },
-  {
-    peso: "1,5 kg",
-    rende: "20 cookies",
-    preco: null,
-    destaque: true,
-    texto: "Para festa, reunião ou para deixar sempre no freezer.",
-  },
-];
 
 /* Os três jeitos de usar a massa. Sem `zap`, o botão leva ao cardápio
    online; com `zap`, abre o WhatsApp com essa mensagem. */

@@ -99,6 +99,8 @@
 /* display */
 .display-foto {
   aspect-ratio: 1 / 1 !important;
+  /* mantém a placa com a marca no quadro */
+  object-position: 50% 30%;
 }
 
 .selo {

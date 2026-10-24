@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Carrossel from "../componentes/Carrossel";
 import Pilares from "../componentes/Pilares";
 import { Onda, Rev } from "../componentes/ui";
-import { bannerMobile1, presente, saboresRecheados, vitrine } from "../assets";
+import { brindesPresentes, massaCaixa, saboresRecheados, vitrine } from "../assets";
 import { ENTREGA, REVENDA } from "../data/conteudo";
 import { MARCA, real } from "../data/marca";
 import s from "./Home.module.css";
@@ -49,7 +49,7 @@ export default function Home() {
       <section className={s.sabores}>
         <div className={`wrap ${s.presentesGrid}`}>
           <Rev className={s.presentesFoto}>
-            <img src={presente} alt="Caixa de cookies com laço vermelho e etiqueta da The Cookie" loading="lazy" />
+            <img src={brindesPresentes} alt="Embalagens de presente The Cookie: caixinha kraft, caixa azul, pote com laço e cookie embalado" loading="lazy" />
           </Rev>
 
           <div className={s.presentesTexto}>
@@ -85,7 +85,7 @@ export default function Home() {
           </div>
 
           <Rev className={s.massaFoto}>
-            <img src={bannerMobile1} alt="Rolo de massa de cookie fatiado e assadeira com os cookies prontos para assar" loading="lazy" />
+            <img src={massaCaixa} alt="Caixa The Cookie aberta com o rolo de massa congelada e pacotinhos de confeitos e gotas de chocolate" loading="lazy" />
           </Rev>
         </div>
       </section>

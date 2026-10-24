@@ -114,12 +114,13 @@ export function Cabeca({ linha, titulo, texto, clara = false, className = "", ch
 }
 
 /** Faixa vermelha no topo das páginas internas. */
-export function Capa({ titulo, texto, foto }) {
+export function Capa({ titulo, texto, foto, children }) {
   return (
     <header className={s.capa} style={foto ? { backgroundImage: `url(${foto})` } : undefined}>
       <div className="wrap">
         <h1>{titulo}</h1>
         {texto && <p>{texto}</p>}
+        {children}
       </div>
     </header>
   );

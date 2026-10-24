@@ -1,7 +1,7 @@
 import { Rev, Tick } from "../componentes/ui";
 import { embalagem, cookieClose, bite, vitrine } from "../assets";
-import { TAMANHOS, USOS, PREPARO, VIDEO_YOUTUBE } from "../data/massa";
-import { MARCA, real, zap } from "../data/marca";
+import { USOS, PREPARO, VIDEO_YOUTUBE } from "../data/massa";
+import { MARCA, zap } from "../data/marca";
 import s from "./FacaEmCasa.module.css";
 import l from "../estilos/layout.module.css";
 
@@ -95,35 +95,6 @@ export default function FacaEmCasa() {
               </div>
             </Rev>
           ))}
-        </div>
-      </section>
-
-      {/* tamanhos */}
-      <section className={`${l.bloco} ${l.blocoBege}`}>
-        <div className="wrap">
-          <div className={s.cabeca}>
-            <p className={s.etiqueta}>Tamanhos</p>
-            <h2>Escolha o seu pacote</h2>
-          </div>
-          <div className={s.grade}>
-            {TAMANHOS.map((t) => (
-              <Rev tag="article" className={`${s.card}` + (t.destaque ? ` ${s.destaque}` : "")} key={t.peso}>
-                {t.destaque && <span className={s.selo}>Mais pedido</span>}
-                <p className={s.peso}>{t.peso}</p>
-                <p className={s.rende}>rende {t.rende}</p>
-                <p className={s.cardTexto}>{t.texto}</p>
-                <p className={s.preco}>{t.preco != null ? real(t.preco) : "Consulte o valor"}</p>
-                <div className={s.cardBotoes}>
-                  <a className="btn btn-v" href={MARCA.cardapio} target="_blank" rel="noreferrer">
-                    Comprar
-                  </a>
-                  <a className={`btn ${s.cardZap}`} href={zap(`Oi! Queria a massa congelada de ${t.peso}.`)} target="_blank" rel="noreferrer">
-                    WhatsApp
-                  </a>
-                </div>
-              </Rev>
-            ))}
-          </div>
         </div>
       </section>
 

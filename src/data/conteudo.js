@@ -52,7 +52,9 @@ export const ENTREGA = {
 
 /* ---------- revenda ---------- */
 export const REVENDA = {
-  chamada: "Massa congelada ou cookie pronto: você escolhe o modelo, a gente leva o display.",
+  chamada:
+    "Cookies artesanais americanos para conquistar seus clientes, seja no balcão ou em uma sobremesa especial no cardápio.",
+  convite: "Escolha a opção que combina com o seu estabelecimento e venha crescer com a gente.",
   texto:
     "Duas formas de ter The Cookie no seu balcão: massa congelada para assar e vender quente, ou cookie pronto, já embalado, com reposição nossa. Nos dois casos o display de balcão vai junto.",
 
@@ -102,19 +104,12 @@ export const REVENDA = {
 
   comoFunciona: [
     { titulo: "Você escolhe o modelo", texto: "Massa congelada ou cookie pronto. Na dúvida, a gente ajuda a escolher pelo perfil do seu ponto." },
-    { titulo: "Monta o mix", texto: "Escolhe os sabores que fazem sentido para o seu público. Pedido mínimo de 60 unidades." },
+    { titulo: "Sem risco para seu negócio", texto: "O primeiro pedido é no consignado." },
     { titulo: "A gente entrega com o display", texto: "A primeira remessa chega junto com o display de balcão, pronto para montar." },
     { titulo: "Você vende, a gente repõe", texto: "Na massa congelada, você pede quando precisar. No cookie pronto, a gente volta para reabastecer." },
   ],
-  requisitos: [
-    "CNPJ ativo",
-    "Espaço no balcão para o display",
-    "Pedido mínimo de 60 unidades por remessa",
-    "Compromisso de não alterar a receita nem a marca na revenda",
-    "Só na massa congelada: forno convencional ou turbo e freezer com espaço para as caixas",
-  ],
   // ⚠️ margem de exemplo — calcule com os seus custos reais antes de publicar
-  margem: "A sugestão de preço final fica entre R$ 12 e R$ 16, conforme a praça.",
+  margem: "A sugestão de preço final é a partir de R$ 18,00.",
 };
 
 /* ---------- onde encontrar: mapa ---------- */
@@ -154,25 +149,6 @@ export const VALORES = [
   { titulo: "Massa descansada", texto: "A massa vai ao frio antes de assar. É o que dá a borda crocante e o miolo que cede." },
   { titulo: "Nada de reaproveitar", texto: "O que não vende no dia não volta para a vitrine amanhã." },
   { titulo: "Receita fechada", texto: "A formulação é da casa e não muda por fornecedor nem por custo." },
-];
-
-/* ---------- prova social ---------- */
-export const DEPOIMENTOS = [
-  {
-    texto: "Comprei a massa congelada para assar com as crianças num domingo de chuva. Virou programa fixo — já estou no quarto pedido.",
-    nome: "Marina Rezende",
-    detalhe: "Cliente desde 2024",
-  },
-  {
-    texto: "Pedi o Kit 50 para o fim de ano do escritório. Chegou no horário, com etiqueta do evento e o display montado.",
-    nome: "Rafael Lima",
-    detalhe: "Encomenda para empresa",
-  },
-  {
-    texto: "Coloquei na minha cafeteria em março. Asso duas fornadas por dia e o Pistacho acaba antes das quatro da tarde.",
-    nome: "Camila Prates",
-    detalhe: "Revendedora",
-  },
 ];
 
 export const DUVIDAS = [

@@ -1,7 +1,6 @@
-import { Rev, Tick } from "../componentes/ui";
-import { presente, embalagem, caixaAberta, embalado } from "../assets";
-import { KITS, REGRAS_KIT } from "../data/produtos";
-import { real, zap } from "../data/marca";
+import { Rev } from "../componentes/ui";
+import { presente, brindeClientes, brindeColaboradores, brindeEventos } from "../assets";
+import { zap } from "../data/marca";
 import s from "./Kits.module.css";
 import l from "../estilos/layout.module.css";
 
@@ -13,29 +12,23 @@ const PUBLICOS = [
     titulo: "Para seus clientes",
     texto:
       "Agradeça pela confiança com um brinde que dá vontade de abrir na hora. Ideal para acompanhar uma compra, celebrar uma parceria ou surpreender em datas especiais.",
-    foto: embalagem,
-    alt: "Cookies embalados com tag personalizada",
+    foto: brindeClientes,
+    alt: "Cookies embalados um a um com adesivo The Cookie",
   },
   {
     titulo: "Para seus colaboradores",
     texto:
       "Dê mais sabor às boas-vindas, às conquistas e às comemorações da equipe. Um gesto de cuidado para quem faz parte do dia a dia da sua empresa.",
-    foto: caixaAberta,
-    alt: "Caixa aberta com cookies",
+    foto: brindeColaboradores,
+    alt: "Pote de cookies com laço vermelho, caixa azul e cookie embalado The Cookie",
   },
   {
     titulo: "Para seus eventos",
     texto:
       "Receba seus convidados com uma lembrança gostosa. Cookies personalizados para encontros, inaugurações, congressos e ações da sua marca.",
-    foto: embalado,
-    alt: "Cookies embalados individualmente",
+    foto: brindeEventos,
+    alt: "Caixinha kraft com três cookies e caixa azul The Cookie",
   },
-];
-
-const ATALHOS = [
-  { id: "empresas", rotulo: "Para empresas" },
-  { id: "festas", rotulo: "Kits para festa" },
-  { id: "como-funciona", rotulo: "Como funciona" },
 ];
 
 export default function Kits() {
@@ -59,28 +52,13 @@ export default function Kits() {
               <a className="btn btn-v grande" href={zap(ZAP_CORPORATIVO)} target="_blank" rel="noreferrer">
                 Solicitar orçamento corporativo
               </a>
-              <a className={`btn ${s.capaSecundario}`} href="#festas">
-                Ver os kits
-              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <nav className={s.atalhos} aria-label="Ir para uma seção">
-        <div className="wrap">
-          <ul>
-            {ATALHOS.map((a) => (
-              <li key={a.id}>
-                <a href={`#${a.id}`}>{a.rotulo}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
-
       {/* empresas: para quem é o brinde corporativo */}
-      <section className={`${l.bloco} ${s.secao}`} id="empresas">
+      <section className={l.bloco} id="empresas">
         <div className="wrap">
           <div className={s.publicos}>
             {PUBLICOS.map((p) => (
@@ -102,67 +80,6 @@ export default function Kits() {
             </p>
             <a className="btn btn-v grande" href={zap(ZAP_CORPORATIVO)} target="_blank" rel="noreferrer">
               Solicitar orçamento corporativo
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* festas: os kits prontos */}
-      <section className={`${l.bloco} ${l.blocoBege} ${s.secao}`} id="festas">
-        <div className="wrap">
-          <div className={s.cabeca}>
-            <p className={s.etiqueta}>Para festas</p>
-            <h2>Kits para festa</h2>
-            <p>
-              Casamento, aniversário, chá de bebê ou confraternização. Escolha pelo número de
-              convidados. O valor já inclui a embalagem individual.
-            </p>
-          </div>
-
-          <div className={s.grade}>
-            {KITS.map((k) => (
-              <Rev tag="article" className={`${s.card}` + (k.destaque ? ` ${s.destaque}` : "")} key={k.nome}>
-                {k.destaque && <span className={s.selo}>Mais pedido</span>}
-                <h3>{k.nome}</h3>
-                <p className={s.pessoas}>{k.pessoas}</p>
-                <p className={s.preco}>{real(k.preco)}</p>
-                <ul>
-                  {k.itens.map((i) => (
-                    <li key={i}><Tick />{i}</li>
-                  ))}
-                </ul>
-                <a
-                  className="btn btn-a"
-                  href={zap(`Oi! Queria um orçamento do ${k.nome} para a data: `)}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Pedir orçamento
-                </a>
-              </Rev>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={`${l.bloco} ${s.secao}`} id="como-funciona">
-        <div className={`wrap ${l.duasColunas}`}>
-          <Rev className={l.moldura}>
-            <img src={presente} alt="Caixa de cookies com laço e etiqueta" loading="lazy" />
-          </Rev>
-          <div>
-            <h2>Como funciona</h2>
-            <p>
-              Você manda a data, o número de pessoas e o tipo de embalagem. A gente responde com
-              as opções de sabor e o valor fechado em até 24 horas, sem taxa de projeto.
-            </p>
-            <ul className={`${l.lista} ${s.regras}`}>
-              {REGRAS_KIT.map((r) => (
-                <li key={r}><Tick />{r}</li>
-              ))}
-            </ul>
-            <a className="btn btn-v" href={zap("Oi! Queria um orçamento para evento.")} target="_blank" rel="noreferrer">
-              Falar com a central
             </a>
           </div>
         </div>

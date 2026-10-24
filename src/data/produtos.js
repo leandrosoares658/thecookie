@@ -169,36 +169,3 @@ export const acharProduto = (slug) => PRODUTOS.find((p) => p.slug === slug);
 
 export const porCategoria = (id) =>
   id === "todos" ? PRODUTOS : PRODUTOS.filter((p) => p.categoria === id);
-
-/* --------------------------------------------------------------------------
-   Kits para festa — vendidos sob encomenda, não entram no carrinho
-   -------------------------------------------------------------------------- */
-export const KITS = [
-  {
-    nome: "Kit 25",
-    pessoas: "até 25 pessoas",
-    preco: 320.0,
-    itens: ["25 cookies de 150 g", "Até 4 sabores", "Embalagem individual", "Etiqueta com o nome do evento"],
-  },
-  {
-    nome: "Kit 50",
-    pessoas: "até 50 pessoas",
-    preco: 610.0,
-    destaque: true,
-    itens: ["50 cookies de 150 g", "Os 6 sabores", "Embalagem individual", "Etiqueta personalizada", "Display de balcão emprestado"],
-  },
-  {
-    nome: "Kit 100",
-    pessoas: "até 100 pessoas",
-    preco: 1180.0,
-    itens: ["100 cookies de 150 g", "Os 6 sabores", "Embalagem individual", "Etiqueta personalizada", "Display de balcão emprestado", "Entrega e montagem inclusas"],
-  },
-];
-
-export const REGRAS_KIT = [
-  "Prazo mínimo de 72 horas para encomendas de kit.",
-  "Sabores recheados (Pistacho e Lotus) entram em todos os kits sem custo extra.",
-  "Acima de 100 pessoas, o orçamento é montado caso a caso pela central.",
-  "Pedido confirmado com 50% de sinal; o restante na entrega.",
-  "Cancelamento com menos de 48 horas retém o sinal.",
-];

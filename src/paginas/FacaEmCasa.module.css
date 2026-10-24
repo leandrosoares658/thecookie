@@ -35,12 +35,11 @@
 }
 
 /* ---------- etiquetas e textos ---------- */
-.etiqueta, .etiqueta-clara {
+.etiqueta-clara {
   display: inline-block; border-radius: 999px; padding: 0.3rem 0.95rem;
   font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
   margin-bottom: 1rem;
 }
-.etiqueta { background: rgba(139, 30, 45, 0.1); color: var(--vermelho); border: 1px solid rgba(139, 30, 45, 0.3); }
 .etiqueta-clara { background: rgba(245, 233, 216, 0.12); color: var(--bege); border: 1px solid rgba(215, 194, 167, 0.45); }
 
 /* ---------- usos ---------- */
@@ -56,34 +55,6 @@
   .usos { grid-template-columns: 1fr; gap: 1.6rem; }
 }
 
-
-/* ---------- tamanhos ---------- */
-.cabeca { text-align: center; margin-bottom: 2.6rem; }
-.cabeca h2 { color: var(--azul); }
-
-.grade {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 340px));
-  justify-content: center; gap: 1.6rem;
-}
-.card {
-  position: relative; background: var(--creme); text-align: center;
-  border: 1.5px solid rgba(43, 29, 22, 0.15); border-radius: var(--raio);
-  padding: 2.2rem 1.6rem 1.6rem; display: flex; flex-direction: column; align-items: center;
-}
-.card.destaque { border-color: var(--vermelho); border-width: 2.5px; }
-.selo {
-  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-  background: var(--vermelho); color: var(--creme); border-radius: 999px;
-  padding: 0.3rem 1rem; font-size: 0.7rem; font-weight: 800;
-  letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
-}
-.peso { font-weight: 900; font-size: 3rem; color: var(--azul); letter-spacing: -0.04em; line-height: 1; }
-.rende { font-weight: 800; color: var(--vermelho); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.82rem; margin-top: 0.5rem; }
-.card-texto { color: var(--suave); font-size: 0.93rem; margin: 1rem 0 0.4rem; }
-.preco { font-weight: 900; font-size: 1.5rem; color: var(--tinta); margin: 0.6rem 0 1.4rem; }
-.card-botoes { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin-top: auto; }
-.card-zap { border-color: var(--azul); color: var(--azul); }
-.card-zap:hover { background: var(--azul); color: var(--creme); }
 
 /* ---------- tutorial ---------- */
 .tutorial {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Capa, Rev, Tick } from "../componentes/ui";
-import { vitrine, caixaAberta } from "../assets";
+import { vitrine } from "../assets";
 import { REVENDA } from "../data/conteudo";
 import { zap } from "../data/marca";
 import s from "./Revenda.module.css";
@@ -49,7 +49,9 @@ export default function Revenda() {
 
   return (
     <>
-      <Capa titulo="Seja revendedor" texto={REVENDA.chamada} />
+      <Capa titulo="Leve The Cookie para o seu negócio" texto={REVENDA.chamada}>
+        <p>{REVENDA.convite}</p>
+      </Capa>
 
       {/* os dois modelos de revenda, lado a lado */}
       <section className={l.bloco}>
@@ -114,22 +116,6 @@ export default function Revenda() {
               </Rev>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className={`${l.bloco} ${l.blocoBege}`}>
-        <div className={`wrap ${l.duasColunas} ${l.invertida}`}>
-          <div>
-            <h2>O que você precisa ter</h2>
-            <ul className={l.lista}>
-              {REVENDA.requisitos.map((r) => (
-                <li key={r}><Tick />{r}</li>
-              ))}
-            </ul>
-          </div>
-          <Rev className={l.moldura}>
-            <img src={caixaAberta} alt="Cookies embalados individualmente" loading="lazy" />
-          </Rev>
         </div>
       </section>
 

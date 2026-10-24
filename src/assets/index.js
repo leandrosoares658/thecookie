@@ -16,6 +16,11 @@ import vitrine from "./vitrine.webp";
 import pessoa from "./pessoa.webp";
 import embalagem from "./embalagem.webp";
 import saboresRecheados from "./sabores-recheados.webp";
+import massaCaixa from "./massa-caixa.webp";
+import brindeClientes from "./brinde-clientes.webp";
+import brindeColaboradores from "./brinde-colaboradores.webp";
+import brindeEventos from "./brinde-eventos.webp";
+import brindesPresentes from "./brindes-presentes.webp";
 
 import banner1 from "./banner-1.png";
 import banner2 from "./banner-2.png";
@@ -41,7 +46,8 @@ export const BANNERS_MOBILE_IMG = {
 export {
   logo, logoClaro, tag, bannerMobile1,
   pilha, ponto, bite, vermelho, navy, embalado, caixaAberta, cookieClose,
-  presente, vitrine, pessoa, embalagem, saboresRecheados,
+  presente, vitrine, pessoa, embalagem, saboresRecheados, massaCaixa,
+  brindeClientes, brindeColaboradores, brindeEventos, brindesPresentes,
 };
 
 /**
