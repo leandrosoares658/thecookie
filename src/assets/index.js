@@ -22,6 +22,7 @@ import brindeClientes from "./brinde-clientes.webp";
 import brindeColaboradores from "./brinde-colaboradores.webp";
 import brindeEventos from "./brinde-eventos.webp";
 import brindesPresentes from "./brindes-presentes.webp";
+import presentesCapa from "./presentes-capa.webp";
 
 import banner1 from "./banner-1.png";
 import banner2 from "./banner-2.png";
@@ -48,7 +49,7 @@ export {
   logo, logoClaro, tag, bannerMobile1,
   pilha, ponto, bite, vermelho, navy, embalado, caixaAberta, cookieClose,
   presente, vitrine, pessoa, embalagem, saboresRecheados, massaCaixa, massaEmbalada,
-  brindeClientes, brindeColaboradores, brindeEventos, brindesPresentes,
+  brindeClientes, brindeColaboradores, brindeEventos, brindesPresentes, presentesCapa,
 };
 
 /**

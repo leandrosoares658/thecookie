@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import s from "./ui.module.css";
 import { useLocation } from "react-router-dom";
 
@@ -39,7 +39,30 @@ export function IconeZap(props) {
   );
 }
 
-export function IconeInstagram(props) {
+/** `colorido`: o ícone nas cores do Instagram (quadrado em degradê, traço branco). */
+export function IconeInstagram({ colorido = false, ...props }) {
+  const id = useId();
+  if (colorido) {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+        <defs>
+          <radialGradient id={id} cx="0.3" cy="1.07" r="1.15">
+            <stop offset="0" stopColor="#fdf497" />
+            <stop offset="0.08" stopColor="#fdf497" />
+            <stop offset="0.45" stopColor="#fd5949" />
+            <stop offset="0.6" stopColor="#d6249f" />
+            <stop offset="0.9" stopColor="#285aeb" />
+          </radialGradient>
+        </defs>
+        <rect width="24" height="24" rx="6" fill={`url(#${id})`} />
+        <g fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="5" y="5" width="14" height="14" rx="4" />
+          <circle cx="12" cy="12" r="3.3" />
+        </g>
+        <circle cx="16.3" cy="7.7" r="0.95" fill="#fff" />
+      </svg>
+    );
+  }
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9"
       strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
@@ -56,12 +79,15 @@ const ICONES_REDES = { Instagram: IconeInstagram };
  * Link de rede social (de REDES, em marca.js) mostrado pelo ícone. O nome
  * fica no aria-label e na dica do mouse; rede sem ícone aparece escrita.
  */
-export function LinkRede({ rede, className, iconeClassName }) {
+export function LinkRede({ rede, className, iconeClassName, usuarioClassName, colorido = false }) {
   const Icone = ICONES_REDES[rede.nome];
+  /* com `usuarioClassName`, o @ da conta aparece ao lado do ícone */
+  const comUsuario = usuarioClassName && rede.usuario;
   return (
     <a href={rede.url} target="_blank" rel="noreferrer" className={className}
-      aria-label={rede.nome} title={rede.nome}>
-      {Icone ? <Icone className={iconeClassName} /> : rede.nome}
+      aria-label={comUsuario ? undefined : rede.nome} title={rede.nome}>
+      {Icone ? <Icone className={iconeClassName} colorido={colorido} /> : !comUsuario && rede.nome}
+      {comUsuario && <span className={usuarioClassName}>{rede.usuario}</span>}
     </a>
   );
 }

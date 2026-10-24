@@ -23,6 +23,7 @@
 .fita-redes a {
   display: flex;
   align-items: center;
+  gap: 0.4rem;
   text-decoration: none;
   font-weight: 600;
 }
@@ -30,10 +31,6 @@
 .rede-icone {
   width: 18px;
   height: 18px;
-}
-
-.fita-redes a:hover {
-  color: var(--creme);
 }
 
 .fita-aviso {
@@ -46,6 +43,22 @@
   text-decoration: none;
   font-weight: 800;
   color: var(--creme);
+}
+
+/* ícone verde do WhatsApp: só no celular, no lugar do número */
+.contato-icone {
+  display: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  place-items: center;
+}
+
+.contato-icone svg {
+  width: 14px;
+  height: 14px;
 }
 
 .topo {
@@ -136,14 +149,43 @@
 @media (max-width: 740px) {
   .fita-in {
     height: auto;
+    /* altura mínima para os ícones do Instagram e do WhatsApp caberem */
+    min-height: 50px;
     padding: 0.5rem 0;
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.4rem 1.2rem;
   }
 
-  .fita-redes {
+  /* no celular fica só o ícone, sem o @, no canto esquerdo da fita */
+  .rede-usuario {
     display: none;
+  }
+
+  .fita-in {
+    position: relative;
+  }
+
+  .fita-redes {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 24px;
+  }
+
+  .fita-contato {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 24px;
+  }
+
+  .contato-numero {
+    display: none;
+  }
+
+  .contato-icone {
+    display: grid;
   }
 
   .fita-aviso {

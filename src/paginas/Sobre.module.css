@@ -34,7 +34,8 @@
       rgba(10, 42, 78, 0.35) 62%, rgba(10, 42, 78, 0) 80%);
 }
 
-.historia-in {
+/* `.historia .historia-in`: precisa vencer o `padding: 0 24px` do .wrap global */
+.historia .historia-in {
   width: 100%;
   padding-top: clamp(3rem, 7vw, 5.5rem);
   padding-bottom: clamp(3rem, 7vw, 5.5rem);
@@ -42,6 +43,12 @@
 
 .historia-texto {
   max-width: 540px;
+}
+
+/* sem a foto da Keth não há nada à direita: o texto ocupa a largura toda */
+.sem-foto .historia-texto,
+.sem-foto .historia-texto p {
+  max-width: none;
 }
 
 .historia-linha {
@@ -98,10 +105,15 @@
     background: linear-gradient(180deg, rgba(10, 42, 78, 0) 55%, var(--azul-fundo) 100%);
   }
 
-  .historia-in {
+  .historia .historia-in {
     position: relative;
     z-index: 2;
     padding-top: 0.5rem;
+  }
+
+  /* sem a foto da Keth, o texto não tem foto acima: ganha respiro no topo */
+  .historia.sem-foto .historia-in {
+    padding-top: 2.5rem;
   }
 }
 

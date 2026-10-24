@@ -1,5 +1,5 @@
 import { Rev } from "../componentes/ui";
-import { presente, brindeClientes, brindeColaboradores, brindeEventos } from "../assets";
+import { presentesCapa, brindeClientes, brindeColaboradores, brindeEventos } from "../assets";
 import { MARCA, zap } from "../data/marca";
 import s from "./Kits.module.css";
 import l from "../estilos/layout.module.css";
@@ -34,9 +34,9 @@ const PUBLICOS = [
 export default function Kits() {
   return (
     <>
-      {/* capa com a caixa de presente ao fundo, no mesmo desenho da página da marca */}
+      {/* capa com os presentes ao fundo, no mesmo desenho da página da marca */}
       <section className={s.capa}>
-        <img className={s.capaFoto} src={presente} alt="" />
+        <img className={s.capaFoto} src={presentesCapa} alt="" />
         <div className={`wrap ${s.capaIn}`}>
           <div className={s.capaTexto}>
             <h1>Sua marca presente nos bons momentos</h1>

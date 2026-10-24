@@ -1,12 +1,11 @@
 import { Rev } from "../componentes/ui";
-import { vitrine } from "../assets";
 import { HISTORIA, VALORES } from "../data/conteudo";
 import { MARCA } from "../data/marca";
 import s from "./Sobre.module.css";
 import l from "../estilos/layout.module.css";
 
 /* Foto da Keth: basta salvar src/assets/keth.jpg (ou .jpeg, .png, .webp) que
-   ela entra sozinha. Enquanto o arquivo não existe, a capa usa a vitrine. */
+   ela entra sozinha. Enquanto o arquivo não existe, a capa fica só no azul. */
 const FOTOS_KETH = import.meta.glob("../assets/keth.{jpg,jpeg,png,webp}", {
   eager: true,
   import: "default",
@@ -17,12 +16,10 @@ export default function Sobre() {
   return (
     <>
       {/* capa com a foto da Keth ao fundo e a história por cima */}
-      <section className={s.historia}>
-        <img
-          className={s.historiaFoto}
-          src={fotoKeth || vitrine}
-          alt={fotoKeth ? "Keth, idealizadora da The Cookie" : "A vitrine da The Cookie"}
-        />
+      <section className={fotoKeth ? s.historia : `${s.historia} ${s.semFoto}`}>
+        {fotoKeth && (
+          <img className={s.historiaFoto} src={fotoKeth} alt="Keth, idealizadora da The Cookie" />
+        )}
         <div className={`wrap ${s.historiaIn}`}>
           <div className={s.historiaTexto}>
             <p className={`${s.historiaLinha} script`}>A marca</p>

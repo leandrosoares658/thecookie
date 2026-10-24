@@ -37,7 +37,7 @@ export const zap = (mensagem = "Oi! Vim pelo site.", numero = MARCA.whatsapp) =>
   `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
 export const REDES = [
-  { nome: "Instagram", url: `https://instagram.com/${MARCA.instagram}` },
+  { nome: "Instagram", url: `https://instagram.com/${MARCA.instagram}`, usuario: `@${MARCA.instagram}` },
 ];
 
 export const MENU = [

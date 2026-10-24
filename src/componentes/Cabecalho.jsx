@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { logo } from "../assets";
 import { MARCA, MENU, REDES, zap, real } from "../data/marca";
 import { useCarrinho } from "../carrinho/CarrinhoContext";
-import { LinkRede, subirAoTopo } from "./ui";
+import { IconeZap, LinkRede, subirAoTopo } from "./ui";
 import s from "./Cabecalho.module.css";
 
 export default function Cabecalho() {
@@ -18,15 +18,18 @@ export default function Cabecalho() {
           <ul className={s.fitaRedes}>
             {REDES.map((r) => (
               <li key={r.nome}>
-                <LinkRede rede={r} iconeClassName={s.redeIcone} />
+                <LinkRede rede={r} iconeClassName={s.redeIcone} usuarioClassName={s.redeUsuario} colorido />
               </li>
             ))}
           </ul>
           <p className={s.fitaAviso}>
             Pedidos a partir do 01/11
           </p>
-          <a className={s.fitaContato} href={zap("Oi! Vim pelo site.")} target="_blank" rel="noreferrer">
-            {MARCA.whatsappVisivel}
+          <a className={s.fitaContato} href={zap("Oi! Vim pelo site.")} target="_blank" rel="noreferrer"
+            aria-label={`WhatsApp ${MARCA.whatsappVisivel}`}>
+            {/* no computador aparece o número; no celular, o ícone verde */}
+            <span className={s.contatoNumero}>{MARCA.whatsappVisivel}</span>
+            <span className={s.contatoIcone} aria-hidden="true"><IconeZap /></span>
           </a>
         </div>
       </div>
