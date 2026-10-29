@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { logoClaro } from "../assets";
-import { MARCA, MENU, REDES, zap, real } from "../data/marca";
-import { ENTREGA } from "../data/conteudo";
+import { MARCA, MENU, REDES, zap } from "../data/marca";
 import { Estrela, IconeZap, LinkRede } from "./ui";
 import s from "./Rodape.module.css";
 
@@ -27,18 +26,6 @@ export default function Rodape() {
         <div className={`wrap ${s.grid}`}>
           <div>
             <img className={s.marca} src={logoClaro} alt="The Cookie — cookies artesanais" />
-            <p>
-              {MARCA.endereco}
-              <br />
-              {MARCA.cidade} · CEP {MARCA.cep}
-            </p>
-            <ul className={s.horarios}>
-              {MARCA.horarios.map((h) => (
-                <li key={h.dias}>
-                  <b>{h.dias}</b> {h.hora}
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div>
@@ -59,9 +46,18 @@ export default function Rodape() {
               <br />
               WhatsApp: {MARCA.whatsappVisivel}
             </p>
-            <p className={s.nota}>
-              Pedido mínimo de {real(ENTREGA.minimo)} para entrega. Acima de {real(ENTREGA.gratis)} a taxa sai de graça.
+            <p className={s.endereco}>
+              {MARCA.endereco}
+              <br />
+              {MARCA.cidade} · CEP {MARCA.cep}
             </p>
+            <ul className={s.horarios}>
+              {MARCA.horarios.map((h) => (
+                <li key={h.dias}>
+                  <b>{h.dias}</b> {h.hora}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div>

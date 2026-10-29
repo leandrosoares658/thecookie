@@ -130,6 +130,10 @@
   height: 20px;
 }
 
+.endereco {
+  margin-top: 0.9rem;
+}
+
 .horarios {
   list-style: none;
   display: grid;
@@ -141,12 +145,6 @@
 
 .horarios b {
   color: var(--bege);
-}
-
-.nota {
-  margin-top: 0.9rem;
-  font-size: 0.84rem;
-  opacity: 0.8;
 }
 
 .base {

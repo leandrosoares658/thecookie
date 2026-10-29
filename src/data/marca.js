@@ -25,9 +25,8 @@ export const MARCA = {
   cep: "39400-000",
 
   horarios: [
-    { dias: "Terça a sábado", hora: "10h às 18h" },
-    { dias: "Domingo", hora: "14h às 17h" },
-    { dias: "Segunda", hora: "fechado" },
+    { dias: "Entregas:", hora: "sexta e sábado" },
+    { dias: "Encomendas e revenda:", hora: "terça a sábado" },
   ],
 };
 
