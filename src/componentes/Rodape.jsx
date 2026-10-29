@@ -73,6 +73,11 @@ export default function Rodape() {
                   <LinkRede rede={r} iconeClassName={s.redeIcone} />
                 </li>
               ))}
+              <li>
+                <a href={zap()} target="_blank" rel="noreferrer" aria-label="WhatsApp" title="WhatsApp">
+                  <IconeZap className={s.redeIcone} />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
