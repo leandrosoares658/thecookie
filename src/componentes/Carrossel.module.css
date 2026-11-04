@@ -84,29 +84,41 @@
   bottom: clamp(1.4rem, 4.5vw, 3.6rem);
   transform: translateX(-50%);
   display: flex;
-  gap: 0.5rem;
   list-style: none;
-  padding: 0.35rem 0.6rem;
+  padding: 0 0.3rem;
   border-radius: 999px;
   background: rgba(43, 29, 22, 0.3);
 }
 
+/* o botão tem 24px para o dedo acertar; a bolinha visível é o ::before */
 .pontos button {
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
   border: 0;
   cursor: pointer;
   padding: 0;
+  background: none;
+  transition: width 0.3s;
+}
+
+.pontos button::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
   background: rgba(244, 236, 223, 0.55);
   transition: width 0.3s;
 }
 
 .pontos button.ativo {
+  width: 36px;
+}
+
+.pontos button.ativo::before {
   background: var(--creme);
   width: 28px;
-  border-radius: 999px;
 }
 
 @media (max-width: 600px) {

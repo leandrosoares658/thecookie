@@ -29,7 +29,7 @@ export default function Rodape() {
           </div>
 
           <div>
-            <h4>Cardápio</h4>
+            <h2>Cardápio</h2>
             <ul className={s.links}>
               {MENU.map((m) => (
                 <li key={m.para}>
@@ -40,7 +40,7 @@ export default function Rodape() {
           </div>
 
           <div>
-            <h4>Central de vendas</h4>
+            <h2>Central de vendas</h2>
             <p>
               Faça já a sua encomenda.
               <br />
@@ -61,7 +61,7 @@ export default function Rodape() {
           </div>
 
           <div>
-            <h4>Atendimento</h4>
+            <h2>Atendimento</h2>
             <p>
               <a href={`mailto:${MARCA.emailSac}`}>{MARCA.emailSac}</a>
               <br />

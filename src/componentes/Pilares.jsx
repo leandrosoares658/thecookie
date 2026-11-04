@@ -11,7 +11,7 @@ export default function Pilares() {
           <div className={s.pilar} key={p.titulo}>
             <Estrela className={s.icone} />
             <div>
-              <h3>{p.titulo}</h3>
+              <h2>{p.titulo}</h2>
               <p>{p.texto}</p>
             </div>
           </div>
