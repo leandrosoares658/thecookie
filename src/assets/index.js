@@ -29,7 +29,7 @@ export const BANNERS_IMG = { banner1, banner2, banner3, banner4 };
     Banner sem versão aqui não aparece no celular. */
 export const BANNERS_MOBILE_IMG = {
   banner1: bannerMobile1, // massa congelada
-  banner2: bannerMobile3, // lançamento 01/11
+  banner2: bannerMobile3, // já pode pedir
   banner3: bannerMobile2, // brindes e presentes
   banner4: bannerMobile4, // cookie bom rende história
 };

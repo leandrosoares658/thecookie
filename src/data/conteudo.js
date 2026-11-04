@@ -16,7 +16,7 @@ export const BANNERS = [
   {
     imagem: "banner2",
     para: MARCA.cardapio,
-    alt: "Tá quase na hora! Uma fornada de bons momentos. Lançamento 01/11. Prontinho para comer ou assar em casa. Montes Claros, MG.",
+    alt: "Já pode pedir! Uma fornada de bons momentos. Prontinho para comer ou assar em casa. Montes Claros, MG.",
   },
   {
     imagem: "banner3",
