@@ -9,13 +9,14 @@
 /servicos             /                                           301
 /lojas                /                                           301
 
-# páginas do site (o React monta a página no navegador)
+# páginas do site (o React monta a página no navegador). A Home usa o
+# index.html, que já avisa do banner; as outras, o app.html, gerado no build.
 /                     /index.html  200
-/sobre                /index.html  200
-/kits                 /index.html  200
-/faca-em-casa         /index.html  200
-/revenda              /index.html  200
+/sobre                /app.html    200
+/kits                 /app.html    200
+/faca-em-casa         /app.html    200
+/revenda              /app.html    200
 
 # qualquer outro endereço: mostra a página "não encontrada" com status 404,
 # para o Google não indexar endereço que não existe
-/*                    /index.html  404
+/*                    /app.html    404

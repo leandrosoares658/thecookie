@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Capa, Rev, Tick } from "../componentes/ui";
+import { Capa, Foto, Rev, Tick } from "../componentes/ui";
 import { vitrine } from "../assets";
 import { REVENDA } from "../data/conteudo";
 import { MARCA, zap } from "../data/marca";
@@ -84,11 +84,11 @@ export default function Revenda() {
       <section className={`${l.bloco} ${l.blocoBege}`}>
         <div className={`wrap ${l.duasColunas}`}>
           <Rev className={l.moldura}>
-            <img
+            <Foto
               className={s.displayFoto}
-              src={vitrine}
+              foto={vitrine}
+              sizes="(max-width: 900px) calc(100vw - 48px), 540px"
               alt="Display de balcão da The Cookie com cookies embalados um a um"
-              loading="lazy"
             />
           </Rev>
           <div>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { logoClaro } from "../assets";
 import { MARCA, MENU, REDES, zap } from "../data/marca";
-import { Estrela, IconeZap, LinkRede } from "./ui";
+import { Estrela, Foto, IconeZap, LinkRede } from "./ui";
 import s from "./Rodape.module.css";
 
 export default function Rodape() {
@@ -25,7 +25,7 @@ export default function Rodape() {
       <footer className={s.rodape}>
         <div className={`wrap ${s.grid}`}>
           <div>
-            <img className={s.marca} src={logoClaro} alt="The Cookie — cookies artesanais" />
+            <Foto className={s.marca} foto={logoClaro} sizes="190px" alt="The Cookie — cookies artesanais" />
           </div>
 
           <div>

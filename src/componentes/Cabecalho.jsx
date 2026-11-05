@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { logo } from "../assets";
 import { MARCA, MENU, REDES, zap } from "../data/marca";
-import { IconeZap, LinkRede, subirAoTopo } from "./ui";
+import { Foto, IconeZap, LinkRede, subirAoTopo } from "./ui";
 import s from "./Cabecalho.module.css";
 
 export default function Cabecalho() {
@@ -40,7 +40,7 @@ export default function Cabecalho() {
         <div className={`wrap ${s.topoIn}`}>
           {/* já na Home, a troca de rota não acontece: sobe na mão */}
           <Link to="/" className={s.topoMarca} onClick={() => { setMenuAberto(false); subirAoTopo(); }}>
-            <img src={logo} alt="The Cookie — cookies artesanais" />
+            <Foto foto={logo} sizes="(max-width: 740px) 87px, 126px" loading="eager" alt="The Cookie — cookies artesanais" />
           </Link>
 
           <button

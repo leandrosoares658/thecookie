@@ -1,4 +1,4 @@
-import { Rev } from "../componentes/ui";
+import { Foto, Rev } from "../componentes/ui";
 import { presentesCapa, brindeClientes, brindeColaboradores, brindeEventos } from "../assets";
 import { MARCA, zap } from "../data/marca";
 import s from "./Kits.module.css";
@@ -36,7 +36,7 @@ export default function Kits() {
     <>
       {/* capa com os presentes ao fundo, no mesmo desenho da página da marca */}
       <section className={s.capa}>
-        <img className={s.capaFoto} src={presentesCapa} alt="" />
+        <Foto className={s.capaFoto} foto={presentesCapa} sizes="(max-width: 900px) 900px, 100vw" loading="eager" fetchpriority="high" />
         <div className={`wrap ${s.capaIn}`}>
           <div className={s.capaTexto}>
             <h1>Sua marca presente nos bons momentos</h1>
@@ -63,7 +63,7 @@ export default function Kits() {
           <div className={s.publicos}>
             {PUBLICOS.map((p) => (
               <Rev tag="article" className={s.publico} key={p.titulo}>
-                <img src={p.foto} alt={p.alt} loading="lazy" />
+                <Foto foto={p.foto} sizes="(max-width: 900px) calc(100vw - 48px), 390px" alt={p.alt} />
                 <div>
                   <h2>{p.titulo}</h2>
                   <p>{p.texto}</p>

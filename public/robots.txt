@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thecookie.com.br/sitemap.xml
+Sitemap: https://thecookieoficial.com.br/sitemap.xml

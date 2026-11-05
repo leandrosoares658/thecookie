@@ -2,9 +2,12 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { BANNERS_IMG, BANNERS_MOBILE_IMG } from "../assets";
 import { BANNERS } from "../data/conteudo";
+import { Foto } from "./ui";
 import s from "./Carrossel.module.css";
 
 const INTERVALO = 7000;
+/* quanto tempo depois de um banner aparecer o próximo começa a baixar */
+const BAIXA_PROXIMO = 4000;
 /* arraste mínimo (px) para trocar de banner ao soltar o dedo */
 const LIMITE_ARRASTE = 50;
 /* mesmo corte do @media do Carrossel.module.css */
@@ -34,6 +37,15 @@ export default function Carrossel() {
 
   const [atual, setAtual] = useState(0);
   const [pausado, setPausado] = useState(false);
+  /* Só o primeiro banner baixa na abertura; os outros vêm um a um, antes de
+     aparecer. Mexeu no carrossel (mouse, dedo, teclado): baixa todos. */
+  const [ultimoBaixado, setUltimoBaixado] = useState(0);
+  const baixaTodos = () => setUltimoBaixado(total);
+
+  useEffect(() => {
+    const t = setTimeout(() => setUltimoBaixado((u) => Math.max(u, atual + 1)), BAIXA_PROXIMO);
+    return () => clearTimeout(t);
+  }, [atual]);
 
   const ir = useCallback((i) => setAtual((i + total) % total), [total]);
 
@@ -49,6 +61,7 @@ export default function Carrossel() {
     toque.current = { x: t.clientX, y: t.clientY, direcao: null };
     arrastou.current = false;
     setPausado(true);
+    baixaTodos();
   };
 
   const moveToque = (e) => {
@@ -100,7 +113,8 @@ export default function Carrossel() {
   return (
     <section
       className={s.carrossel}
-      onMouseEnter={() => setPausado(true)}
+      onMouseEnter={() => { setPausado(true); baixaTodos(); }}
+      onFocus={baixaTodos}
       onMouseLeave={() => setPausado(false)}
       onTouchStart={inicioToque}
       onTouchMove={moveToque}
@@ -129,14 +143,26 @@ export default function Carrossel() {
             aria-hidden={i !== atual}
             tabIndex={i === atual ? 0 : -1}
           >
-            <picture>
-              {mobile && <source media={MOBILE} srcSet={mobile} />}
-              <img
-                src={BANNERS_IMG[b.imagem]}
-                alt={b.alt}
-                loading={i === 0 ? "eager" : "lazy"}
-              />
-            </picture>
+            {(i <= ultimoBaixado || i === atual) && (
+              <picture>
+                {mobile && (
+                  <source
+                    media={MOBILE}
+                    srcSet={Object.values(mobile.sources)[0]}
+                    sizes="100vw"
+                    width={mobile.img.w}
+                    height={mobile.img.h}
+                  />
+                )}
+                <Foto
+                  foto={BANNERS_IMG[b.imagem]}
+                  sizes="100vw"
+                  alt={b.alt}
+                  loading="eager"
+                  fetchpriority={i === 0 ? "high" : undefined}
+                />
+              </picture>
+            )}
           </Destino>
           );
         })}

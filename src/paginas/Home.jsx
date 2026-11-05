@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import Carrossel from "../componentes/Carrossel";
 import Pilares from "../componentes/Pilares";
-import { Onda, Rev } from "../componentes/ui";
+import { Foto, Onda, Rev } from "../componentes/ui";
 import { brindesPresentes, massaCaixa, saboresRecheados, vitrine } from "../assets";
 import { ENTREGA, REVENDA } from "../data/conteudo";
 import { MARCA, real } from "../data/marca";
 import s from "./Home.module.css";
 import l from "../estilos/layout.module.css";
+
+/* largura das fotos nas seções de duas colunas */
+const TAMANHOS = "(max-width: 900px) calc(100vw - 48px), 540px";
 
 /**
  * Home: banner → faixa → delivery → brindes e presentes → massa congelada →
@@ -37,10 +40,10 @@ export default function Home() {
           </div>
 
           <Rev className={s.entregaFoto}>
-            <img
-              src={saboresRecheados}
+            <Foto
+              foto={saboresRecheados}
+              sizes={TAMANHOS}
               alt="Pilha de cookies recheados cortados ao meio: clássico com chocolate, doce de leite, dark chocolate, red velvet e pistacho"
-              loading="lazy"
             />
           </Rev>
         </div>
@@ -52,7 +55,7 @@ export default function Home() {
       <section className={s.sabores}>
         <div className={`wrap ${s.presentesGrid}`}>
           <Rev className={s.presentesFoto}>
-            <img src={brindesPresentes} alt="Embalagens de presente The Cookie: caixinha kraft, caixa azul, pote com laço e cookie embalado" loading="lazy" />
+            <Foto foto={brindesPresentes} sizes={TAMANHOS} alt="Embalagens de presente The Cookie: caixinha kraft, caixa azul, pote com laço e cookie embalado" />
           </Rev>
 
           <div className={s.presentesTexto}>
@@ -88,7 +91,7 @@ export default function Home() {
           </div>
 
           <Rev className={s.massaFoto}>
-            <img src={massaCaixa} alt="Caixa The Cookie aberta com o rolo de massa congelada e pacotinhos de confeitos e gotas de chocolate" loading="lazy" />
+            <Foto foto={massaCaixa} sizes={TAMANHOS} alt="Caixa The Cookie aberta com o rolo de massa congelada e pacotinhos de confeitos e gotas de chocolate" />
           </Rev>
         </div>
       </section>
@@ -97,10 +100,10 @@ export default function Home() {
       <section className={s.chamada}>
         <div className={`wrap ${s.chamadaGrid}`}>
           <Rev className={s.chamadaFoto}>
-            <img
-              src={vitrine}
+            <Foto
+              foto={vitrine}
+              sizes={TAMANHOS}
               alt="Display de balcão da The Cookie com cookies embalados um a um"
-              loading="lazy"
             />
           </Rev>
           <div>

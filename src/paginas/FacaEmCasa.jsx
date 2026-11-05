@@ -1,13 +1,13 @@
-import { Rev, Tick } from "../componentes/ui";
+import { Foto, Rev, Tick } from "../componentes/ui";
 import { embalagem, cookieClose, massaCaixa, massaEmbalada } from "../assets";
 import { USOS, TUTORIAL, VIDEO_YOUTUBE } from "../data/massa";
-import rolo from "../assets/tutorial/rolo.webp";
-import fatias from "../assets/tutorial/fatias.webp";
-import assadeira from "../assets/tutorial/assadeira.webp";
-import forno from "../assets/tutorial/forno.webp";
-import airfryer from "../assets/tutorial/airfryer.webp";
-import cookies from "../assets/tutorial/cookies.webp";
-import fornoTopo from "../assets/tutorial/forno-topo.webp";
+import rolo from "../assets/tutorial/rolo.webp?desenho";
+import fatias from "../assets/tutorial/fatias.webp?desenho";
+import assadeira from "../assets/tutorial/assadeira.webp?desenho";
+import forno from "../assets/tutorial/forno.webp?desenho";
+import airfryer from "../assets/tutorial/airfryer.webp?desenho";
+import cookies from "../assets/tutorial/cookies.webp?desenho";
+import fornoTopo from "../assets/tutorial/forno-topo.webp?desenho";
 import { MARCA, zap } from "../data/marca";
 import s from "./FacaEmCasa.module.css";
 import l from "../estilos/layout.module.css";
@@ -42,7 +42,7 @@ function Video() {
   }
   if (videoArquivo) {
     return (
-      <video controls playsInline preload="metadata" poster={cookieClose}>
+      <video controls playsInline preload="metadata" poster={cookieClose.img.src}>
         <source src={videoArquivo} />
       </video>
     );
@@ -55,7 +55,7 @@ export default function FacaEmCasa() {
     <>
       {/* capa: mesmo desenho das páginas da marca e de brindes */}
       <section className={s.capa}>
-        <img className={s.capaFoto} src={cookieClose} alt="" />
+        <Foto className={s.capaFoto} foto={cookieClose} sizes="(max-width: 900px) 900px, 100vw" loading="eager" fetchpriority="high" />
         <div className={`wrap ${s.capaIn}`}>
           <div className={s.capaTexto}>
             <h1>A nossa massa. O seu jeito de fazer.</h1>
@@ -85,7 +85,7 @@ export default function FacaEmCasa() {
         <div className={`wrap ${s.usos}`}>
           {USOS.map((u) => (
             <Rev tag="article" className={s.uso} key={u.titulo}>
-              <img src={FOTOS_USO[u.foto]} alt={u.alt} loading="lazy" style={u.foco ? { objectPosition: u.foco } : undefined} />
+              <Foto foto={FOTOS_USO[u.foto]} sizes="(max-width: 900px) calc(100vw - 48px), 390px" alt={u.alt} style={u.foco ? { objectPosition: u.foco } : undefined} />
               <div className={s.usoTexto}>
                 <h2>{u.titulo}</h2>
                 <p>{u.texto}</p>
@@ -107,7 +107,7 @@ export default function FacaEmCasa() {
       <section className={s.tutorial} id="tutorial">
         <div className="wrap">
           <div className={s.tutorialCabeca}>
-            <img className={s.tutorialEnfeite} src={fornoTopo} alt="" loading="lazy" />
+            <Foto className={s.tutorialEnfeite} foto={fornoTopo} />
             <div>
               <p className={`${s.tutorialLinha} script`}>Hoje sua casa vai ter cheiro de cookie.</p>
               <h2>Como assar sua massa</h2>
@@ -133,7 +133,7 @@ export default function FacaEmCasa() {
                     <div className={s.aparelhos}>
                       {passo.aparelhos.map((a) => (
                         <div className={s.aparelho} key={a.nome}>
-                          <img src={DESENHOS[a.desenho]} alt="" loading="lazy" />
+                          <Foto foto={DESENHOS[a.desenho]} />
                           <div>
                             <b className={s.aparelhoNome}>{a.nome}</b>
                             <span className={s.temperatura}>{a.temperatura}</span>
@@ -156,7 +156,7 @@ export default function FacaEmCasa() {
                 )}
 
                 {passo.desenho && (
-                  <img className={s.desenho} src={DESENHOS[passo.desenho]} alt="" loading="lazy" />
+                  <Foto className={s.desenho} foto={DESENHOS[passo.desenho]} />
                 )}
               </Rev>
             ))}

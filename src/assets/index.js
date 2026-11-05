@@ -1,26 +1,28 @@
-import logo from "./logo.webp";
-import logoClaro from "./logo.webp";
+/* O `?foto`, `?banner`, etc. define os tamanhos gerados no build (ver TIPOS em
+   vite.config.js). Imagem nova entra igual, e aparece na tela pelo componente Foto. */
+import logo from "./logo.webp?logo";
+import logoClaro from "./logo.webp?logo";
 
-import cookieClose from "./cookie-close.webp";
-import vitrine from "./vitrine.webp";
-import embalagem from "./embalagem.webp";
-import saboresRecheados from "./sabores-recheados.webp";
-import massaCaixa from "./massa-caixa.webp";
-import massaEmbalada from "./massa-embalada.webp";
-import brindeClientes from "./brinde-clientes.webp";
-import brindeColaboradores from "./brinde-colaboradores.webp";
-import brindeEventos from "./brinde-eventos.webp";
-import brindesPresentes from "./brindes-presentes.webp";
-import presentesCapa from "./presentes-capa.webp";
+import cookieClose from "./cookie-close.webp?capa";
+import vitrine from "./vitrine.webp?foto";
+import embalagem from "./embalagem.webp?foto";
+import saboresRecheados from "./sabores-recheados.webp?foto";
+import massaCaixa from "./massa-caixa.webp?foto";
+import massaEmbalada from "./massa-embalada.webp?foto";
+import brindeClientes from "./brinde-clientes.webp?foto";
+import brindeColaboradores from "./brinde-colaboradores.webp?foto";
+import brindeEventos from "./brinde-eventos.webp?foto";
+import brindesPresentes from "./brindes-presentes.webp?foto";
+import presentesCapa from "./presentes-capa.webp?capa";
 
-import banner1 from "./banner-1.webp";
-import banner2 from "./banner-2.webp";
-import banner3 from "./banner-3.webp";
-import banner4 from "./banner-4.webp";
-import bannerMobile1 from "./BannerMobile-1.webp";
-import bannerMobile2 from "./BannerMobile-2.webp";
-import bannerMobile3 from "./BannerMobile-3.webp";
-import bannerMobile4 from "./BannerMobile-4.webp";
+import banner1 from "./banner-1.webp?banner";
+import banner2 from "./banner-2.webp?banner";
+import banner3 from "./banner-3.webp?banner";
+import banner4 from "./banner-4.webp?banner";
+import bannerMobile1 from "./BannerMobile-1.webp?bannerMobile";
+import bannerMobile2 from "./BannerMobile-2.webp?bannerMobile";
+import bannerMobile3 from "./BannerMobile-3.webp?bannerMobile";
+import bannerMobile4 from "./BannerMobile-4.webp?bannerMobile";
 
 /** artes dos banners da home */
 export const BANNERS_IMG = { banner1, banner2, banner3, banner4 };

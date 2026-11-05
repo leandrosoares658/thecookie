@@ -4,7 +4,7 @@
    Página fora desta lista é tratada como "não encontrada" e não é indexada.
    ========================================================================== */
 
-export const SITE = "https://thecookie.com.br";
+export const SITE = "https://thecookieoficial.com.br";
 
 export const SEO = {
   "/": {

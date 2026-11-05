@@ -3,13 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-THX1217PH0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-THX1217PH0');
+
+      // o Analytics é pesado: baixa só depois que a página terminou de abrir,
+      // com o navegador livre. O que foi anotado acima segue na fila até lá.
+      window.addEventListener('load', function () {
+        function carrega() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-THX1217PH0';
+          document.head.appendChild(s);
+        }
+        if (window.requestIdleCallback) requestIdleCallback(carrega, { timeout: 2000 });
+        else setTimeout(carrega, 1000);
+      });
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- SEO: estes são os valores da Home. Nas outras páginas, título,
@@ -19,7 +31,7 @@
       name="description"
       content="Cookies artesanais americanos em Montes Claros: delivery na cidade, massa congelada para assar em casa, brindes corporativos e revenda para o seu negócio."
     />
-    <link rel="canonical" href="https://thecookie.com.br/" />
+    <link rel="canonical" href="https://thecookieoficial.com.br/" />
 
     <!-- prévia do link no WhatsApp, Instagram, Facebook e X (eles não rodam o
          JavaScript do site: leem só o que está aqui) -->
@@ -31,8 +43,8 @@
       property="og:description"
       content="Cookies artesanais americanos em Montes Claros: delivery, massa congelada para assar em casa, brindes corporativos e revenda."
     />
-    <meta property="og:url" content="https://thecookie.com.br/" />
-    <meta property="og:image" content="https://thecookie.com.br/og-imagem.jpg" />
+    <meta property="og:url" content="https://thecookieoficial.com.br/" />
+    <meta property="og:image" content="https://thecookieoficial.com.br/og-imagem.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Presentes da The Cookie: caixinha kraft, caixa azul, pote com laço e cookie embalado" />
@@ -46,9 +58,9 @@
         "@type": "Bakery",
         "name": "The Cookie",
         "description": "Cookies artesanais americanos: delivery, massa congelada para assar em casa, brindes corporativos e revenda.",
-        "url": "https://thecookie.com.br/",
-        "logo": "https://thecookie.com.br/icone-192.png",
-        "image": "https://thecookie.com.br/og-imagem.jpg",
+        "url": "https://thecookieoficial.com.br/",
+        "logo": "https://thecookieoficial.com.br/icone-192.png",
+        "image": "https://thecookieoficial.com.br/og-imagem.jpg",
         "telephone": "+55-38-99156-6092",
         "email": "sac@thecookie.com.br",
         "servesCuisine": "Cookies artesanais",
@@ -84,12 +96,6 @@
     <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="/icone-192.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Yellowtail&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <div id="root"></div>

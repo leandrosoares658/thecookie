@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Cabecalho from "./componentes/Cabecalho";
 import Rodape from "./componentes/Rodape";
@@ -7,11 +7,13 @@ import { SeoDaPagina, TopoAoNavegar, VoltarAoTopo } from "./componentes/ui";
 import { MARCA } from "./data/marca";
 
 import Home from "./paginas/Home";
-import Kits from "./paginas/Kits";
-import Revenda from "./paginas/Revenda";
-import Sobre from "./paginas/Sobre";
-import FacaEmCasa from "./paginas/FacaEmCasa";
-import NaoEncontrada from "./paginas/NaoEncontrada";
+
+/* A Home vai junto no arquivo principal; as outras páginas só baixam quando abertas. */
+const Kits = lazy(() => import("./paginas/Kits"));
+const Revenda = lazy(() => import("./paginas/Revenda"));
+const Sobre = lazy(() => import("./paginas/Sobre"));
+const FacaEmCasa = lazy(() => import("./paginas/FacaEmCasa"));
+const NaoEncontrada = lazy(() => import("./paginas/NaoEncontrada"));
 
 /** Manda quem abrir um endereço antigo de compra (cardápio, produto, carrinho,
  *  delivery — links antigos, Google) para o cardápio no Anota AI. */
@@ -29,6 +31,8 @@ export default function App() {
       <SeoDaPagina />
       <Cabecalho />
       <main>
+        {/* a altura segura o rodapé lá embaixo enquanto a página chega */}
+        <Suspense fallback={<div style={{ minHeight: "100vh" }} />}>
         <Routes>
           <Route path="/" element={<Home />} />
           {/* o cardápio agora é o do Anota AI: os endereços antigos de compra levam para lá */}
@@ -44,6 +48,7 @@ export default function App() {
           <Route path="/faca-em-casa" element={<FacaEmCasa />} />
           <Route path="*" element={<NaoEncontrada />} />
         </Routes>
+        </Suspense>
       </main>
       <Rodape />
       {/* sem a seta na Marca */}

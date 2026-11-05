@@ -2,6 +2,8 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
+import "@fontsource-variable/archivo/wght.css";
+import "@fontsource/yellowtail/400.css";
 import "./estilos/global.css";
 
 createRoot(document.getElementById("root")).render(

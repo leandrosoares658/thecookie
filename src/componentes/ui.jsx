@@ -93,6 +93,27 @@ export function LinkRede({ rede, className, iconeClassName, usuarioClassName, co
   );
 }
 
+/**
+ * Imagem de src/assets: cada tela baixa só o tamanho de que precisa. `sizes`
+ * diz a largura em que a imagem aparece; quem aparece logo na abertura da
+ * página passa loading="eager". Largura e altura reservam o espaço antes de
+ * a imagem chegar, para a página não pular.
+ */
+export function Foto({ foto, sizes, alt = "", ...resto }) {
+  return (
+    <img
+      src={foto.img.src}
+      srcSet={Object.values(foto.sources)[0]}
+      sizes={sizes}
+      width={foto.img.w}
+      height={foto.img.h}
+      alt={alt}
+      loading="lazy"
+      {...resto}
+    />
+  );
+}
+
 /** Onda que separa dois campos de cor. */
 export function Onda({ cor, virada = false }) {
   return (

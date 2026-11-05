@@ -7,6 +7,7 @@ import { MARCA } from "./marca";
 
 /* Banners da home: a arte já traz o texto, então `alt` repete o que está escrito.
    `para` pode ser uma rota do site ("/kits") ou um endereço externo (https://…). */
+/* trocou o primeiro banner? atualize também os nomes em avisosNoHtml (vite.config.js) */
 export const BANNERS = [
   {
     imagem: "banner1",
